@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tính Tổng</title>
+    <style>
+        .container {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .result {
+            font-size: 20px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="container">
+            <div class="buttons">
+                <div>
+                    <h3>Giá trị 1: {{ value1 }}</h3>
+                    <input type="text" v-model="value1">
+                    <button @click="increaseValue1">+</button>
+                    <button @click="decreaseValue1">-</button>
+                </div>
+                <div>
+                    <h3>Giá trị 2: {{ value2 }}</h3>
+                    <input type="text" v-model="value2">
+                    <button @click="increaseValue2">+</button>
+                    <button @click="decreaseValue2">-</button>
+                </div>
+            </div>
+            <div class="result">
+                <h3>Tổng: {{ total }}</h3>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        Vue.createApp({
+            data() {
+                return {
+                    value1: 0, // Giá trị đầu tiên
+                    value2: 0  // Giá trị thứ hai
+                };
+            },
+            computed: {
+                total() {
+                    return this.value1 + this.value2; // Tính tổng giá trị
+                }
+            },
+            methods: {
+                increaseValue1() {
+                    this.value1++;
+                },
+                decreaseValue1() {
+                    if (this.value1 > 0) this.value1--;
+                },
+                increaseValue2() {
+                    this.value2++;
+                },
+                decreaseValue2() {
+                    if (this.value2 > 0) this.value2--;
+                }
+            }
+        }).mount('#app');
+    </script>
+</body>
+</html>
