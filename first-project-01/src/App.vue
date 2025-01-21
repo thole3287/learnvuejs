@@ -1,83 +1,32 @@
 <script setup>
 
-//Modifiers với v-model trong vuejs
-import { reactive, ref, watch } from 'vue';
+//refs trong vuejs
+import { onMounted, reactive, ref, watch, watchEffect } from 'vue';
+const inputRef = ref(null)
 
-// const count = ref(0)
+const list = ref(["item 1", "item 2", "item 3"])
+const itemRefs = ref([])
 
-// watch(count, (newValue, oldValue) => {
-//   console.log(`Count changed from ${oldValue} to ${newValue}`);
-// })
+onMounted(() => {
+  inputRef.value.focus()
 
-// const incerement = () => {
-//   count.value++
-// }
-
-// const question = ref('')
-// const answer = ref('')
-// const isLoading = ref(false)
-// const img = ref('')
-
-// watch(question, async (newQuestion, oldQuestion) =>{
-//   if(newQuestion.includes('?')){
-//     isLoading.value = true
-//     answer.value = 'Đang suy nghĩ'
-//   } 
-//   try {
-//     const resopnse = await fetch(`https://yesno.wtf/api?question=${newQuestion}`)
-//     const temp = (await resopnse.json())
-//     answer.value = temp.answer
-//     img.value = temp.image
-//   } catch (error) {
-//     answer.value = 'Lỗi'
-//   }finally {
-//     isLoading.value = false
-//   }
-// })
-
-
-const x = ref(0)
-const y = ref(0)
-const user = reactive({
-  name: 'John',
-  age: 0
-})
-watch(() => x.value + y.value, (sum) => {
-  // console.log(`Sum x + y là:  ${sum}`);
-
+  itemRefs.value.forEach((item) =>{
+    item.style.transition = 'opacity 10s'
+    item.style.opacity = 1
+  })
 })
 
-watch([x, () => y.value+1], ([newX, newY]) => {
-  console.log(`Giá trị cập nhật x: ${newX}, y: ${newY}`);
-})
-
-
-watch(() => user.age, (newUser) => {
-  console.log(`Tuổi ${newUser}`);
-})
-
-const increment = () => {
-  x.value++
-  y.value++
-}
-const changeAge = () => {
-  user.age = 20;
-}
 </script>
 
 <template>
   <div>
-  <h1>Watcher</h1>
-  <p>Hỏi một câu hỏi yes no</p>
-  <!-- <input type="text" v-model="question" :disabled="isLoading" />
-  <p>{{ answer }}</p>
-  <img :src="img" alt=""> -->
-  <button @click="increment">increment</button>
-  <button @click="changeAge">changeAge</button>
-  <p>{{ user.age }}</p>
+    <h1>Template refs</h1>
+    <input type="text" ref="inputRef" />
+    <input type="text" :ref="(el) => { console.log(el)}" />
 
-
-
+    <ul>
+      <li v-for="(item, index) in list" :key="index" ref="itemRefs" style="opacity:  0;">{{ item }}</li>
+    </ul>
   </div>
 </template>
- <style></style>
+<style></style>
