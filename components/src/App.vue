@@ -1,6 +1,16 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
+import { ref } from 'vue';
 import HelloWorld from './components/HelloWorld.vue'
+import ButtonCount from './components/ButtonCount.vue';
+import ChildrentComponent from './components/ChildrentComponent.vue';
+
+const alertFn = () => {
+  console.log("Helloooo");
+  
+}
+
+const messagea = ref("hello");
 </script>
 
 <template>
@@ -8,7 +18,19 @@ import HelloWorld from './components/HelloWorld.vue'
     <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
 
     <div class="wrapper">
-      <HelloWorld message="You did it!11111" />
+      <HelloWorld :greeting-message="messagea" />
+      <ButtonCount :init="5" />
+
+      <ChildrentComponent 
+      :prop-a="1" 
+      :prop-b="2" 
+      prop-c="hello"
+      :prop-d="20"
+      :prop-e="{ message: 'Hello'}"
+      prop-f="success"
+      :prop-g="alertFn"
+      disable="true"
+      />
 
       <nav>
         <RouterLink to="/">Home</RouterLink>
