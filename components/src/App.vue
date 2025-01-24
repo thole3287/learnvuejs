@@ -1,16 +1,55 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-import { ref } from 'vue';
+import { capitalize, defineAsyncComponent, provide, ref, watch, watchEffect } from 'vue';
 import HelloWorld from './components/HelloWorld.vue'
 import ButtonCount from './components/ButtonCount.vue';
 import ChildrentComponent from './components/ChildrentComponent.vue';
+// import ComponentVModel from './components/ComponentVModel.vue';
+import LoadingComponent from './components/LoadingComponent.vue';
+import ErrorComponent from './components/ErrorComponent.vue';
+const ComponentVModel = defineAsyncComponent({
+  loader: () => import('./components/ComponentVModel.vue'),
+  loadingComponent: LoadingComponent,
+  errorComponent: ErrorComponent
+})
 
+const count = ref(0)
 const alertFn = () => {
   console.log("Helloooo");
-  
+
 }
 
-const messagea = ref("hello");
+const email = ref('')
+const username = ref('')
+
+watchEffect(() => {
+  console.log('count', email.value, email);
+})
+
+// truyền đối số
+const changeEmailDefaultFromParent = () => {
+  email.value = 'hello123@gmail.com'
+}
+
+const changeUserNameDefaultFromParent = () => {
+  username.value = 'Change username default from parent'
+}
+
+
+const increaseBy= (number1, number2) => {
+  count.value = count.value + number1 + number2;
+}
+const messagea = ref("hello111");
+// const locale = ref("vietnam");
+const locationCurrent = ref("vietnam");
+const changeLocation = () => {
+  locationCurrent.value = "english";
+}
+provide('locale', {
+  locale: locationCurrent,
+  updateLocale: changeLocation
+});
+
 </script>
 
 <template>
@@ -18,19 +57,24 @@ const messagea = ref("hello");
     <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
 
     <div class="wrapper">
-      <HelloWorld :greeting-message="messagea" />
-      <ButtonCount :init="5" />
+      <ComponentVModel v-model:email="email" v-model:username.capitalize="username"/>
+      <button @click="locationCurrent = 'englissh'">Change locate</button>
+      <button @click="changeEmailDefaultFromParent">Change email default from parent</button>
+      <button @click="changeUserNameDefaultFromParent">Change username default from parent</button>
+      <!-- <HelloWorld :greeting-message="messagea" /> -->
+      <HelloWorld :greeting-message="count" />
 
-      <ChildrentComponent 
-      :prop-a="1" 
-      :prop-b="2" 
-      prop-c="hello"
-      :prop-d="20"
-      :prop-e="{ message: 'Hello'}"
-      prop-f="success"
-      :prop-g="alertFn"
-      disable="true"
-      />
+      <!-- <button-count :init="5" /> -->
+       <!-- event component -->
+      <button-count @increase="count++" @increase-by-two-times="count = count + 2" @increase-by="increaseBy">
+        <template #increase>Increase</template>
+        <template #increaseBy>increaseBy</template>
+        <template #increaseByTwoTimes>increaseByTwoTimes</template>
+      </button-count>
+     <global-component /> 
+
+      <!-- <ChildrentComponent :prop-a="1" :prop-b="2" prop-c="hello" :prop-d="20" :prop-e="{ message: 'Hello' }"
+        prop-f="success" :prop-g="alertFn" disable="true" /> -->
 
       <nav>
         <RouterLink to="/">Home</RouterLink>

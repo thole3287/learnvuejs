@@ -1,16 +1,36 @@
 <template>
-    <button @click="count++">{{ count }}</button>
-    <p>{{ countPlus }}</p>
+    <!-- <button @click="count++">{{ count }}</button> -->
+    <!-- <p>{{ countPlus }}</p> -->
+     <!-- <button @click="$emit('increase')">Increase</button> -->
+     <button @click="callFunctionIncrease"><slot name="increase">Button Content</slot></button>
+     <button @click="callFunctionIncreaseByTwoTimes"><slot name="increaseByTwoTimes"></slot></button>
+     <button @click="callFunctionIncreaseBy"><slot name="increaseBy"></slot></button>
+
+
 </template>
 <script setup>
-import {computed, ref} from 'vue';
 
-const props = defineProps({
-    init: Number
-})
+const emit = defineEmits(['increase', 'increaseByTwoTimes', 'increaseBy'])
 
-const count = ref(props.init);
+const callFunctionIncrease = () => {
+    emit('increase')
+}
 
-const countPlus = computed(() => props.init + 2)
+const callFunctionIncreaseByTwoTimes = () => {
+    emit('increaseByTwoTimes')
+}
 
-</script>
+const callFunctionIncreaseBy = () => {
+    emit('increaseBy', 10, 10)
+}
+// import {computed, ref} from 'vue';
+
+// const props = defineProps({
+//     init: Number
+// })
+
+// const count = ref(props.init);
+
+// const countPlus = computed(() => props.init + 2)
+
+</script> 

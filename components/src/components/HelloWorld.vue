@@ -1,21 +1,24 @@
 <script setup>
+import LocateComponent from './LocateComponent.vue';
+
+defineProps({
+  // locale: String,
+  greetingMessage: String,
+})
 // defineProps({
 //   msg: {
 //     type: String,
 //     required: true,
 //   },
 // })
-const props = defineProps(["greetingMessage"]);
+// const props = defineProps(["greetingMessage"]);
 </script>
 
 <template>
   <div class="greetings">
+    
     <h1 class="green">{{ greetingMessage }}</h1>
-    <h3>
-      You’ve successfully created a project with
-      <a href="https://vite.dev/" target="_blank" rel="noopener">Vite</a> +
-      <a href="https://vuejs.org/" target="_blank" rel="noopener">Vue 3</a>.
-    </h3>
+    <LocateComponent  />
   </div>
 </template>
 
