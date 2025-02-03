@@ -85,7 +85,9 @@
         <div class="nav-inner">
             <!-- logo -->
             <div class="logo">
-                <img alt="Vue logo" src="@/assets/images/logo.png" />
+                <a href="/">                
+                    <img alt="Vue logo" src="@/assets/images/logo.png" />
+                </a>
             </div>
             <!-- link -->
             <div class="links">
