@@ -88,9 +88,8 @@
       <div class="footer-bottom">
         <p>Copyright © 2032 all rights reserved</p>
         <div class="payment-icons">
-                    <img src="@/assets/images/Group 52.png" alt="Stripe" />
-          
-                </div>
+          <img src="@/assets/images/Group 52.png" alt="Stripe" />
+        </div>
         <p>Designed by Oleh Chabanov</p>
       </div>
     </footer>
@@ -108,7 +107,7 @@
   font-family: Arial, sans-serif;
 }
 
-.footer p{
+.footer p {
   margin-bottom: 0;
 }
 
@@ -145,7 +144,7 @@
 }
 
 .social-icons {
-  margin-top: 10px;
+  /* margin-top: 10px; */
   display: flex;
 }
 
