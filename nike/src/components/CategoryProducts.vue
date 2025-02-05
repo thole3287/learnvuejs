@@ -16,9 +16,10 @@
                 <div v-for="(product, index) in displayedProductsWomens" :key="index" class="single-product">
                     <div class="img-container">
                         <span v-if="product.sale > 0" class="sale-label">SALE {{ product.sale }}%</span>
-                        <a href="#">
+                        <router-link :to="`/product-detail/${product.id}`" :product-data="product">
                             <img class="img-fluid" :src="`./src/assets/images/${product.image}`" :alt="product.name" />
-                        </a>
+                        </router-link>
+
                     </div>
                     <div class="product-content">
                         <h6 class="name">
@@ -62,9 +63,10 @@
                 <div v-for="(product, index) in displayedProductsMens" :key="index" class="single-product">
                     <div class="img-container">
                         <span v-if="product.sale > 0" class="sale-label">SALE {{ product.sale }}%</span>
-                        <a href="#">
+                        <router-link :to="`/product-detail/${product.id}`">
                             <img class="img-fluid" :src="`./src/assets/images/${product.image}`" :alt="product.name" />
-                        </a>
+                        </router-link>
+
                     </div>
                     <div class="product-content">
                         <h6 class="name">
@@ -114,58 +116,58 @@ const activeTabMens = ref(0);
 const products = ref({
     'WOMEN\'S': {
         'NEW ARRIVALS': [
-            { name: 'Cluse La Boheme Rose Gold', image: 'p1.png', price: '$99.00', rating: 3, sale: 20 },
-            { name: 'Product 2', image: 'p2.png', price: '$120.00', rating: 4, sale: 10 },
-            { name: 'Product 3', image: 'p3.png', price: '$80.00', rating: 2, sale: 0 },
-            { name: 'Product 4', image: 'p4.png', price: '$110.00', rating: 5, sale: 15 },
-            { name: 'Product 5', image: 'p5.png', price: '$95.00', rating: 3, sale: 5 },
-            { name: 'Product 6', image: 'p6.png', price: '$70.00', rating: 4, sale: 0 },
-            { name: 'Product 7', image: 'p7.png', price: '$60.00', rating: 3, sale: 10 },
-            { name: 'Product 8', image: 'p8.png', price: '$130.00', rating: 4, sale: 20 },
-            { name: 'Product 9', image: 'p1.png', price: '$150.00', rating: 5, sale: 25 },
+            { id: 1, name: 'Cluse La Boheme Rose Gold', image: 'p1.png', description: 'Descriptionss', price: '$99.00', rating: 3, sale: 20 },
+            { id: 2, name: 'Product 2', image: 'p2.png', description: 'Descriptionss', price: '$120.00', rating: 4, sale: 10 },
+            { id: 3, name: 'Product 3', image: 'p3.png', description: 'Descriptionss', price: '$80.00', rating: 2, sale: 0 },
+            { id: 4, name: 'Product 4', image: 'p4.png', description: 'Descriptionss', price: '$110.00', rating: 5, sale: 15 },
+            { id: 5, name: 'Product 5', image: 'p5.png', description: 'Descriptionss', price: '$95.00', rating: 3, sale: 5 },
+            { id: 6, name: 'Product 6', image: 'p6.png', description: 'Descriptionss', price: '$70.00', rating: 4, sale: 0 },
+            { id: 7, name: 'Product 7', image: 'p7.png', description: 'Descriptionss', price: '$60.00', rating: 3, sale: 10 },
+            { id: 8, name: 'Product 8', image: 'p8.png', description: 'Descriptionss', description: 'Descriptionss', price: '$130.00', rating: 4, sale: 20 },
+            { id: 9, name: 'Product 9', image: 'p1.png', description: 'Descriptionss', price: '$150.00', rating: 5, sale: 25 },
         ],
         'SPECIALS': [
-            { name: 'Special Men\'s Shirt', image: 'p1.png', price: '$100.00', rating: 4, sale: 5 },
+            { id: 10, name: 'Special Men\'s Shirt', image: 'p1.png', description: 'Descriptionss', price: '$100.00', rating: 4, sale: 5 },
         ],
         'BEST SELLERS': [
-            { name: 'Best Seller 1', image: 'p2.png', price: '$80.00', rating: 3, sale: 5 },
-            { name: 'Best Seller 2', image: 'p3.png', price: '$110.00', rating: 4, sale: 15 },
+            { id: 11, name: 'Best Seller 1', image: 'p2.png', description: 'Descriptionss', price: '$80.00', rating: 3, sale: 5 },
+            { id: 12, name: 'Best Seller 2', image: 'p3.png', description: 'Descriptionss', price: '$110.00', rating: 4, sale: 15 },
         ],
         'MOST VIEWED': [
-            { name: 'Most Viewed 1', image: 'p4.png', price: '$95.00', rating: 3, sale: 0 },
-            { name: 'Most Viewed 2', image: 'p5.png', price: '$70.00', rating: 4, sale: 10 },
+            { id: 13, name: 'Most Viewed 1', image: 'p4.png', description: 'Descriptionss', price: '$95.00', rating: 3, sale: 0 },
+            { id: 14, name: 'Most Viewed 2', image: 'p5.png', description: 'Descriptionss', price: '$70.00', rating: 4, sale: 10 },
         ],
         'FEATURED PRODUCTS': [
-            { name: 'Featured Product 1', image: 'p6.png', price: '$150.00', rating: 5, sale: 30 },
-            { name: 'Featured Product 2', image: 'p7.png', price: '$90.00', rating: 4, sale: 10 },
+            { id: 15, name: 'Featured Product 1', image: 'p6.png', description: 'Descriptionss', price: '$150.00', rating: 5, sale: 30 },
+            { id: 16, name: 'Featured Product 2', image: 'p7.png', description: 'Descriptionss', price: '$90.00', rating: 4, sale: 10 },
         ]
     },
     'MEN\'S': {
         'NEW ARRIVALS': [
-            { name: 'Men\'s Watch', image: 'p1.png', price: '$99.00', rating: 4, sale: 10 },
-            { name: 'Men\'s Shoes', image: 'p2.png', price: '$120.00', rating: 5, sale: 15 },
-            { name: 'Men\'s Shirt', image: 'p3.png', price: '$80.00', rating: 3, sale: 5 },
-            { name: 'Men\'s Jacket', image: 'p4.png', price: '$110.00', rating: 4, sale: 10 },
-            { name: 'Men\'s Pants', image: 'p5.png', price: '$95.00', rating: 3, sale: 20 },
-            { name: 'Men\'s Jeans', image: 'p6.png', price: '$70.00', rating: 4, sale: 0 },
-            { name: 'Men\'s Sneakers', image: 'p7.png', price: '$150.00', rating: 5, sale: 30 },
-            { name: 'Men\'s Hoodie', image: 'p8.png', price: '$90.00', rating: 4, sale: 10 },
-            { name: 'Men\'s Sweater', image: 'p9.png', price: '$130.00', rating: 3, sale: 0 },
+            { id: 17, name: 'Men\'s Watch', image: 'p1.png', description: 'Descriptionss', price: '$99.00', rating: 4, sale: 10 },
+            { id: 18, name: 'Men\'s Shoes', image: 'p2.png', description: 'Descriptionss', price: '$120.00', rating: 5, sale: 15 },
+            { id: 19, name: 'Men\'s Shirt', image: 'p3.png', description: 'Descriptionss', price: '$80.00', rating: 3, sale: 5 },
+            { id: 20, name: 'Men\'s Jacket', image: 'p4.png', description: 'Descriptionss', price: '$110.00', rating: 4, sale: 10 },
+            { id: 21, name: 'Men\'s Pants', image: 'p5.png', description: 'Descriptionss', price: '$95.00', rating: 3, sale: 20 },
+            { id: 22, name: 'Men\'s Jeans', image: 'p6.png', description: 'Descriptionss', price: '$70.00', rating: 4, sale: 0 },
+            { id: 23, name: 'Men\'s Sneakers', image: 'p7.png', description: 'Descriptionss', price: '$150.00', rating: 5, sale: 30 },
+            { id: 24, name: 'Men\'s Hoodie', image: 'p8.png', description: 'Descriptionss', price: '$90.00', rating: 4, sale: 10 },
+            { id: 25, name: 'Men\'s Sweater', image: 'p9.png', description: 'Descriptionss', price: '$130.00', rating: 3, sale: 0 },
         ],
         'SPECIALS': [
-            { name: 'Special Men\'s Shirt', image: 'p1.png', price: '$100.00', rating: 4, sale: 5 },
+            { id: 26, name: 'Special Men\'s Shirt', image: 'p1.png', description: 'Descriptionss', price: '$100.00', rating: 4, sale: 5 },
         ],
         'BEST SELLERS': [
-            { name: 'Best Seller 1', image: 'p2.png', price: '$80.00', rating: 3, sale: 5 },
-            { name: 'Best Seller 2', image: 'p3.png', price: '$110.00', rating: 4, sale: 15 },
+            { id: 27, name: 'Best Seller 1', image: 'p2.png', description: 'Descriptionss', price: '$80.00', rating: 3, sale: 5 },
+            { id: 28, name: 'Best Seller 2', image: 'p3.png', description: 'Descriptionss', price: '$110.00', rating: 4, sale: 15 },
         ],
         'MOST VIEWED': [
-            { name: 'Most Viewed 1', image: 'p4.png', price: '$95.00', rating: 3, sale: 0 },
-            { name: 'Most Viewed 2', image: 'p5.png', price: '$70.00', rating: 4, sale: 10 },
+            { id: 29, name: 'Most Viewed 1', image: 'p4.png', description: 'Descriptionss', price: '$95.00', rating: 3, sale: 0 },
+            { id: 30, name: 'Most Viewed 2', image: 'p5.png', description: 'Descriptionss', price: '$70.00', rating: 4, sale: 10 },
         ],
         'FEATURED PRODUCTS': [
-            { name: 'Featured Product 1', image: 'p6.png', price: '$150.00', rating: 5, sale: 30 },
-            { name: 'Featured Product 2', image: 'p7.png', price: '$90.00', rating: 4, sale: 10 },
+            { id: 31, name: 'Featured Product 1', image: 'p6.png', description: 'Descriptionss', price: '$150.00', rating: 5, sale: 30 },
+            { id: 32, name: 'Featured Product 2', image: 'p7.png', description: 'Descriptionss', price: '$90.00', rating: 4, sale: 10 },
         ]
     }
 });

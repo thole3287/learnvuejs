@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        .product-container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-images {
+            display: flex;
+            gap: 10px;
+        }
+
+        .product-images img {
+            width: 80px;
+            height: 100px;
+            object-fit: cover;
+            border: 2px solid transparent;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .product-images img.selected {
+            border-color: black;
+        }
+
+        .product-details {
+            margin-top: 20px;
+        }
+
+        .product-title {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .product-price {
+            font-size: 28px;
+            color: #333;
+            margin: 20px 0;
+        }
+
+        .size-selector {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .size-button {
+            padding: 10px 15px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            background: #fff;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .size-button.selected {
+            border-color: black;
+            background: #f0f0f0;
+        }
+
+        .add-to-cart {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .add-to-cart button {
+            flex: 1;
+            padding: 15px;
+            background-color: black;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+
+        .add-to-cart button:hover {
+            background-color: #333;
+        }
+
+        .icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .icons svg {
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+        }
+
+        .info-section {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .info-section div {
+            cursor: pointer;
+            color: #0073e6;
+        }
+
+        .checkout-icons {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            gap: 15px;
+        }
+
+        .checkout-icons img {
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="product-container">
+        <div class="product-images">
+            <img src="blue-pants.jpg" alt="Blue Pants" class="selected" onclick="selectImage(this)">
+            <img src="white-pants.jpg" alt="White Pants" onclick="selectImage(this)">
+            <img src="black-pants.jpg" alt="Black Pants" onclick="selectImage(this)">
+            <img src="beige-pants.jpg" alt="Beige Pants" onclick="selectImage(this)">
+        </div>
+
+        <div class="product-details">
+            <div class="product-title">Color: Blue</div>
+            <div class="size-selector">
+                <button class="size-button" onclick="selectSize(this)">XS</button>
+                <button class="size-button selected" onclick="selectSize(this)">S</button>
+                <button class="size-button" onclick="selectSize(this)">M</button>
+                <button class="size-button" onclick="selectSize(this)">L</button>
+            </div>
+            <div class="product-price">$379.99</div>
+            <div class="add-to-cart">
+                <button>Add to Cart</button>
+                <div class="icons">
+                    <svg><use href="#wishlist"></use></svg>
+                    <svg><use href="#compare"></use></svg>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <div>Shipping & Delivery</div>
+            <div>Returns & Exchanges</div>
+            <div>Ask a Question</div>
+        </div>
+
+        <div class="checkout-icons">
+            <img src="stripe-logo.png" alt="Stripe">
+            <img src="paypal-logo.png" alt="PayPal">
+            <img src="visa-logo.png" alt="Visa">
+            <img src="mastercard-logo.png" alt="MasterCard">
+            <img src="discover-logo.png" alt="Discover">
+            <img src="amex-logo.png" alt="American Express">
+        </div>
+    </div>
+
+    <script>
+        function selectImage(img) {
+            document.querySelectorAll('.product-images img').forEach(image => image.classList.remove('selected'));
+            img.classList.add('selected');
+        }
+
+        function selectSize(button) {
+            document.querySelectorAll('.size-button').forEach(btn => btn.classList.remove('selected'));
+            button.classList.add('selected');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery with Main Image and Thumbnail Controls</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f9f9f9;
+        }
+        .gallery-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+        .main-image-wrapper {
+            position: relative;
+        }
+        .main-image {
+            width: 400px;
+            height: 400px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            object-fit: cover;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .control-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            font-size: 18px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s;
+        }
+        .control-button:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        .control-button.left {
+            left: -50px;
+        }
+        .control-button.right {
+            right: -50px;
+        }
+        .thumbnail-wrapper {
+            display: flex;
+            align-items: center;
+            position: relative;
+            width: 500px;
+        }
+        .thumbnail-container {
+            display: flex;
+            gap: 10px;
+            overflow: hidden;
+            width: 500px;
+            justify-content: center;
+        }
+        .thumbnail img {
+            width: 80px;
+            height: 80px;
+            border: 2px solid transparent;
+            border-radius: 8px;
+            cursor: pointer;
+            object-fit: cover;
+            transition: border-color 0.3s;
+        }
+        .thumbnail img.active {
+            border-color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <div class="gallery-container">
+        <!-- Main Image with Navigation Controls -->
+        <div class="main-image-wrapper">
+            <button class="control-button left" id="mainPrev">&lt;</button>
+            <img src="https://s3-alpha-sig.figma.com/img/928b/c5be/0c6375ab1c11315af8ae4f1122ce3335?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=d4ys74rB6M-0i0CCIn6gV2jBpETAMRSJs--Qp3BM5eOj-ofuR7IDtn-YWnBpMH2C27YCN58sR-t4ZI10JApGIQdYTkM-oCNpr4pZ~sdNDbQnGpkIhSs2ZjH-GdjqC3dYNuaCXRrRqxa2-10oDNZGgxe-AfR3Z4V~IWbfBOTzINUhX3NpSU3SHIJ2cIyYEMZX2U6cr5Q5CFZ9BT2~xfqloYrtZfkrJSZg5g8TrfdTceDVRyKlI3QK5ycy1-mycD6XLYWIVyfqhF~lwZ7UzsA-hNex1ZoKMqnvwPxNKthYYccuA5LzxjTxE7KRR~TXgflGwHcpd1R-RS8-XNE~mtyluA__" alt="Main Product Image" class="main-image" id="mainImage">
+            <button class="control-button right" id="mainNext">&gt;</button>
+        </div>
+
+        <!-- Thumbnail Container with Navigation Controls -->
+        <div class="thumbnail-wrapper">
+            <button class="control-button left" id="thumbnailPrev">&lt;</button>
+            <button class="control-button right" id="thumbnailNext">&gt;</button>
+
+            <div class="thumbnail-container" id="thumbnailContainer">
+                <div class="thumbnail">
+                    <img src="https://s3-alpha-sig.figma.com/img/928b/c5be/0c6375ab1c11315af8ae4f1122ce3335?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=d4ys74rB6M-0i0CCIn6gV2jBpETAMRSJs--Qp3BM5eOj-ofuR7IDtn-YWnBpMH2C27YCN58sR-t4ZI10JApGIQdYTkM-oCNpr4pZ~sdNDbQnGpkIhSs2ZjH-GdjqC3dYNuaCXRrRqxa2-10oDNZGgxe-AfR3Z4V~IWbfBOTzINUhX3NpSU3SHIJ2cIyYEMZX2U6cr5Q5CFZ9BT2~xfqloYrtZfkrJSZg5g8TrfdTceDVRyKlI3QK5ycy1-mycD6XLYWIVyfqhF~lwZ7UzsA-hNex1ZoKMqnvwPxNKthYYccuA5LzxjTxE7KRR~TXgflGwHcpd1R-RS8-XNE~mtyluA__" alt="Thumbnail 1">
+                </div>
+                <div class="thumbnail">
+                    <img src="https://s3-alpha-sig.figma.com/img/439b/062b/e28cb2d4ef6eb7a3fc9ce84865906483?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=UWGirIf63gzfe1oQh-arbDW2I0mn0kTF40~HY3~wiOwi-Yu8dnQqQpEqs9VjEpmNYgO0VesgA4KBLGhX6g2VXD9u5HeY9f9R8FWORhoIe95dsq3xlpK9UsGUk-IS3W9jOHOur6C9k5z-~JweYSf2iepekR~4mGGJXAyG62NW70sh29H7ONLZ2pKowu8DfIQlNSwmSD5-iEEZz6rWenWdv4-bKuQQG5cuybAyonpO244~M4raU0r-Gk8cNBxpJ2UdQSiQ4EcE-zZyqFUZ0-i3Ljib1pDPGHW8E-v8GConeGpccHvzCQW9JsfWOI1djE7qtyybj8bYJiis1dkhL1rHlg__" alt="Thumbnail 2">
+                </div>
+                <div class="thumbnail">
+                    <img src="https://s3-alpha-sig.figma.com/img/9f26/1ede/0e071db44fff2bea2cae6a91dcd04bd7?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=rm8BYQ5TJ-SIfMxOGmBZFcLenfvTdaJ1Smw1j64puSG7TAE67R-itlvsareQPLuiT8xge~UbC5Hs7aCkMJ9YAWVBZitPL-gonoUntNuVDxxO88AQzmA89vBQrcjwBPhiYcZ-Z8POOXPYnvkju0NZsHWrA1Qp0lZOnYUwLTPs1TxblKsNlZQDq3HFv~MdpVyQsqOCafB0FfxCqCP~cdhpnEPbMK~rfnSAXJ0qmEbRnfj965Qd8g2wNdKB88tKzmq~QRSch2Y-7WPDCcZNR1OkKtrgSSqQbfGaN~Yhxi0FlQfX7cfSm7UgSzMkP4Qhwt6HC5jGWU~1uajo9kteQLMILA__" alt="Thumbnail 3">
+                </div>
+                <div class="thumbnail">
+                    <img src="https://s3-alpha-sig.figma.com/img/0644/8fb8/6beb3a5714e2969e4094c6fc2cdcd2e4?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=FkeVMXFNur-YTDOh94mKvBdlfqGKrsHAafp7NhIa4hlU2Bq0t01V~D7m~e8PnjfMb~D-3GbYU9q8XDBpUXA8vKdY8cVKLP6-WDsc8gpwCYwoRpa2e9ePOFNzOnbwhz9PV2CrVMme4IUAkXAeAWEII4OYCFiNlU~WziJUZVDe9FXluS-E7g-c49n7VBC6WZMqs9UA3OfcRaPXrCjvTTzsukSuNUL3n1BirNXbxHWycFDWUsLKcrvErpD8EGbqWlNTgFxu933NlKhGEBk2vt24kLOCQ1YzPFB8Z3EfoFFLf-jls5V6czDYEyNxiLmpaQTB9TyMH7PBiRDR2VRljJIAUw__" alt="Thumbnail 4">
+                </div>
+                <div class="thumbnail">
+                    <img src="https://s3-alpha-sig.figma.com/img/0644/8fb8/6beb3a5714e2969e4094c6fc2cdcd2e4?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=FkeVMXFNur-YTDOh94mKvBdlfqGKrsHAafp7NhIa4hlU2Bq0t01V~D7m~e8PnjfMb~D-3GbYU9q8XDBpUXA8vKdY8cVKLP6-WDsc8gpwCYwoRpa2e9ePOFNzOnbwhz9PV2CrVMme4IUAkXAeAWEII4OYCFiNlU~WziJUZVDe9FXluS-E7g-c49n7VBC6WZMqs9UA3OfcRaPXrCjvTTzsukSuNUL3n1BirNXbxHWycFDWUsLKcrvErpD8EGbqWlNTgFxu933NlKhGEBk2vt24kLOCQ1YzPFB8Z3EfoFFLf-jls5V6czDYEyNxiLmpaQTB9TyMH7PBiRDR2VRljJIAUw__" alt="Thumbnail 5">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const mainImage = document.getElementById('mainImage');
+            const thumbnails = document.querySelectorAll('.thumbnail img');
+            const thumbnailContainer = document.getElementById('thumbnailContainer');
+            const mainPrev = document.getElementById('mainPrev');
+            const mainNext = document.getElementById('mainNext');
+            const thumbnailPrev = document.getElementById('thumbnailPrev');
+            const thumbnailNext = document.getElementById('thumbnailNext');
+
+            let currentIndex = 0;
+
+            // Update active state
+            function updateActiveImage(index) {
+                thumbnails.forEach(img => img.classList.remove('active'));
+                thumbnails[index].classList.add('active');
+                mainImage.src = thumbnails[index].src;
+            }
+
+            // Main image controls
+            mainPrev.addEventListener('click', function () {
+                currentIndex = (currentIndex - 1 + thumbnails.length) % thumbnails.length;
+                updateActiveImage(currentIndex);
+            });
+
+            mainNext.addEventListener('click', function () {
+                currentIndex = (currentIndex + 1) % thumbnails.length;
+                updateActiveImage(currentIndex);
+            });
+
+            // Thumbnail navigation
+            thumbnailPrev.addEventListener('click', function () {
+                currentIndex = (currentIndex - 1 + thumbnails.length) % thumbnails.length;
+                updateActiveImage(currentIndex);
+                thumbnailContainer.scrollBy({ left: -100, behavior: 'smooth' });
+            });
+
+            thumbnailNext.addEventListener('click', function () {
+                currentIndex = (currentIndex + 1) % thumbnails.length;
+                updateActiveImage(currentIndex);
+                thumbnailContainer.scrollBy({ left: 100, behavior: 'smooth' });
+            });
+
+            // Thumbnail click event
+            thumbnails.forEach((thumbnail, index) => {
+                thumbnail.addEventListener('click', function () {
+                    currentIndex = index;
+                    updateActiveImage(currentIndex);
+                });
+            });
+
+            // Initialize first image as active
+            updateActiveImage(currentIndex);
+        });
+    </script>
+</body>
+</html>
