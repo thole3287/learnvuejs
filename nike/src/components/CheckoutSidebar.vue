@@ -1,10 +1,6 @@
 <template>
   <div>
-    <div 
-      class="cart-overlay" 
-      v-if="isCartOpen" 
-      @click="$emit('close-cart')">
-    </div>
+    <div class="cart-overlay" v-if="isCartOpen" @click="$emit('close-cart')"></div>
     <div class="cart-sidebar" :class="{ open: isCartOpen }">
       <div class="cart-header">
         <h2>Shopping Cart</h2>
@@ -12,21 +8,24 @@
       </div>
 
       <div class="cart-items">
-        <div class="cart-item" v-for="item in cartItems" :key="item.id">
-          <img :src="item.image" :alt="item.name">
+        <div class="cart-item" v-for="item in cartStore.cartItems" :key="`${item.id}-${item.color}-${item.size}`">
+          <img :src="item.image" :alt="item.name" />
           <div class="cart-item-details">
             <p class="cart-item-title">{{ item.name }}</p>
             <p class="cart-item-options">{{ item.color }}, {{ item.size }}</p>
-            <!-- <div class="cart-item-price-quantity"> -->
-                <div class="cart-item-quantity">
-                  <button @click="updateQuantity(item.id, -1)">-</button>
-                  <span>{{ item.quantity }}</span>
-                  <button @click="updateQuantity(item.id, 1)">+</button>
-                  <p class="cart-item-price">${{ item.price }}</p>
 
-                  <button @click="removeItem(item.id)" class="delete-btn">&#128465;</button>
-                </div>
-            <!-- </div> -->
+            <div class="cart-item-quantity">
+              <button @click="cartStore.updateQuantity(item.id, item.color, item.size, -1)">-</button>
+              <span>{{ item.quantity }}</span>
+              <button @click="cartStore.updateQuantity(item.id, item.color, item.size, 1)">+</button>
+            </div>
+
+            <!-- Sửa lỗi hiển thị giá -->
+            <p class="cart-item-price">${{ item.price }}</p>
+
+            <button @click="cartStore.removeItem(item.id, item.color, item.size)" class="delete-btn">
+              &#128465;
+            </button>
           </div>
         </div>
       </div>
@@ -34,7 +33,7 @@
       <div class="cart-footer">
         <div class="cart-total">
           <span>Total</span>
-          <span>${{ total }}</span>
+          <span>${{ cartStore.total }}</span>
         </div>
         <button class="checkout-btn">Check Out</button>
         <button class="view-cart-btn">View Cart</button>
@@ -43,10 +42,14 @@
   </div>
 </template>
 
+
 <script setup>
 import { ref, computed } from 'vue';
+import { useCartStore } from "@/stores/cart";
 
-defineProps(['isCartOpen']);
+defineProps(["isCartOpen"]);
+
+const cartStore = useCartStore();
 
 const cartItems = ref([
   {
