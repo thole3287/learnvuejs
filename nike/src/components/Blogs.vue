@@ -6,49 +6,53 @@
                 <a href="">SEE ALL</a>
             </div>
             <div class="top">
-                <div class="img-container">
-                    <img alt="Vue logo" src="@/assets/images/collection1.png" />
+                <div class="img-container" v-for="(post, index) in posts" :key="index">
+                    <img :src="post.image" alt="Vue logo" />
                     <div class="img-content">
-                        <span class="content">
-                            The Easiest Way to Break
-                        </span>
-                        <div class="content">
-                            But I must explain to you how all this mistaken idea of denouncing pleas and praising pain
-                            was bor
+                        <span class="content">{{ post.title }}</span>
+                        <div class="content hover-area" @mouseover="readMoreIndex = index"
+                            @mouseleave="readMoreIndex = null">
+                            {{ post.description }}
+                            <div v-if="readMoreIndex === index" class="read-more d-flex justify-content-between">
+                                <div class="time greys">{{ post.date }}</div>
+                                <div class="read-btn text-uppercase">
+                                    <a href="">Read More</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="img-container">
-                    <img alt="Vue logo" src="@/assets/images/collection2.png" />
-                    <div class="img-content">
-                        <span class="content">
-                            The Easiest Way to Break
-                        </span>
-                        <div class="content">
-                            But I must explain to you how all this mistaken idea of denouncing pleas and praising pain
-                            was bor
-                        </div>
-                    </div>
-                </div>
-                <div class="img-container">
-                    <img alt="Vue logo" src="@/assets/images/collection2.png" />
-                    <div class="img-content">
-                        <span class="content">
-                            The Easiest Way to Break
-                        </span>
-                        <div class="content">
-                            But I must explain to you how all this mistaken idea of denouncing pleas and praising pain
-                            was bor
-                        </div>
-                    </div>
-                </div>
+
             </div>
         </div>
     </div>
 </template>
 
 <script setup>
+import { ref } from "vue";
 
+const readMoreIndex = ref(null); // Lưu trạng thái bài viết đang hover
+
+const posts = ref([
+    {
+        title: "The Easiest Way to Break",
+        description: "But I must explain to you how all this mistaken idea of denouncing pleas and praising pain was born...",
+        date: "April 6, 2032",
+        image: new URL("@/assets/images/collection1.png", import.meta.url).href,
+    },
+    {
+        title: "The Easiest Way to Break",
+        description: "But I must explain to you how all this mistaken idea of denouncing pleas and praising pain was born...",
+        date: "April 6, 2032",
+        image: new URL("@/assets/images/collection2.png", import.meta.url).href,
+    },
+    {
+        title: "The Easiest Way to Break",
+        description: "But I must explain to you how all this mistaken idea of denouncing pleas and praising pain was born...",
+        date: "April 6, 2032",
+        image: new URL("@/assets/images/collection2.png", import.meta.url).href,
+    },
+]);
 </script>
 
 <style>

@@ -43,10 +43,10 @@
                                 <img src="https://s3-alpha-sig.figma.com/img/0644/8fb8/6beb3a5714e2969e4094c6fc2cdcd2e4?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=FkeVMXFNur-YTDOh94mKvBdlfqGKrsHAafp7NhIa4hlU2Bq0t01V~D7m~e8PnjfMb~D-3GbYU9q8XDBpUXA8vKdY8cVKLP6-WDsc8gpwCYwoRpa2e9ePOFNzOnbwhz9PV2CrVMme4IUAkXAeAWEII4OYCFiNlU~WziJUZVDe9FXluS-E7g-c49n7VBC6WZMqs9UA3OfcRaPXrCjvTTzsukSuNUL3n1BirNXbxHWycFDWUsLKcrvErpD8EGbqWlNTgFxu933NlKhGEBk2vt24kLOCQ1YzPFB8Z3EfoFFLf-jls5V6czDYEyNxiLmpaQTB9TyMH7PBiRDR2VRljJIAUw__"
                                     alt="Thumbnail 4">
                             </div>
-                            <div class="thumbnail">
+                            <!-- <div class="thumbnail">
                                 <img src="https://s3-alpha-sig.figma.com/img/0644/8fb8/6beb3a5714e2969e4094c6fc2cdcd2e4?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=FkeVMXFNur-YTDOh94mKvBdlfqGKrsHAafp7NhIa4hlU2Bq0t01V~D7m~e8PnjfMb~D-3GbYU9q8XDBpUXA8vKdY8cVKLP6-WDsc8gpwCYwoRpa2e9ePOFNzOnbwhz9PV2CrVMme4IUAkXAeAWEII4OYCFiNlU~WziJUZVDe9FXluS-E7g-c49n7VBC6WZMqs9UA3OfcRaPXrCjvTTzsukSuNUL3n1BirNXbxHWycFDWUsLKcrvErpD8EGbqWlNTgFxu933NlKhGEBk2vt24kLOCQ1YzPFB8Z3EfoFFLf-jls5V6czDYEyNxiLmpaQTB9TyMH7PBiRDR2VRljJIAUw__"
                                     alt="Thumbnail 5">
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <!-- Main Image with Navigation Controls -->
@@ -183,17 +183,304 @@
                     <div class="information-add pt-4 pb-4">
                         <p>Color: <span class="greys">Blue, White, Black, Grey</span></p>
                         <p>Size: <span class="greys">XS, S, M, L</span></p>
-                        <p>Material: <span class="greys">	100% Polyester</span></p>
+                        <p>Material: <span class="greys"> 100% Polyester</span></p>
+                    </div>
+                    <div class="reviews pt-4 pb-4">
+                        <p>REVIEWS</p>
+                        <div class="review d-flex justify-content-between">
+                            <div class="review-stars-total d-flex justify-content-between">
+                                <div class="stars">
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star fa-star-o"></span>
+                                    <span class="fa fa-star fa-star-o"></span>
+                                </div>
+                                <div class="count-review">
+                                    <span>3 Reviews</span>
+                                </div>
+                            </div>
+                            <div class="review-button">
+                                <a href="" class="d-flex align-items-center text-decoration-none">
+                                    <span class="greys">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <g opacity="0.6">
+                                                <path
+                                                    d="M7 8H17H7ZM7 12H11H7ZM12 20L8 16H5C4.46957 16 3.96086 15.7893 3.58579 15.4142C3.21071 15.0391 3 14.5304 3 14V6C3 5.46957 3.21071 4.96086 3.58579 4.58579C3.96086 4.21071 4.46957 4 5 4H19C19.5304 4 20.0391 4.21071 20.4142 4.58579C20.7893 4.96086 21 5.46957 21 6V14C21 14.5304 20.7893 15.0391 20.4142 15.4142C20.0391 15.7893 19.5304 16 19 16H16L12 20Z"
+                                                    stroke="#121212" stroke-linecap="round" stroke-linejoin="round" />
+                                            </g>
+                                        </svg>
+                                    </span>
+                                    <span class="greys">Write a review</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="review-box pt-2 pb-2">
+                            <div class="review-name-stars d-flex justify-content-between">
+                                <div class="review-name">
+                                    Oleh Chabanov
+                                </div>
+                                <div class="review-stars-total d-flex justify-content-between">
+                                    <div class="count-review greys">
+                                        3 months ago
+                                    </div>
+                                    <div class="stars">
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star fa-star-o"></span>
+                                        <span class="fa fa-star fa-star-o"></span>
+                                    </div>
 
+                                </div>
+                            </div>
+                            <p class="greys">
+                                On the other hand, we denounce with righteous indignation and like men who are so
+                                beguiled and demoralized by the charms of pleasure of the moment
+                            </p>
+                        </div>
+                        <div class="review-box pt-2 pb-2">
+                            <div class="review-name-stars d-flex justify-content-between">
+                                <div class="review-name">
+                                    Oleh Chabanov
+                                </div>
+                                <div class="review-stars-total d-flex justify-content-between">
+                                    <div class="count-review greys">
+                                        3 months ago
+                                    </div>
+                                    <div class="stars">
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star fa-star-o"></span>
+                                        <span class="fa fa-star fa-star-o"></span>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <p class="greys">
+                                On the other hand, we denounce with righteous indignation and like men who are so
+                                beguiled and demoralized by the charms of pleasure of the moment
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
 
         </div>
+        <div class="related-product pt-5">
+            <div class="related-title">
+                <h4 class="text-uppercase">Related Products</h4>
+            </div>
+            <div class="carousel-container pt-3">
+                <div class="products">
+                    <div class="single-product">
+                        <div class="img-container">
+                            <span class="sale-label">SALE 20%</span>
+                            <a href="#">
+                                <img class="img-fluid"
+                                    src="https://s3-alpha-sig.figma.com/img/2eab/e200/deb73c900aa92074f727b85d02e8bae8?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=aQpoEohbmjxG4SXS2XQ75vgtZQpMvplxuUewtYbbCJ52gCzNiemfNrTOYl1pYZBjP5zjJqXF4X-epwIxAnEIt~t3UWmzAVLkcH8pVlAicAQt4UXxEn20bQqr7OPyjL6IjJBjxpcsB2FMyfTclcgBH4Mg9vbwL9Wc-zlB1ZB3nBeI~1WQCiN2XFmINAV70YZviG1RgupuS~~OiWYzt0-lvAUHG7vO3aT3ulURRaITVzPHlv78fLQCrbYxc2jkcnYsJA99zfyujVIFS9IbcSJzVwKU1TWje2KxHSvzHuH3PkFlMujwzzqDoLQNzx9fD1x9pGloJ98KZTAu4BKFdlfl9Q__"
+                                    alt="p1" />
+                            </a>
+
+                        </div>
+                        <div class="product-content">
+                            <h6 class="name">
+                                <a href="#">product 1</a>
+                            </h6>
+                        </div>
+                        <div class="rating">
+                            <span class="price">
+                                <span class="original-price"> $100</span>
+                                <span> $100</span>
+
+                            </span>
+                            <div class="stars">
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star fa-star-o"></span>
+                                <span class="fa fa-star fa-star-o"></span>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="products">
+                    <div class="single-product">
+                        <div class="img-container">
+                            <span class="sale-label">SALE 20%</span>
+                            <a href="#">
+                                <img class="img-fluid"
+                                    src="https://s3-alpha-sig.figma.com/img/d744/2dce/2267fe345b78cada62ef0c6fe2d731f6?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=kkeqMM7UKksW8gfPeXuNYNsO9qPNR6sG7Yi3IKcQl11u9HXw1OiC9jknQqI4GPwaSzpbImyitwMHNdNg-XdUbM3aGcpZ72DxFLgu9oGt4-reVlpqjhnX2WymaZYQAqSi12TfchX8goJebgjBPcwpj2XocB1RCxhSGLsmxDfx1qQlZmF-TLla54oYZ00-u3TAsO2BqWNuQwGpdW3JLey~jOMxzr8A2IpVmgYYSITjgZhObmmruIoyhGLb-DIyTwSAfKyC2JSqoTkNa5opbmlUpD6jDUbojyf~-3jBFfU36jQ8DmXAzO-Yt7ZvSYItbMlQYk7PsUeCJyWbvdSNzSQwmA__"
+                                    alt="p1" />
+                            </a>
+
+                        </div>
+                        <div class="product-content">
+                            <h6 class="name">
+                                <a href="#">product 2</a>
+                            </h6>
+                        </div>
+                        <div class="rating">
+                            <span class="price">
+                                <span class="original-price"> $100</span>
+                            </span>
+                            <div class="stars">
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star fa-star-o"></span>
+                                <span class="fa fa-star fa-star-o"></span>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="products">
+                    <div class="single-product">
+                        <div class="img-container">
+                            <span class="sale-label">SALE 20%</span>
+                            <a href="#">
+                                <img class="img-fluid"
+                                    src="https://s3-alpha-sig.figma.com/img/7925/91fa/2ad9bb4b4df7c58562a12888df52910b?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=bmPIVNpGIpNJz4Vh~XELn6AY8xEBi3wkzXBZzd6HgqKs327WEO3Md~pCAg6YFLAks83~FRBfVgbyanW5uvn9x4TUChq2oKBhtwbbXdgpoapNUG~Rq4mqNNdRTP6-HVRQW7WW6dVIedQuwpUnCuc3YQaf~a8R5BePzm-DUc63VSfZAOZdm9xImuh4eDaesk15EhvrVUL0ztzEJYYhcMPoe~6jf3EaSxGK8ntVWX1n7aN6QiEasdtLdCyg5AMnH0vDWUQhGY303WM7UUM-BR5Qfqzw9boy37GfuO7EKbEcw5fNXLBIpE64-bgVcXjz8jM5V2F~MAbcPzZUzsgYj~AsZg__"
+                                    alt="p1" />
+                            </a>
+
+                        </div>
+                        <div class="product-content">
+                            <h6 class="name">
+                                <a href="#">product 3</a>
+                            </h6>
+                        </div>
+                        <div class="rating">
+                            <span class="price">
+                                <span class="original-price"> $100</span>
+                            </span>
+                            <div class="stars">
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star fa-star-o"></span>
+                                <span class="fa fa-star fa-star-o"></span>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="products">
+                    <div class="single-product">
+                        <div class="img-container">
+                            <span class="sale-label">SALE 20%</span>
+                            <a href="#">
+                                <img class="img-fluid"
+                                    src="https://s3-alpha-sig.figma.com/img/5e3e/bbb3/e6ac9b90a036c06f585190bc81c6c22e?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=cNh10rY0~ZQYwO2JdpcDbxT5wSD4teDS9KND8c1EeUEoLG-kJg0UpdJ~JzceniisNDdhJ52GN9~x~qOudCdIfgPFNmgkySauWoucRgQ96gmORunBgxeYzFC2NnqNPowf~fdf-5MkZ1vu1Tetcqm9Ru1~9I48mt7C7c6PZ6V88WCdLKm0OaHJbueX82MSyGK7yAyNNd-2AXJ2LxbG6escKY2qkWxntfwD~3JYjg6TYYILHb0DwJLVueXW~vdxDiIg1PPgQBTItdwtCgx1WD4qB0Kda~kpRbkVqTDCBbD2SGP4sNeiw1bPIQIoVyD-o90LOyNkkLk9KUeLSX2UIwt5Ww__"
+                                    alt="p1" />
+                            </a>
+
+                        </div>
+                        <div class="product-content">
+                            <h6 class="name">
+                                <a href="#">product 4</a>
+                            </h6>
+                        </div>
+                        <div class="rating">
+                            <span class="price">
+                                <span class="original-price"> $100</span>
+                            </span>
+                            <div class="stars">
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star fa-star-o"></span>
+                                <span class="fa fa-star fa-star-o"></span>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="products">
+                    <div class="single-product">
+                        <div class="img-container">
+                            <span class="sale-label">SALE 20%</span>
+                            <a href="#">
+                                <img class="img-fluid" src="@/assets/images/p1.png" alt="p1" />
+                            </a>
+
+                        </div>
+                        <div class="product-content">
+                            <h6 class="name">
+                                <a href="#">product 5</a>
+                            </h6>
+                        </div>
+                        <div class="rating">
+                            <span class="price">
+                                <span class="original-price"> $100</span>
+                            </span>
+                            <div class="stars">
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star fa-star-o"></span>
+                                <span class="fa fa-star fa-star-o"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
 <script setup>
+
+$(document).ready(function () {
+    $('.carousel-container').slick({
+        infinite: true,
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        dots: false,
+        arrows: true, // Enables arrows
+        autoplay: true,
+        autoplaySpeed: 3000,
+        prevArrow: `<button type="button" class="slick-prev">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g opacity="0.6">
+                                <path d="M15 19L8 12L15 5" stroke="#121212" stroke-linecap="round" stroke-linejoin="round"/>
+                            </g>
+                        </svg>
+                    </button>`,
+        nextArrow: `<button type="button" class="slick-next">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g opacity="0.6">
+                            <path d="M9 5L16 12L9 19" stroke="#121212" stroke-linecap="round" stroke-linejoin="round"/>
+                            </g>
+                        </svg>
+                    </button>`,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3
+                }
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 2
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1
+                }
+            }
+        ]
+    });
+});
+
 const selectImage = (event) => {
     document.querySelectorAll('.product-images img').forEach(image => image.classList.remove('selected'));
     event.target.classList.add('selected');
@@ -217,10 +504,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Update active state
     function updateActiveImage(index) {
-        thumbnails.forEach(img => img.classList.remove('active'));
+        thumbnails.forEach((img, i) => {
+            if (i !== index) {
+                img.style.opacity = 0.5;
+            } else {
+                img.style.opacity = 1;
+            }
+            img.classList.remove('active');
+        });
         thumbnails[index].classList.add('active');
-        mainImage.src = thumbnails[index].src;
+        mainImage.src = thumbnails[index].src;  // Cập nhật ảnh chính
     }
+
 
     // Main image controls
     mainPrev.addEventListener('click', function () {
@@ -261,13 +556,112 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 
-<style scoped>
-.description{
+<style>
+.carousel-container .products.slick-slide {
+    width: 255px !important;
+    height: 378px !important;
+    margin-right: 57px;
+
+}
+
+/* related */
+.carousel-container {
+    max-height: 400px;
+}
+
+.product-item {
+    text-align: center;
+    padding: 10px;
+}
+
+.product-item img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.product-item h4 {
+    margin: 10px 0 5px;
+    font-size: 1rem;
+}
+
+.product-item p {
+    margin: 5px 0;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.product-item .price {
+    font-weight: bold;
+    color: #333;
+}
+
+/* Custom navigation arrows */
+.slick-prev,
+.slick-next {
+    position: absolute;
+    top: -23px;
+    z-index: 100;
+    color: #2b2a2a;
+    width: 35px;
+    height: 35px;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.carousel-container .slick-prev {
+    left: 1140px;
+}
+
+.slick-next {
+    right: 25px;
+}
+
+.slick-prev:hover,
+.slick-next:hover {
+    background-color: #a7a6a6;
+    opacity: 0.3;
+}
+
+.slick-prev::before,
+.slick-next::before {
+    content: '';
+}
+
+/* Slick dots customization */
+.related-product .carousel-container .slick-dots {
+    /* bottom: -30px; */
+    display: none !important;
+}
+
+/* related */
+
+.reviews {
     border-bottom: 2px solid #E6E6E6;
 }
-.information-add{
+
+.count-review {
+    margin-right: 10px;
+}
+
+.review-button span svg {
+    margin-right: 10px;
+}
+
+.stars {
+    margin-right: 10px;
+}
+
+.description {
     border-bottom: 2px solid #E6E6E6;
 }
+
+.information-add {
+    border-bottom: 2px solid #E6E6E6;
+}
+
 .checkout-icons img {
     width: 68px;
     height: 21px;
@@ -510,7 +904,7 @@ document.addEventListener('DOMContentLoaded', function () {
     overflow: hidden;
     /* width: 500px; */
     justify-content: center;
-    max-height: 490px;
+    max-height: 500px;
 }
 
 .thumbnail {

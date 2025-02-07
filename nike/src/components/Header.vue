@@ -85,24 +85,40 @@
         <div class="nav-inner">
             <!-- logo -->
             <div class="logo">
-                <a href="/">                
+                <a href="/">
                     <img alt="Vue logo" src="@/assets/images/logo.png" />
                 </a>
             </div>
             <!-- link -->
             <div class="links">
-                <a href="#">About Us</a>
-                <a href="#women">Women</a>
-                <a href="#">Men</a>
-                <a href="#">Beauty</a>
-                <a href="#">Accessories</a>
-                <a href="#">Blog</a>
-                <a href="#">Contact</a>
+                <ul class="main-nav">
+                    <li class="top-level-link">
+                        <a href="">About Us</a>
+                    </li>
+                    <li class="top-level-link">
+                        <a class="mega-menu" @mouseleave="megaMenuHide" @mouseover="megaMenuShow"><span>Women</span></a>
+                    </li>
+                    <li class="top-level-link">
+                        <a href="">Men</a>
+                    </li>
+                    <li class="top-level-link">
+                        <a href="">Beauty</a>
+                    </li>
+                    <li class="top-level-link">
+                        <a href="">Accessories</a>
+                    </li>
+                    <li class="top-level-link">
+                        <a href="">Blog</a>
+                    </li>
+                    <li class="top-level-link">
+                        <a href="">Contact</a>
+                    </li>
+                </ul>
             </div>
             <!-- iconn -->
             <div class="icons">
                 <span>
-                    <a href="#">
+                    <a href="#" class="search">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M21 21L15 15L21 21ZM17 10C17 10.9193 16.8189 11.8295 16.4672 12.6788C16.1154 13.5281 15.5998 14.2997 14.9497 14.9497C14.2997 15.5998 13.5281 16.1154 12.6788 16.4672C11.8295 16.8189 10.9193 17 10 17C9.08075 17 8.1705 16.8189 7.32122 16.4672C6.47194 16.1154 5.70026 15.5998 5.05025 14.9497C4.40024 14.2997 3.88463 13.5281 3.53284 12.6788C3.18106 11.8295 3 10.9193 3 10C3 8.14348 3.7375 6.36301 5.05025 5.05025C6.36301 3.7375 8.14348 3 10 3C11.8565 3 13.637 3.7375 14.9497 5.05025C16.2625 6.36301 17 8.14348 17 10Z"
@@ -111,7 +127,7 @@
                     </a>
                 </span>
                 <span>
-                    <a href="#">
+                    <a href="#" class="plannet">
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M1.055 9H3C3.53043 9 4.03914 9.21071 4.41421 9.58579C4.78929 9.96086 5 10.4696 5 11V12C5 12.5304 5.21071 13.0391 5.58579 13.4142C5.96086 13.7893 6.46957 14 7 14C7.53043 14 8.03914 14.2107 8.41421 14.5858C8.78929 14.9609 9 15.4696 9 16V18.945M6 1.935V3.5C6 4.16304 6.26339 4.79893 6.73223 5.26777C7.20107 5.73661 7.83696 6 8.5 6H9C9.53043 6 10.0391 6.21071 10.4142 6.58579C10.7893 6.96086 11 7.46957 11 8C11 8.53043 11.2107 9.03914 11.5858 9.41421C11.9609 9.78929 12.4696 10 13 10C13.5304 10 14.0391 9.78929 14.4142 9.41421C14.7893 9.03914 15 8.53043 15 8C15 7.46957 15.2107 6.96086 15.5858 6.58579C15.9609 6.21071 16.4696 6 17 6H18.064M13 18.488V16C13 15.4696 13.2107 14.9609 13.5858 14.5858C13.9609 14.2107 14.4696 14 15 14H18.064L13 18.488ZM19 10C19 11.1819 18.7672 12.3522 18.3149 13.4442C17.8626 14.5361 17.1997 15.5282 16.364 16.364C15.5282 17.1997 14.5361 17.8626 13.4442 18.3149C12.3522 18.7672 11.1819 19 10 19C8.8181 19 7.64778 18.7672 6.55585 18.3149C5.46392 17.8626 4.47177 17.1997 3.63604 16.364C2.80031 15.5282 2.13738 14.5361 1.68508 13.4442C1.23279 12.3522 1 11.1819 1 10C1 7.61305 1.94821 5.32387 3.63604 3.63604C5.32387 1.94821 7.61305 1 10 1C12.3869 1 14.6761 1.94821 16.364 3.63604C18.0518 5.32387 19 7.61305 19 10Z"
@@ -120,7 +136,7 @@
                     </a>
                 </span>
                 <span>
-                    <a href="#">
+                    <a href="#" class="profile">
                         <svg width="16" height="20" viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M12 5C12 6.06087 11.5786 7.07828 10.8284 7.82843C10.0783 8.57857 9.06087 9 8 9C6.93913 9 5.92172 8.57857 5.17157 7.82843C4.42143 7.07828 4 6.06087 4 5C4 3.93913 4.42143 2.92172 5.17157 2.17157C5.92172 1.42143 6.93913 1 8 1C9.06087 1 10.0783 1.42143 10.8284 2.17157C11.5786 2.92172 12 3.93913 12 5V5Z"
@@ -132,24 +148,988 @@
                     </a>
                 </span>
                 <span>
-                    <a href="#">
+                    <a @click="isCartOpen = !isCartOpen" class="cart">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M16 11V7C16 5.93913 15.5786 4.92172 14.8284 4.17157C14.0783 3.42143 13.0609 3 12 3C10.9391 3 9.92172 3.42143 9.17157 4.17157C8.42143 4.92172 8 5.93913 8 7V11H16ZM5 9H19L20 21H4L5 9Z"
                                 stroke="#121212" stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
                     </a>
+                    
                 </span>
+            </div>
+            <div class="sub-menu-block" id="five-block" style="display: none;" @mouseleave="megaMenuHide" @mouseover="megaMenuShow">
+                <div class="row">
+                    <div class=" col-sm-6">
+                        <div class="row">
+                            <div class=" col-sm-4">
+                                <h2 class="sub-menu-head">TOPS</h2>
+                                <ul class="sub-menu-lists">
+                                    <li class="hover_drop_down">
+                                        <a href="#">Awesome<span class="caret"></span></a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a href="#">Software Resource</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="hover_drop_down">
+                                        <a href="#">Beachwear<span class="caret"></span></a>
+                                        <ul class="dropdown-menu" role="menu">
+                                        </ul>
+                                    </li>
+                                    <li class="hover_drop_down">
+                                        <a href="#">Beige<span class="caret"></span></a>
+                                        <ul class="dropdown-menu" role="menu">
+                                        </ul>
+                                    </li>
+                                    <li class="hover_drop_down">
+                                        <a href="#">Cool New<span class="caret"></span></a>
+                                        <ul class="dropdown-menu" role="menu">
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">Dress</a> </li>
+                                    <li><a href="#">Gap</a> </li>
+                                    <li><a href="#">Guess</a> </li>
+
+                                </ul>
+                            </div>
+                            <div class=" col-sm-4">
+                                <h2 class="sub-menu-head">BOTTOMS</h2>
+                                <ul class="sub-menu-lists">
+                                    <li class="hover_drop_down">
+                                        <a href="#">Jeans<span class="caret"></span></a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a href="#">Software Resource</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="hover_drop_down">
+                                        <a href="#">Lacoste<span class="caret"></span></a>
+                                        <ul class="dropdown-menu" role="menu">
+                                        </ul>
+                                    </li>
+                                    <li class="hover_drop_down">
+                                        <a href="#">Levi's<span class="caret"></span></a>
+                                        <ul class="dropdown-menu" role="menu">
+                                        </ul>
+                                    </li>
+                                    <li class="hover_drop_down">
+                                        <a href="#">Model<span class="caret"></span></a>
+                                        <ul class="dropdown-menu" role="menu">
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">Nice Featured</a> </li>
+                                    <li><a href="#">Polo</a> </li>
+                                    <li><a href="#">Pullover</a> </li>
+
+                                </ul>
+                            </div>
+                            <div class=" col-sm-4">
+                                <h2 class="sub-menu-head">ACCESSORIES</h2>
+                                <ul class="sub-menu-lists">
+                                    <li class="hover_drop_down">
+                                        <a href="#">Scarf Sale 13%<span class="caret"></span></a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a href="#">Software Resource</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="hover_drop_down">
+                                        <a href="#">Shirt<span class="caret"></span></a>
+                                        <ul class="dropdown-menu" role="menu">
+                                        </ul>
+                                    </li>
+                                    <li class="hover_drop_down">
+                                        <a href="#">Shoes<span class="caret"></span></a>
+                                        <ul class="dropdown-menu" role="menu">
+                                        </ul>
+                                    </li>
+                                    <li class="hover_drop_down">
+                                        <a href="#">Shorts<span class="caret"></span></a>
+                                        <ul class="dropdown-menu" role="menu">
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">Summer</a> </li>
+                                    <li><a href="#">Sunglasses</a> </li>
+                                    <li><a href="#">Vintage</a> </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="related-product">
+                            <h2 class="sub-menu-head">BESTSELLERS</h2>
+                            <div class="carousel-container-header">
+                                <div class="products">
+                                    <div class="single-product">
+                                        <div class="img-container">
+                                            <span class="sale-label">SALE 20%</span>
+                                            <a href="#">
+                                                <img class="img-fluid"
+                                                    src="https://s3-alpha-sig.figma.com/img/2eab/e200/deb73c900aa92074f727b85d02e8bae8?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=aQpoEohbmjxG4SXS2XQ75vgtZQpMvplxuUewtYbbCJ52gCzNiemfNrTOYl1pYZBjP5zjJqXF4X-epwIxAnEIt~t3UWmzAVLkcH8pVlAicAQt4UXxEn20bQqr7OPyjL6IjJBjxpcsB2FMyfTclcgBH4Mg9vbwL9Wc-zlB1ZB3nBeI~1WQCiN2XFmINAV70YZviG1RgupuS~~OiWYzt0-lvAUHG7vO3aT3ulURRaITVzPHlv78fLQCrbYxc2jkcnYsJA99zfyujVIFS9IbcSJzVwKU1TWje2KxHSvzHuH3PkFlMujwzzqDoLQNzx9fD1x9pGloJ98KZTAu4BKFdlfl9Q__"
+                                                    alt="p1" />
+                                            </a>
+
+                                        </div>
+                                        <div class="product-content">
+                                            <h6 class="name">
+                                                <a href="#">product 1</a>
+                                            </h6>
+                                        </div>
+                                        <div class="rating">
+                                            <span class="price">
+                                                <span class="original-price"> $100</span>
+                                                <span> $100</span>
+
+                                            </span>
+                                            <div class="stars">
+                                                <span class="fa fa-star"></span>
+                                                <span class="fa fa-star"></span>
+                                                <span class="fa fa-star"></span>
+                                                <span class="fa fa-star fa-star-o"></span>
+                                                <span class="fa fa-star fa-star-o"></span>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="products">
+                                    <div class="single-product">
+                                        <div class="img-container">
+                                            <span class="sale-label">SALE 20%</span>
+                                            <a href="#">
+                                                <img class="img-fluid"
+                                                    src="https://s3-alpha-sig.figma.com/img/d744/2dce/2267fe345b78cada62ef0c6fe2d731f6?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=kkeqMM7UKksW8gfPeXuNYNsO9qPNR6sG7Yi3IKcQl11u9HXw1OiC9jknQqI4GPwaSzpbImyitwMHNdNg-XdUbM3aGcpZ72DxFLgu9oGt4-reVlpqjhnX2WymaZYQAqSi12TfchX8goJebgjBPcwpj2XocB1RCxhSGLsmxDfx1qQlZmF-TLla54oYZ00-u3TAsO2BqWNuQwGpdW3JLey~jOMxzr8A2IpVmgYYSITjgZhObmmruIoyhGLb-DIyTwSAfKyC2JSqoTkNa5opbmlUpD6jDUbojyf~-3jBFfU36jQ8DmXAzO-Yt7ZvSYItbMlQYk7PsUeCJyWbvdSNzSQwmA__"
+                                                    alt="p1" />
+                                            </a>
+
+                                        </div>
+                                        <div class="product-content">
+                                            <h6 class="name">
+                                                <a href="#">product 2</a>
+                                            </h6>
+                                        </div>
+                                        <div class="rating">
+                                            <span class="price">
+                                                <span class="original-price"> $100</span>
+                                            </span>
+                                            <div class="stars">
+                                                <span class="fa fa-star"></span>
+                                                <span class="fa fa-star"></span>
+                                                <span class="fa fa-star"></span>
+                                                <span class="fa fa-star fa-star-o"></span>
+                                                <span class="fa fa-star fa-star-o"></span>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="products">
+                                    <div class="single-product">
+                                        <div class="img-container">
+                                            <span class="sale-label">SALE 20%</span>
+                                            <a href="#">
+                                                <img class="img-fluid"
+                                                    src="https://s3-alpha-sig.figma.com/img/7925/91fa/2ad9bb4b4df7c58562a12888df52910b?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=bmPIVNpGIpNJz4Vh~XELn6AY8xEBi3wkzXBZzd6HgqKs327WEO3Md~pCAg6YFLAks83~FRBfVgbyanW5uvn9x4TUChq2oKBhtwbbXdgpoapNUG~Rq4mqNNdRTP6-HVRQW7WW6dVIedQuwpUnCuc3YQaf~a8R5BePzm-DUc63VSfZAOZdm9xImuh4eDaesk15EhvrVUL0ztzEJYYhcMPoe~6jf3EaSxGK8ntVWX1n7aN6QiEasdtLdCyg5AMnH0vDWUQhGY303WM7UUM-BR5Qfqzw9boy37GfuO7EKbEcw5fNXLBIpE64-bgVcXjz8jM5V2F~MAbcPzZUzsgYj~AsZg__"
+                                                    alt="p1" />
+                                            </a>
+
+                                        </div>
+                                        <div class="product-content">
+                                            <h6 class="name">
+                                                <a href="#">product 3</a>
+                                            </h6>
+                                        </div>
+                                        <div class="rating">
+                                            <span class="price">
+                                                <span class="original-price"> $100</span>
+                                            </span>
+                                            <div class="stars">
+                                                <span class="fa fa-star"></span>
+                                                <span class="fa fa-star"></span>
+                                                <span class="fa fa-star"></span>
+                                                <span class="fa fa-star fa-star-o"></span>
+                                                <span class="fa fa-star fa-star-o"></span>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="products">
+                                    <div class="single-product">
+                                        <div class="img-container">
+                                            <span class="sale-label">SALE 20%</span>
+                                            <a href="#">
+                                                <img class="img-fluid"
+                                                    src="https://s3-alpha-sig.figma.com/img/5e3e/bbb3/e6ac9b90a036c06f585190bc81c6c22e?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=cNh10rY0~ZQYwO2JdpcDbxT5wSD4teDS9KND8c1EeUEoLG-kJg0UpdJ~JzceniisNDdhJ52GN9~x~qOudCdIfgPFNmgkySauWoucRgQ96gmORunBgxeYzFC2NnqNPowf~fdf-5MkZ1vu1Tetcqm9Ru1~9I48mt7C7c6PZ6V88WCdLKm0OaHJbueX82MSyGK7yAyNNd-2AXJ2LxbG6escKY2qkWxntfwD~3JYjg6TYYILHb0DwJLVueXW~vdxDiIg1PPgQBTItdwtCgx1WD4qB0Kda~kpRbkVqTDCBbD2SGP4sNeiw1bPIQIoVyD-o90LOyNkkLk9KUeLSX2UIwt5Ww__"
+                                                    alt="p1" />
+                                            </a>
+
+                                        </div>
+                                        <div class="product-content">
+                                            <h6 class="name">
+                                                <a href="#">product 4</a>
+                                            </h6>
+                                        </div>
+                                        <div class="rating">
+                                            <span class="price">
+                                                <span class="original-price"> $100</span>
+                                            </span>
+                                            <div class="stars">
+                                                <span class="fa fa-star"></span>
+                                                <span class="fa fa-star"></span>
+                                                <span class="fa fa-star"></span>
+                                                <span class="fa fa-star fa-star-o"></span>
+                                                <span class="fa fa-star fa-star-o"></span>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="products">
+                                    <div class="single-product">
+                                        <div class="img-container">
+                                            <span class="sale-label">SALE 20%</span>
+                                            <a href="#">
+                                                <img class="img-fluid" src="@/assets/images/p1.png" alt="p1" />
+                                            </a>
+
+                                        </div>
+                                        <div class="product-content">
+                                            <h6 class="name">
+                                                <a href="#">product 5</a>
+                                            </h6>
+                                        </div>
+                                        <div class="rating">
+                                            <span class="price">
+                                                <span class="original-price"> $100</span>
+                                            </span>
+                                            <div class="stars">
+                                                <span class="fa fa-star"></span>
+                                                <span class="fa fa-star"></span>
+                                                <span class="fa fa-star"></span>
+                                                <span class="fa fa-star fa-star-o"></span>
+                                                <span class="fa fa-star fa-star-o"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </nav>
+    <CheckoutSidebar :is-cart-open="isCartOpen" @close-cart="isCartOpen = false" />
+
+    <!-- <CheckoutSidebar :isCartOpen="isCartOpen" @toggle-cart="isCartOpen = !isCartOpen" /> -->
+
 </template>
 
 <script setup>
+import CheckoutSidebar from './CheckoutSidebar.vue';
+import { ref } from 'vue';
 
+const isCartOpen = ref(false);
+console.log(isCartOpen.value, 'isCartOpen11');
+
+
+$(document).ready(function () {
+    var productCount = $('.carousel-container-header .single-product').length;
+
+    $('.carousel-container-header').slick({
+        infinite: true, // Chỉ bật nếu có hơn 3 sản phẩm
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        dots: false,
+        arrows: true,
+        autoplay: true,
+        autoplaySpeed: 3000,
+        prevArrow: `<button type="button" class="slick-prev">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g opacity="0.6">
+                                <path d="M15 19L8 12L15 5" stroke="#121212" stroke-linecap="round" stroke-linejoin="round"/>
+                            </g>
+                        </svg>
+                    </button>`,
+        nextArrow: `<button type="button" class="slick-next">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g opacity="0.6">
+                            <path d="M9 5L16 12L9 19" stroke="#121212" stroke-linecap="round" stroke-linejoin="round"/>
+                            </g>
+                        </svg>
+                    </button>`,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3
+                }
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 2
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1
+                }
+            }
+        ]
+    });
+});
+
+
+const megaMenuShow = (e) => {
+    document.getElementById('five-block').style.display = 'block';
+}
+const megaMenuHide = (e) => {
+    document.getElementById('five-block').style.display = 'none';
+}
 </script>
 
-<style scoped>
+<style>
+/* cart checkout */
+
+.header-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #f8f8f8;
+}
+.cart {
+  /* background-color: black;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem; */
+  cursor: pointer;
+}
+
+/* cart checkout */
+
+
+.carousel-container-header .slick-track {
+    display: flex;
+    align-items: center;
+    width: 100% !important;
+}
+
+.carousel-container-header .single-product {
+    width: 160px;
+    height: 238px;
+}
+
+.carousel-container-header .products.slick-slide {
+    width: 160px !important;
+    height: 238px !important;
+    margin-bottom: 30px;
+    margin-right: 43px;
+}
+
+/* related */
+.carousel-container-header {
+    max-height: 260px;
+}
+
+.carousel-container-header .slick-list {
+    max-height: 260px;
+}
+
+
+.product-item {
+    text-align: center;
+    padding: 10px;
+}
+
+.product-item img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.product-item h4 {
+    margin: 10px 0 5px;
+    font-size: 1rem;
+}
+
+.product-item p {
+    margin: 5px 0;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.product-item .price {
+    font-weight: bold;
+    color: #333;
+}
+
+/* Custom navigation arrows */
+.slick-prev,
+.slick-next {
+    position: absolute;
+    top: -23px;
+    z-index: 100;
+    color: #2b2a2a;
+    width: 35px;
+    height: 35px;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.carousel-container-header .slick-prev {
+    left: 500px;
+}
+
+.slick-next {
+    right: 25px;
+}
+
+.slick-prev:hover,
+.slick-next:hover {
+    background-color: #a7a6a6;
+    opacity: 0.3;
+}
+
+.slick-prev::before,
+.slick-next::before {
+    content: '';
+}
+
+/* Slick dots customization */
+.related-product .carousel-container-header .slick-dots {
+    /* bottom: -30px; */
+    display: none !important;
+}
+
+/* product */
+
+
+nav {
+    position: relative;
+}
+
+ul.main-nav {
+    list-style-type: none;
+    display: block;
+    padding: 0px;
+
+    /* max-width: 1275px; */
+    margin: 0 auto;
+}
+
+ul.main-nav>li {
+    display: inline-block;
+    padding: auto;
+}
+
+ul.main-nav>li>a {
+    display: block;
+    padding: 23px 15px;
+    position: relative;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 400;
+    box-sizing: border-box;
+}
+
+/* ul.main-nav>li:hover {
+    background-color: #f9f9f9;
+} */
+
+ul.main-nav>li:hover>a {
+    color: #333;
+    font-weight: 400;
+}
+.sub-menu-lists{
+    padding-left: 0 !important;
+}
+
+ul.main-nav>li ul.sub-menu-lists {
+    margin: auto 0;
+    padding: 1px 0;
+    list-style-type: none;
+    display: block;
+}
+
+ul.main-nav>li ul.sub-menu-lists>li {
+    padding: auto;
+    width: 100%;
+    margin-top: 2px;
+}
+
+ul.main-nav>li ul.sub-menu-lists>li>a {
+    font-size: 1em;
+    font-weight: 500;
+
+}
+
+/* Menu Icons for Devices*/
+
+.ic.menu {
+    top: 14px;
+
+    z-index: 20;
+}
+
+.ic.menu .line {
+    height: 4px;
+    width: 100%;
+    display: block;
+    /*header Underline */
+
+    margin-bottom: 6px;
+}
+
+.ic.menu .line-last-child {
+    margin-bottom: 0px;
+}
+
+.sub-menu-head {
+    margin: 10px 0;
+    /* border-bottom: 1px solid #4F96BA; */
+    width: 100%;
+}
+
+.banners-area {
+    margin-top: 20px;
+    padding-top: 15px;
+}
+
+@media only screen and (max-width: 768px) {
+
+
+    .sub-menu-head {
+        color: #fff;
+    }
+
+    .ic.menu {
+        display: block;
+    }
+
+    header.dark .ic.menu .line {
+        background-color: #fff;
+    }
+
+    header.mega .ic.menu .line {
+        background-color: #000;
+    }
+
+    .ic.menu .line {
+        -webkit-transition: all 0.4s ease 0s;
+        -o-transition: all 0.4s ease 0s;
+        transition: all 0.4s ease 0s;
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        transform: rotate(0deg);
+        -webkit-transform-origin: center center;
+        -ms-transform-origin: center center;
+        transform-origin: center center;
+    }
+
+    .ic.menu:focus .line {
+        background-color: #fff !important;
+    }
+
+    .ic.menu:focus .line:nth-child(1) {
+        -webkit-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+
+    .ic.menu:focus .line:nth-child(2) {
+        -webkit-transform: rotate(-45deg);
+        -moz-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+        margin-top: -10px;
+    }
+
+    .ic.menu:focus .line:nth-child(3) {
+        transform: translateY(15px);
+        opacity: 0;
+    }
+
+    .ic.menu:focus {
+        outline: none;
+    }
+
+    .ic.menu:focus~.ic.close {
+        opacity: 1;
+        z-index: 21;
+        outline: none;
+    }
+
+    /*
+  
+  .ic.menu:focus ~ .ic.close { opacity: 1.0; z-index : 21;  }
+  .ic.close:focus { opacity: 0; }
+  */
+
+    .ic.menu:focus {
+        opacity: 1;
+    }
+
+    nav {
+        background-color: transparent;
+    }
+
+    /* Main Menu for Handheld Devices  */
+
+    ul.main-nav {
+        z-index: 2;
+        padding: 50px 0;
+        position: fixed;
+        right: 0px;
+        top: 0px;
+        width: 0px;
+        background-color: rgba(0, 0, 0, 1);
+        height: 100%;
+        overflow: auto;
+        /*CSS animation applied : Slide from Right*/
+
+        -webkit-transition-property: background, width;
+        -moz-transition-property: background, width;
+        -o-transition-property: background, width;
+        transition-property: background, width;
+        -webkit-transition-duration: 0.6s;
+        -moz-transition-duration: 0.6s;
+        -o-transition-duration: 0.6s;
+        transition-duration: 0.6s;
+    }
+
+    .ic.menu:focus~.main-nav {
+        width: 85%;
+        background-color: #fff;
+    }
+
+    ul.main-nav>* {
+        -webkit-transition-property: opacity;
+        -moz-transition-property: opacity;
+        -o-transition-property: opacity;
+        transition-property: opacity;
+        -webkit-transition-duration: 0.4s;
+        -moz-transition-duration: 0.4s;
+        -o-transition-duration: 0.4s;
+        transition-duration: 0.4s;
+        opacity: 0;
+    }
+
+    .ic.menu:focus~.main-nav>* {
+        opacity: 1;
+    }
+
+    ul.main-nav>li>a:after {
+        display: none;
+    }
+
+    ul.main-nav>li:first-child {
+        border-radius: 0px;
+    }
+
+    ul.main-nav>li {
+        display: block;
+        border-bottom: 1px solid #444;
+    }
+
+    ul.main-nav>li>a {
+        font-weight: 600;
+    }
+
+    ul.main-nav>li ul.sub-menu-lists>li a {
+        color: #4F96BA;
+        ;
+        font-size: 14px;
+    }
+
+    .sub-menu-head {
+        font-size: 16px;
+    }
+
+    ul.main-nav>li:hover {
+        background-color: transparent;
+    }
+
+    /* ul.main-nav > li:hover > a {
+        color: #blue;
+        text-decoration: none;
+        font-weight: 600;
+    } */
+    .ic.menu:focus~ul.main-nav>li>div.sub-menu-block {
+        border-left: 0px solid #ccc;
+        /* border-right: 0px solid #ccc; */
+        border-bottom: 0px solid #ccc;
+        position: relative;
+        visibility: visible;
+        opacity: 1.0;
+    }
+
+    .sub-menu-block {
+        padding: 0 30px;
+    }
+
+    .banners-area {
+        padding-bottom: 0px;
+    }
+
+    .banners-area div {
+        margin-bottom: 15px;
+    }
+
+    .banners-area {
+        border-top: 1px solid #444;
+    }
+}
+
+@media only screen and (min-width: 769px) {
+    .menu {
+        display: none;
+    }
+
+    /* Main Menu for Desktop Devices  */
+
+    ul.main-nav {
+        display: block;
+        position: relative;
+    }
+
+    .sub-menu-block {
+        padding: 15px;
+
+    }
+
+    /* Sub Menu */
+
+    ul.main-nav>li>div.sub-menu-block {
+
+        visibility: hidden;
+
+        background-color: #fff;
+        position: absolute;
+        margin-top: 0px;
+        min-width: 48.8%;
+        max-width: 100%;
+        color: #333;
+        left: 0px;
+        /*--controls sub block starting location --*/
+        box-shadow: 1px 1px rgba(0, 0, 0, 0.5);
+        box-sizing: border-box;
+        z-index: 3;
+        font-size: 16px;
+        border-left: 1px solid #ccc;
+        /* border-right: 1px solid #ccc; */
+        border-bottom: 1px solid #ccc;
+        opacity: 0;
+
+        -webkit-transition: all 0.4s ease 0s;
+        -o-transition: all 0.4s ease 0s;
+        transition: all 0.4s ease 0s;
+        -webkit-transform: rotateX(90deg);
+        -moz-transform: rotateX(90deg);
+        -ms-transform: rotateX(90deg);
+        transform: rotateX(90deg);
+        -webkit-transform-origin: top center;
+        -ms-transform-origin: top center;
+        transform-origin: top center;
+    }
+
+    /* #five-block {
+        width: 100%;
+    } */
+    #five-block {
+        display: none;
+        position: absolute;
+        top: 100%;
+        /* Đặt ngay bên dưới menu */
+        left: 0;
+        width: 100%;
+        /* Full width theo .nav-inner */
+        background-color: white;
+        border-top: 2px solid #000000;
+
+        /* Hoặc màu bạn muốn */
+        z-index: 1000;
+    }
+
+    .top-level-link:hover #five-block {
+        display: block;
+    }
+
+    ul.main-nav>li:hover>div.sub-menu-block {
+        background-color: #f9f9f9;
+
+        visibility: visible;
+        opacity: 1;
+        -webkit-transform: rotateX(0deg);
+        -moz-transform: rotateX(0deg);
+        -ms-transform: rotateX(0deg);
+        transform: rotateX(0deg);
+    }
+
+    ul.main-nav>li>div.sub-menu-block>* {
+        -webkit-transition-property: opacity;
+        -moz-transition-property: opacity;
+        -o-transition-property: opacity;
+        transition-property: opacity;
+        -webkit-transition-duration: 0.4s;
+        -moz-transition-duration: 0.4s;
+        -o-transition-duration: 0.4s;
+        transition-duration: 0.4s;
+        opacity: 0;
+
+    }
+
+    ul.main-nav>li:hover>div.sub-menu-block>* {
+        opacity: 1;
+    }
+
+    .sub-menu-head {
+        font-size: 20px;
+
+    }
+
+    /* List Separator: Outer Border */
+
+    ul.main-nav>li>a {
+        /* border-right: 1px solid #bbb; */
+    }
+
+    /* ul.main-nav>li>a {
+        border-right: 1px solid #666;
+    } */
+
+    /* List Separator: Inner Border */
+
+    ul.main-nav>li>a:after {
+        content: '';
+        width: 1px;
+        height: 60x;
+        position: absolute;
+        right: 0px;
+        top: 0px;
+        z-index: 2;
+    }
+
+    header.dark ul.main-nav>li>a:after {
+        background-color: #777;
+    }
+
+    header.mega ul.main-nav>li>a:after {
+        background-color: #999;
+    }
+
+    /* Drop Down/Up Arrow for Mega Menu */
+
+    ul.main-nav>li>a.mega-menu>span {
+        display: block;
+        vertical-align: middle;
+    }
+
+    ul.main-nav>li>a.mega-menu>span:after {
+        width: 0;
+        height: 0;
+        border-left: 5px solid transparent;
+        /* border-right: 5px solid transparent; */
+        border-top: 5px solid #fff;
+        content: '';
+        background-color: transparent;
+        display: inline-block;
+        margin-left: 10px;
+        vertical-align: middle;
+    }
+
+    ul.main-nav>li:hover>a.mega-menu span:after {
+        border-left: 5px solid transparent;
+        /* border-right: 5px solid transparent; */
+        border-top: 0px solid transparent;
+        border-bottom: 5px solid #666;
+    }
+
+    .banners-area {
+        border-top: 1px solid #ccc;
+    }
+}
+
+/**************Additions****************/
+
+
+/* 5 Columns */
+
+.col-xs-15,
+.col-sm-15,
+.col-md-15,
+.col-lg-15 {
+    position: relative;
+    min-height: 1px;
+    padding-right: 10px;
+    padding-left: 10px;
+
+}
+
+.col-xs-15 {
+    width: 20%;
+    float: left;
+}
+
+@media (min-width: 768px) {
+    .col-sm-15 {
+        width: 20%;
+        float: left;
+    }
+}
+
+@media (min-width: 992px) {
+    .col-md-15 {
+        width: 20%;
+        float: left;
+    }
+}
+
+@media (min-width: 1200px) {
+    .col-lg-15 {
+
+        float: left;
+    }
+}
+
+a,
+a:active,
+a:visited,
+a:link {
+    color: #599ab9;
+    text-decoration: none;
+}
+
+a:hover {
+    color: black;
+}
+
+/* Hover dropdown */
+.dropdown ul.dropdown-menu {
+    margin-top: 0;
+}
+.nav-inner #five-block li{
+    line-height: 30px;
+}
+/*To avoid unwanted close*/
+.hover_drop_down:hover ul.dropdown-menu {
+    margin-top: 2px;
+    display: inline-block;
+    position: absolute;
+    top: auto;
+    left: auto;
+    z-index: 1;
+}
+
 nav {
     position: sticky;
     top: 0;
@@ -159,9 +1139,11 @@ nav {
     transform: 0.3s;
     border-bottom: 2px solid #f8f8f8;
 }
-nav .inner-topbar{
+
+nav .inner-topbar {
     background: #121212;
 }
+
 nav .top-bar {
     color: white;
     align-items: center;
@@ -176,7 +1158,7 @@ nav .top-bar {
 .top-bar .information {
     display: flex;
     align-items: center;
-    
+
 }
 
 .top-bar .information span {
@@ -201,10 +1183,14 @@ nav .nav-inner {
     max-width: calc(1440px - 170px);
     width: 100%;
     margin: auto;
+    position: relative;
+    /* Để submenu có thể căn chỉnh theo thẻ cha */
+
 }
 
+
 .nav-inner .links a {
-    margin: 0px 16px;
+    /* margin: 0px 16px; */
     font-style: normal;
     font-weight: 400px;
     font-size: 16px;
