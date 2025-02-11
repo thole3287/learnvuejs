@@ -43,10 +43,6 @@
                                 <img src="https://s3-alpha-sig.figma.com/img/0644/8fb8/6beb3a5714e2969e4094c6fc2cdcd2e4?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=FkeVMXFNur-YTDOh94mKvBdlfqGKrsHAafp7NhIa4hlU2Bq0t01V~D7m~e8PnjfMb~D-3GbYU9q8XDBpUXA8vKdY8cVKLP6-WDsc8gpwCYwoRpa2e9ePOFNzOnbwhz9PV2CrVMme4IUAkXAeAWEII4OYCFiNlU~WziJUZVDe9FXluS-E7g-c49n7VBC6WZMqs9UA3OfcRaPXrCjvTTzsukSuNUL3n1BirNXbxHWycFDWUsLKcrvErpD8EGbqWlNTgFxu933NlKhGEBk2vt24kLOCQ1YzPFB8Z3EfoFFLf-jls5V6czDYEyNxiLmpaQTB9TyMH7PBiRDR2VRljJIAUw__"
                                     alt="Thumbnail 4">
                             </div>
-                            <!-- <div class="thumbnail">
-                                <img src="https://s3-alpha-sig.figma.com/img/0644/8fb8/6beb3a5714e2969e4094c6fc2cdcd2e4?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=FkeVMXFNur-YTDOh94mKvBdlfqGKrsHAafp7NhIa4hlU2Bq0t01V~D7m~e8PnjfMb~D-3GbYU9q8XDBpUXA8vKdY8cVKLP6-WDsc8gpwCYwoRpa2e9ePOFNzOnbwhz9PV2CrVMme4IUAkXAeAWEII4OYCFiNlU~WziJUZVDe9FXluS-E7g-c49n7VBC6WZMqs9UA3OfcRaPXrCjvTTzsukSuNUL3n1BirNXbxHWycFDWUsLKcrvErpD8EGbqWlNTgFxu933NlKhGEBk2vt24kLOCQ1YzPFB8Z3EfoFFLf-jls5V6czDYEyNxiLmpaQTB9TyMH7PBiRDR2VRljJIAUw__"
-                                    alt="Thumbnail 5">
-                            </div> -->
                         </div>
                     </div>
                     <!-- Main Image with Navigation Controls -->
@@ -62,24 +58,34 @@
             </div>
             <div class="col-sm-6">
                 <div class="product-container">
-                    <div class="product-title"><span class="greys">Color:</span> <span>Blue</span></div>
+                    <div class="product-title">
+                        <span class="greys">Color:</span>
+                        <span>{{ selectedColor }}</span>
+                    </div>
+
                     <div class="product-images">
-                        <img src="https://s3-alpha-sig.figma.com/img/928b/c5be/0c6375ab1c11315af8ae4f1122ce3335?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=d4ys74rB6M-0i0CCIn6gV2jBpETAMRSJs--Qp3BM5eOj-ofuR7IDtn-YWnBpMH2C27YCN58sR-t4ZI10JApGIQdYTkM-oCNpr4pZ~sdNDbQnGpkIhSs2ZjH-GdjqC3dYNuaCXRrRqxa2-10oDNZGgxe-AfR3Z4V~IWbfBOTzINUhX3NpSU3SHIJ2cIyYEMZX2U6cr5Q5CFZ9BT2~xfqloYrtZfkrJSZg5g8TrfdTceDVRyKlI3QK5ycy1-mycD6XLYWIVyfqhF~lwZ7UzsA-hNex1ZoKMqnvwPxNKthYYccuA5LzxjTxE7KRR~TXgflGwHcpd1R-RS8-XNE~mtyluA__"
-                            alt="Blue Pants" class="selected" @click="selectImage($event)">
-                        <img src="https://s3-alpha-sig.figma.com/img/03c9/6e40/f511c41f8689f6d2ef7e8d6581afd6f0?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=kgwtz4xuaTXUghn39wsyE7Lk4M~90ukkB~dOiVIVFGoJMvkCAixUdi3IbSGaAN-KIBVMLZW3~hwKfk0xlw1q7P6RlpOq3bwlr5EAKEKc~0i9ZlgXZRLwrLZofcGBcJN4zIoU46JDrdHU8-aPvrWAL9Jp6DbsirYKNXL1Ocw79SnY6iubu5iFY5runm5zLUCrTPoSxm8KuU1v3zIXA6UKjjrKMW5c8KKdASqrTLZKCpZDIbzzl0McDmGDkc5RFS-BsQddIQISzVW5Dxu7DLtT4iKFTk-UvhJjTO3uiBFCy7hjrjPhESFA0Ibw0-xHSI7XSNeDSTTZIyP-T48~LlLhag__"
-                            alt="White Pants" @click="selectImage($event)">
-                        <img src="https://s3-alpha-sig.figma.com/img/abf8/1695/d589f14e6c7e3e3edb876a8005dcf7ff?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=Ux-x2e-5B6-XEe5UqvAKDTJIWqJQmo~SLvfjNrP9JV2ji1VgM8zAgfQ5TAlcIVS4x~OViAjjSiQIRFqQVcCzt2JMMtXK-Fy5YKLTO3DcuEu1sBuEocyp39F6KiyGffB3SurYttJAd~D2r0V~YzSmihXF6Pu~tLKnfqQ6op-KnFnRzVbMKNqZD3O8QrP3FUiu7rq2PoFmbOGEK~6uFsa57-hhgPZz4VdUWJgfNDOTnZ9ceWsAYi0de8APS~Q~a6TwK3BvQeOvRAxH7FysDsWkrFj9W5~etTxpgjgvTu~rp6pvkN5pIN~LIgsV8LVKLX8vKtVnglYk0jHPyE3wEbET4g__"
-                            alt="Black Pants" @click="selectImage($event)">
-                        <img src="https://s3-alpha-sig.figma.com/img/228e/1860/ab12f25c8968002ca6e290c06849a523?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=BLUoSq88VGOxgtD40vcojInB2R9zHRcCn8zRNkc~GKlpBDcyk2-jZriDJ6SGOOBO-OlJQW5CIg674EvQ1YMpyFCrATchpdQNxGQirYocjctgG0fSrFfzAug~8Ed2KhUGobkxhXq1gXV4BUzxCbU6c3BCHCb7hWtOPZiMrrClj3MYwbJJZjA1OYjCCp8sj1tcf9SxzAxgmnxoetFVS9IVj4G-dUY3BA7fX9ZNPp41bYoejmWJWpTZzcG9X7kMolZ-M6f316iupF95Ca~WlIc2FMOgjJO4AAgzZJ0hQ4n6zz2eL7P3oG0rPpv~7Q1VIpuAuc8lEqc~DdlDzkNcL7SIXQ__"
-                            alt="Beige Pants" @click="selectImage($event)">
+                        <img
+                        v-for="(color, index) in product.colors"
+                        :key="index"
+                        :src="color.image"
+                        @click="selectColor(color)"
+                        :class="{ selected: color.name === selectedColor }"
+                        />
                     </div>
                     <div class="product-details">
-                        <div class="product-size"><span class="greys">Size:</span> S</div>
+                        <div class="product-size">
+                        <span class="greys">Size:</span> {{ selectedSize }}
+                        </div>
                         <div class="size-selector">
-                            <button class="size-button" @click="selectSize($event)">XS</button>
-                            <button class="size-button selected" @click="selectSize($event)">S</button>
-                            <button class="size-button" @click="selectSize($event)">M</button>
-                            <button class="size-button" @click="selectSize($event)">L</button>
+                            <button
+                                v-for="size in product.sizes"
+                                :key="size"
+                                class="size-button"
+                                @click="selectSize(size)"
+                                :class="{ selected: size === selectedSize }"
+                            >
+                                {{ size }}
+                            </button>
                         </div>
                         <div class="size-guide">
                             <a href="#"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -95,9 +101,9 @@
                         </div>
 
                         <div class="price-cart d-flex align-items-center">
-                            <div class="product-price">$ 379.99</div>
+                            <div class="product-price">$ {{ selectedPrice }}</div>
                             <div class="add-to-cart">
-                                <button class="btn-add-to-cart">Add to Cart</button>
+                                <button class="btn-add-to-cart" @click="addToCart">Add to Cart</button>
                                 <div class="icons">
                                     <svg width="20" height="17" viewBox="0 0 20 17" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -160,20 +166,7 @@
                     </div>
 
                     <div class="checkout-icons d-flex justify-content-between">
-                        <img src="https://s3-alpha-sig.figma.com/img/118a/b1cd/509ffeb0c79c0d68cd71f1deb6b0e63f?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=iCrLnNF3U0Sfj1GOc6Kh325ieBeH2SU23m5g57o~zgUbh8zYCoXCU1aijUCxuaoIhPy9E~EOdzILbsVn7LSfC~YqpBlli18XvccswmPCcx7v6sobc0dkrQ8scz1o9og8~l0ycnK2Rq4-hcoqUMBsSoqIJK9C5EJSnpy17kj-pvpVbpiLJQN7h-jW11i7ccEKwepkJTKpCa2mfStWk9aX4CW1SHijIfjGVpwYR3aNYbc~Jcu8HEadM~bw2oPvialFXRDKrsHkIAnU2SbIq6JOCsJSMt5McBGpr3iQut-w0Sb-LsASH2QzsuyGvRJOKMWo~Dtwixss~SWlUwrVfnkN9Q__"
-                            alt="Stripe">
-                        <img src="https://s3-alpha-sig.figma.com/img/7988/a2ed/df39cd6ce75dd6daece96c9ffd135bd4?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=R3-JAbA830JefOvOc1BNxc9tmnqCm~Ell~4EmMR80ws0PhT5e2wg2SnwaK-N4WKKuSV0V0n93H9POa2Pf8ouUfhM1OOnu6eMxDt-KpyV-8NYCul0lxfpgPP3ClG-O~k27wwv64XgQKwrWk2lDKs-TNW1A-BclshT9NbnrYMI7HlhOqT1oidJT40--GGECar64aLYhnI~B9gn5UEiTFeYHFxAZcEaZOZneyUyQkEEwN7VNP~ZmCnxoFapWd0lTyE~Cn3Sz6ZuNRSV6oGVt-IXfphUS9yHeqhbGlazfot588ZPNo1FbePBda0RyPx2HB8Q5YznpeFgDLow0Q4xx6uL4A__"
-                            alt="PayPal">
-                        <img src="https://s3-alpha-sig.figma.com/img/9f68/ca6e/0bd6acf971b252f36b2f4da901331c74?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=M5kLzit3~UOnyhOLA17scM5l19R-PMwdhLeP6TPEy1133aa0jFZOq9lHAwKehuk~cKjzLFK5l4tQDE3y7NG1Hf9ZccXtq0M8sopprQQ657OL4BCFS4rLgBBI~R4YLrCRsLyCz8R4gU6O6aEI6NNJNTWYe3NKY-OFSKC7KWngLMx5OJlICVG3KtMFvtj0zZHMnlz3BId42F7mkHSsEGiSCsTdERQCad0eZicx0Mbw~o3j0xlPNpnVjIbtWJ3XjpBueqxnYah1HATu~Rz7z4G6FzkMyZkzQ-IazllxInQVCp5S2~WAMQnSTx~STlhC2MKhsbM9GcYH6u9eml1h6v-0Pw__"
-                            alt="Visa">
-                        <img src="https://s3-alpha-sig.figma.com/img/f5c2/433b/884256ccd391d41c93d031c4aa573c26?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=C3YH3WDUSvXSZUYeMp3Yf4GySpkYMpxC7k~N2u4Xi2AJMMQgf9p9XJNjmL2gLSXiUVA4wJccftycx0EVAK6y3piUSo92rIuh1o-I9MuPdZjcoRzfdJ~dSaXJsV1RfNfImSUAmzsYR2saz0lpB8BnYrnwvTrr0w2PJEqNGhugOVqtxsfIhsh3pe28VXCkYSau33b2smhbwZ7Wj1e4v9PqhAmpI47A0i5OeptLh5QW7K8YK-qwxqYP0DK2mnh47IZbACRdTfcBMqZGxZ~kCLtBwhEwyDMQ~KI-lePOuBzSuizX22WiDTSVyxYJwVy~uHbEJIBTHnvSf6E9kGy6dSL~0w__"
-                            alt="MasterCard">
-                        <img src="https://s3-alpha-sig.figma.com/img/e267/12a4/e76a1c3216365d74bde81a54361dcf3d?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=QIiwd8utWy1KWN-CL91fUErOvDY5KGfIp79zcADCSSmNbBgJvEiuZDO7T7zJoI4AGXfFpI4tUqKTu0ehfCGMpEk7LrUtH1bhkx7y6lPCQ80VIqjq~8B4P1WKGL0ROcqJfYnF5Ui0N4Z9OxpoHf7PcL467RMppJqBid1qpsKRFL1uq1OM3f~V1glUz-8HKCbIlhyQp1i-zKTo1AWGyp55k-3~yWYDIMJEESwztJHwLmupF7vHFMW-3CE-BtQ8SM2oPKMV4NVzeLIB1rblGo2YRehAUvKE2q3zI2R9hRlBEICZE9Jv9cC3yxHJsv8xMPSkCrrb59bd94kXh6FRrm~s5g__"
-                            alt="Discover">
-                        <img src="https://s3-alpha-sig.figma.com/img/bedd/7aa2/01110c16fa8b8b414a59a973600342a4?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=ZxvOArUH6oGVhC21p9OVYbfD4W44O5kYhI4eaO9eIJLoq-K7rMEAtzIe2C2A~9xZz9VyCiGnlx8~8pgffJwWIZplVcDJ3dlug3JzHV9LM8pskNANYg1GWYNwlH7Whgq584rP8QcYsAFjsWhtGA2CUSdIzqEPitWX0EyV6ci5ssxwtYQ3AYBFgQ6JQ9VuK~TMBPqZVMpFwS6gVxlt3A7sCqz9l7PhBqY7dqqVdPhZdDyDYfmUwfJH5PeMKWv1orQF-Q2HNNzuSGH5vXvMbxeml9h2hxwiI4mA-IWTU7qP0u983tIQaZm4JoFDFgrK22JhqPwcFtNAofLRir5G1RW~Iw__"
-                            alt="Discover">
-                        <img src="https://s3-alpha-sig.figma.com/img/9b1a/ced2/21b3454fe78c09679d16d55b964fc5e0?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=LRJi8m7410am-oCmkH43sfrvzEO6BbPiso0BTUl5Qmho0FZOHSI8vsu-wqWTc4pVJD7EOwIAVpDpJPmMLgHjPs1x32cLe8HzmO1mP456zaYe0YpgjNznntiD3038EwxBRSzG9~C~v7tk5dPstdPo~N52Bf4ywD23y5Sj3Jcw-yoJy36JMYnRyCe5mbJg53fxv7B~ZIyubplhYH0xr~wDVZMefP8Tg78NR8AgMzuihY5JkNo4S2pD0uobfycoPRxNLRmPEdptxFASA34g0J60pKxcZbRSCPuTAzankeIFi28R~rbq-4daS8r1259Xj57NBeNuDxtXNJSIiuLmVstzyw__"
-                            alt="American Express">
+                        <img  v-for="guaranteed in icons" :key="guaranteed.id" :src="guaranteed.imgIcon" :alt="guaranteed.alt">
                     </div>
                     <div class="description pt-4 pb-4">
                         <span class="greys text-uppercase">
@@ -435,6 +428,94 @@
 
 <script setup>
 
+import { ref } from 'vue';
+import { useCartStore } from '@/stores/cart'; // Import Pinia Store
+
+const cartStore = useCartStore();
+
+const product = ref({
+  id: 1,
+  name: "Women's tracksuit Q109",
+  variants: {
+    "Blue-XS": 100,
+    "Blue-S": 95,
+    "White-XS": 110,
+    "White-S": 105
+  },
+  images: ['https://s3-alpha-sig.figma.com/img/928b/c5be/0c6375ab1c11315af8ae4f1122ce3335?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=d4ys74rB6M-0i0CCIn6gV2jBpETAMRSJs--Qp3BM5eOj-ofuR7IDtn-YWnBpMH2C27YCN58sR-t4ZI10JApGIQdYTkM-oCNpr4pZ~sdNDbQnGpkIhSs2ZjH-GdjqC3dYNuaCXRrRqxa2-10oDNZGgxe-AfR3Z4V~IWbfBOTzINUhX3NpSU3SHIJ2cIyYEMZX2U6cr5Q5CFZ9BT2~xfqloYrtZfkrJSZg5g8TrfdTceDVRyKlI3QK5ycy1-mycD6XLYWIVyfqhF~lwZ7UzsA-hNex1ZoKMqnvwPxNKthYYccuA5LzxjTxE7KRR~TXgflGwHcpd1R-RS8-XNE~mtyluA__', 'https://s3-alpha-sig.figma.com/img/5e3e/bbb3/e6ac9b90a036c06f585190bc81c6c22e?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=cNh10rY0~ZQYwO2JdpcDbxT5wSD4teDS9KND8c1EeUEoLG-kJg0UpdJ~JzceniisNDdhJ52GN9~x~qOudCdIfgPFNmgkySauWoucRgQ96gmORunBgxeYzFC2NnqNPowf~fdf-5MkZ1vu1Tetcqm9Ru1~9I48mt7C7c6PZ6V88WCdLKm0OaHJbueX82MSyGK7yAyNNd-2AXJ2LxbG6escKY2qkWxntfwD~3JYjg6TYYILHb0DwJLVueXW~vdxDiIg1PPgQBTItdwtCgx1WD4qB0Kda~kpRbkVqTDCBbD2SGP4sNeiw1bPIQIoVyD-o90LOyNkkLk9KUeLSX2UIwt5Ww__', 'https://s3-alpha-sig.figma.com/img/5e3e/bbb3/e6ac9b90a036c06f585190bc81c6c22e?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=cNh10rY0~ZQYwO2JdpcDbxT5wSD4teDS9KND8c1EeUEoLG-kJg0UpdJ~JzceniisNDdhJ52GN9~x~qOudCdIfgPFNmgkySauWoucRgQ96gmORunBgxeYzFC2NnqNPowf~fdf-5MkZ1vu1Tetcqm9Ru1~9I48mt7C7c6PZ6V88WCdLKm0OaHJbueX82MSyGK7yAyNNd-2AXJ2LxbG6escKY2qkWxntfwD~3JYjg6TYYILHb0DwJLVueXW~vdxDiIg1PPgQBTItdwtCgx1WD4qB0Kda~kpRbkVqTDCBbD2SGP4sNeiw1bPIQIoVyD-o90LOyNkkLk9KUeLSX2UIwt5Ww__', 'https://s3-alpha-sig.figma.com/img/5e3e/bbb3/e6ac9b90a036c06f585190bc81c6c22e?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=cNh10rY0~ZQYwO2JdpcDbxT5wSD4teDS9KND8c1EeUEoLG-kJg0UpdJ~JzceniisNDdhJ52GN9~x~qOudCdIfgPFNmgkySauWoucRgQ96gmORunBgxeYzFC2NnqNPowf~fdf-5MkZ1vu1Tetcqm9Ru1~9I48mt7C7c6PZ6V88WCdLKm0OaHJbueX82MSyGK7yAyNNd-2AXJ2LxbG6escKY2qkWxntfwD~3JYjg6TYYILHb0DwJLVueXW~vdxDiIg1PPgQBTItdwtCgx1WD4qB0Kda~kpRbkVqTDCBbD2SGP4sNeiw1bPIQIoVyD-o90LOyNkkLk9KUeLSX2UIwt5Ww__'],
+  colors: [
+    { 
+        name: "Blue", 
+        image: "https://s3-alpha-sig.figma.com/img/5e3e/bbb3/e6ac9b90a036c06f585190bc81c6c22e?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=cNh10rY0~ZQYwO2JdpcDbxT5wSD4teDS9KND8c1EeUEoLG-kJg0UpdJ~JzceniisNDdhJ52GN9~x~qOudCdIfgPFNmgkySauWoucRgQ96gmORunBgxeYzFC2NnqNPowf~fdf-5MkZ1vu1Tetcqm9Ru1~9I48mt7C7c6PZ6V88WCdLKm0OaHJbueX82MSyGK7yAyNNd-2AXJ2LxbG6escKY2qkWxntfwD~3JYjg6TYYILHb0DwJLVueXW~vdxDiIg1PPgQBTItdwtCgx1WD4qB0Kda~kpRbkVqTDCBbD2SGP4sNeiw1bPIQIoVyD-o90LOyNkkLk9KUeLSX2UIwt5Ww__" },
+    { 
+        name: "White", 
+        image: "https://s3-alpha-sig.figma.com/img/5e3e/bbb3/e6ac9b90a036c06f585190bc81c6c22e?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=cNh10rY0~ZQYwO2JdpcDbxT5wSD4teDS9KND8c1EeUEoLG-kJg0UpdJ~JzceniisNDdhJ52GN9~x~qOudCdIfgPFNmgkySauWoucRgQ96gmORunBgxeYzFC2NnqNPowf~fdf-5MkZ1vu1Tetcqm9Ru1~9I48mt7C7c6PZ6V88WCdLKm0OaHJbueX82MSyGK7yAyNNd-2AXJ2LxbG6escKY2qkWxntfwD~3JYjg6TYYILHb0DwJLVueXW~vdxDiIg1PPgQBTItdwtCgx1WD4qB0Kda~kpRbkVqTDCBbD2SGP4sNeiw1bPIQIoVyD-o90LOyNkkLk9KUeLSX2UIwt5Ww__" }
+  ],
+  sizes: ["XS", "S"]
+});
+
+const icons = ref([
+    {
+        id: 1,
+        alt: 'Stripe',
+        imgIcon: 'https://s3-alpha-sig.figma.com/img/118a/b1cd/509ffeb0c79c0d68cd71f1deb6b0e63f?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=iCrLnNF3U0Sfj1GOc6Kh325ieBeH2SU23m5g57o~zgUbh8zYCoXCU1aijUCxuaoIhPy9E~EOdzILbsVn7LSfC~YqpBlli18XvccswmPCcx7v6sobc0dkrQ8scz1o9og8~l0ycnK2Rq4-hcoqUMBsSoqIJK9C5EJSnpy17kj-pvpVbpiLJQN7h-jW11i7ccEKwepkJTKpCa2mfStWk9aX4CW1SHijIfjGVpwYR3aNYbc~Jcu8HEadM~bw2oPvialFXRDKrsHkIAnU2SbIq6JOCsJSMt5McBGpr3iQut-w0Sb-LsASH2QzsuyGvRJOKMWo~Dtwixss~SWlUwrVfnkN9Q__'
+    },
+    {
+        id: 2,
+        alt: 'Aes',
+        imgIcon: 'https://s3-alpha-sig.figma.com/img/7988/a2ed/df39cd6ce75dd6daece96c9ffd135bd4?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=R3-JAbA830JefOvOc1BNxc9tmnqCm~Ell~4EmMR80ws0PhT5e2wg2SnwaK-N4WKKuSV0V0n93H9POa2Pf8ouUfhM1OOnu6eMxDt-KpyV-8NYCul0lxfpgPP3ClG-O~k27wwv64XgQKwrWk2lDKs-TNW1A-BclshT9NbnrYMI7HlhOqT1oidJT40--GGECar64aLYhnI~B9gn5UEiTFeYHFxAZcEaZOZneyUyQkEEwN7VNP~ZmCnxoFapWd0lTyE~Cn3Sz6ZuNRSV6oGVt-IXfphUS9yHeqhbGlazfot588ZPNo1FbePBda0RyPx2HB8Q5YznpeFgDLow0Q4xx6uL4A__'
+    },
+    {
+        id: 3,
+        alt: 'PayPal',
+        imgIcon: 'https://s3-alpha-sig.figma.com/img/9f68/ca6e/0bd6acf971b252f36b2f4da901331c74?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=M5kLzit3~UOnyhOLA17scM5l19R-PMwdhLeP6TPEy1133aa0jFZOq9lHAwKehuk~cKjzLFK5l4tQDE3y7NG1Hf9ZccXtq0M8sopprQQ657OL4BCFS4rLgBBI~R4YLrCRsLyCz8R4gU6O6aEI6NNJNTWYe3NKY-OFSKC7KWngLMx5OJlICVG3KtMFvtj0zZHMnlz3BId42F7mkHSsEGiSCsTdERQCad0eZicx0Mbw~o3j0xlPNpnVjIbtWJ3XjpBueqxnYah1HATu~Rz7z4G6FzkMyZkzQ-IazllxInQVCp5S2~WAMQnSTx~STlhC2MKhsbM9GcYH6u9eml1h6v-0Pw__'
+    },
+    {
+        id: 4,
+        alt: 'Visa',
+        imgIcon: 'https://s3-alpha-sig.figma.com/img/f5c2/433b/884256ccd391d41c93d031c4aa573c26?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=C3YH3WDUSvXSZUYeMp3Yf4GySpkYMpxC7k~N2u4Xi2AJMMQgf9p9XJNjmL2gLSXiUVA4wJccftycx0EVAK6y3piUSo92rIuh1o-I9MuPdZjcoRzfdJ~dSaXJsV1RfNfImSUAmzsYR2saz0lpB8BnYrnwvTrr0w2PJEqNGhugOVqtxsfIhsh3pe28VXCkYSau33b2smhbwZ7Wj1e4v9PqhAmpI47A0i5OeptLh5QW7K8YK-qwxqYP0DK2mnh47IZbACRdTfcBMqZGxZ~kCLtBwhEwyDMQ~KI-lePOuBzSuizX22WiDTSVyxYJwVy~uHbEJIBTHnvSf6E9kGy6dSL~0w__'
+    },
+    {
+        id: 5,
+        alt: 'MasterCard',
+        imgIcon: 'https://s3-alpha-sig.figma.com/img/e267/12a4/e76a1c3216365d74bde81a54361dcf3d?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=QIiwd8utWy1KWN-CL91fUErOvDY5KGfIp79zcADCSSmNbBgJvEiuZDO7T7zJoI4AGXfFpI4tUqKTu0ehfCGMpEk7LrUtH1bhkx7y6lPCQ80VIqjq~8B4P1WKGL0ROcqJfYnF5Ui0N4Z9OxpoHf7PcL467RMppJqBid1qpsKRFL1uq1OM3f~V1glUz-8HKCbIlhyQp1i-zKTo1AWGyp55k-3~yWYDIMJEESwztJHwLmupF7vHFMW-3CE-BtQ8SM2oPKMV4NVzeLIB1rblGo2YRehAUvKE2q3zI2R9hRlBEICZE9Jv9cC3yxHJsv8xMPSkCrrb59bd94kXh6FRrm~s5g__'
+    },
+    {
+        id: 6,
+        alt: 'Discover',
+        imgIcon: 'https://s3-alpha-sig.figma.com/img/bedd/7aa2/01110c16fa8b8b414a59a973600342a4?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=ZxvOArUH6oGVhC21p9OVYbfD4W44O5kYhI4eaO9eIJLoq-K7rMEAtzIe2C2A~9xZz9VyCiGnlx8~8pgffJwWIZplVcDJ3dlug3JzHV9LM8pskNANYg1GWYNwlH7Whgq584rP8QcYsAFjsWhtGA2CUSdIzqEPitWX0EyV6ci5ssxwtYQ3AYBFgQ6JQ9VuK~TMBPqZVMpFwS6gVxlt3A7sCqz9l7PhBqY7dqqVdPhZdDyDYfmUwfJH5PeMKWv1orQF-Q2HNNzuSGH5vXvMbxeml9h2hxwiI4mA-IWTU7qP0u983tIQaZm4JoFDFgrK22JhqPwcFtNAofLRir5G1RW~Iw__'
+    },
+    {
+        id: 7,
+        alt: 'American Express',
+        imgIcon: 'https://s3-alpha-sig.figma.com/img/9b1a/ced2/21b3454fe78c09679d16d55b964fc5e0?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=LRJi8m7410am-oCmkH43sfrvzEO6BbPiso0BTUl5Qmho0FZOHSI8vsu-wqWTc4pVJD7EOwIAVpDpJPmMLgHjPs1x32cLe8HzmO1mP456zaYe0YpgjNznntiD3038EwxBRSzG9~C~v7tk5dPstdPo~N52Bf4ywD23y5Sj3Jcw-yoJy36JMYnRyCe5mbJg53fxv7B~ZIyubplhYH0xr~wDVZMefP8Tg78NR8AgMzuihY5JkNo4S2pD0uobfycoPRxNLRmPEdptxFASA34g0J60pKxcZbRSCPuTAzankeIFi28R~rbq-4daS8r1259Xj57NBeNuDxtXNJSIiuLmVstzyw__'
+    }
+])
+const selectedColor = ref(product.value.colors[0].name);
+const selectedSize = ref(product.value.sizes[0]);
+const selectedPrice = ref(product.value.variants[`${selectedColor.value}-${selectedSize.value}`]);
+
+const selectColor = (color) => {
+  selectedColor.value = color.name;
+  selectedPrice.value = product.value.variants[`${selectedColor.value}-${selectedSize.value}`];
+};
+
+const selectSize = (size) => {
+  selectedSize.value = size;
+  selectedPrice.value = product.value.variants[`${selectedColor.value}-${selectedSize.value}`];
+};
+
+const addToCart = () => {
+  cartStore.addToCart({
+    id: product.value.id,
+    name: product.value.name,
+    color: selectedColor.value,
+    size: selectedSize.value,
+    price: selectedPrice.value,
+    image: product.value.images[0] // Lấy ảnh đầu tiên làm ảnh hiển thị
+  });
+};
+
 $(document).ready(function () {
     $('.carousel-container').slick({
         infinite: true,
@@ -481,15 +562,6 @@ $(document).ready(function () {
     });
 });
 
-const selectImage = (event) => {
-    document.querySelectorAll('.product-images img').forEach(image => image.classList.remove('selected'));
-    event.target.classList.add('selected');
-};
-
-const selectSize = (event) => {
-    document.querySelectorAll('.size-button').forEach(btn => btn.classList.remove('selected'));
-    event.target.classList.add('selected');
-};
 
 document.addEventListener('DOMContentLoaded', function () {
     const mainImage = document.getElementById('mainImage');

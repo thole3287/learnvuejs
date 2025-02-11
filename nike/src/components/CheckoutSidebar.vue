@@ -8,24 +8,28 @@
       </div>
 
       <div class="cart-items">
+        <div  v-if="Object.keys(cartStore.cartItems).length == 0" class="text-center">
+          <p>Cart item is empty</p>
+        </div>
         <div class="cart-item" v-for="item in cartStore.cartItems" :key="`${item.id}-${item.color}-${item.size}`">
           <img :src="item.image" :alt="item.name" />
           <div class="cart-item-details">
             <p class="cart-item-title">{{ item.name }}</p>
             <p class="cart-item-options">{{ item.color }}, {{ item.size }}</p>
 
-            <div class="cart-item-quantity">
+            <div class="cart-item-quantity d-flex justify-content-between">
               <button @click="cartStore.updateQuantity(item.id, item.color, item.size, -1)">-</button>
               <span>{{ item.quantity }}</span>
               <button @click="cartStore.updateQuantity(item.id, item.color, item.size, 1)">+</button>
-            </div>
-
-            <!-- Sửa lỗi hiển thị giá -->
-            <p class="cart-item-price">${{ item.price }}</p>
+               <!-- Sửa lỗi hiển thị giá -->
+              <p class="cart-item-price">${{ item.price }}</p>
 
             <button @click="cartStore.removeItem(item.id, item.color, item.size)" class="delete-btn">
               &#128465;
             </button>
+            </div>
+
+           
           </div>
         </div>
       </div>
