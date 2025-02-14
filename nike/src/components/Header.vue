@@ -1131,13 +1131,13 @@ a,
 a:active,
 a:visited,
 a:link {
-    color: #007bff;
+    /* color: #007bff; */
     text-decoration: none;
 }
 
-a:hover {
+/* a:hover {
     color: black;
-}
+} */
 
 /* Hover dropdown */
 .dropdown ul.dropdown-menu {

@@ -43,8 +43,12 @@
           <span>Total</span>
           <span>${{ cartStore.total }}</span>
         </div>
-        <button class="checkout-btn">Check Out</button>
-        <button class="view-cart-btn">View Cart</button>
+          <a href="/shopping-cart" class="checkout-btn">
+            Check Out
+          </a>
+          <a href="/shopping-cart" class="view-cart-btn">
+            View Cart
+          </a>
       </div>
     </div>
   </div>
@@ -240,6 +244,7 @@ const removeItem = (id) => {
   padding: 0.75rem;
   border: none;
   cursor: pointer;
+  text-align: center;
 }
 
 .view-cart-btn {
@@ -248,5 +253,7 @@ const removeItem = (id) => {
   padding: 0.75rem;
   border: none;
   cursor: pointer;
+  text-align: center;
+
 }
 </style>
