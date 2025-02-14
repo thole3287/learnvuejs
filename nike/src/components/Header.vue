@@ -3,31 +3,31 @@
         <div class="inner-topbar">
             <div class="top-bar">
                 <div class="information">
-                    <span>
-                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <span class="d-flex justify-content-center align-items-center">
+                        <svg style="margin-right: 5px;" class="mr-2" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g opacity="0.8">
                                 <path
                                     d="M1.75 2.91667C1.75 2.60725 1.87292 2.3105 2.09171 2.09171C2.3105 1.87292 2.60725 1.75 2.91667 1.75H4.83C4.95238 1.75009 5.07163 1.78867 5.17087 1.86028C5.27012 1.93189 5.34433 2.03289 5.383 2.149L6.25683 4.76992C6.30111 4.90311 6.29587 5.04781 6.24208 5.17746C6.1883 5.30711 6.08956 5.41301 5.964 5.47575L4.64742 6.13492C5.29277 7.56323 6.43677 8.70723 7.86508 9.35258L8.52425 8.036C8.58698 7.91044 8.69289 7.8117 8.82254 7.75792C8.95219 7.70413 9.09689 7.69889 9.23008 7.74317L11.851 8.617C11.9672 8.6557 12.0683 8.73 12.1399 8.82936C12.2115 8.92872 12.25 9.0481 12.25 9.17058V11.0833C12.25 11.3928 12.1271 11.6895 11.9083 11.9083C11.6895 12.1271 11.3928 12.25 11.0833 12.25H10.5C5.66767 12.25 1.75 8.33233 1.75 3.5V2.91667Z"
                                     fill="white" stroke="#121212" stroke-linecap="round" stroke-linejoin="round" />
                             </g>
                         </svg>
-                        +84 039 6299 734
+                       <div class="text-center"> +84 039 6299 734</div>
                     </span>
-                    <span>
-                        <svg width="10" height="13" viewBox="0 0 10 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <span class="d-flex justify-content-center align-items-center">
+                        <svg style="margin-right: 5px;" width="10" height="13" viewBox="0 0 10 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" clip-rule="evenodd"
                                 d="M1.53502 1.83503C2.454 0.916055 3.7004 0.39978 5.00002 0.39978C6.29965 0.39978 7.54605 0.916055 8.46502 1.83503C9.384 2.75401 9.90028 4.0004 9.90028 5.30003C9.90028 6.59966 9.384 7.84606 8.46502 8.76503L5.00002 12.23L1.53502 8.76503C1.07996 8.31002 0.718988 7.76982 0.472709 7.17529C0.226429 6.58077 0.0996704 5.94355 0.0996704 5.30003C0.0996704 4.65651 0.226429 4.01929 0.472709 3.42477C0.718988 2.83024 1.07996 2.29004 1.53502 1.83503ZM5.00002 6.70003C5.37133 6.70003 5.72742 6.55253 5.98997 6.28998C6.25253 6.02743 6.40003 5.67133 6.40003 5.30003C6.40003 4.92873 6.25253 4.57263 5.98997 4.31008C5.72742 4.04753 5.37133 3.90003 5.00002 3.90003C4.62872 3.90003 4.27263 4.04753 4.01008 4.31008C3.74752 4.57263 3.60002 4.92873 3.60002 5.30003C3.60002 5.67133 3.74752 6.02743 4.01008 6.28998C4.27263 6.55253 4.62872 6.70003 5.00002 6.70003Z"
                                 fill="white" />
                         </svg>
-                        Tân Bình, HCM
+                        <div class="text-center">Tân Bình, HCM</div>
                     </span>
-                    <span>
-                        <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <span class="d-flex justify-content-center align-items-center">
+                        <svg style="margin-right: 5px;" width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" clip-rule="evenodd"
                                 d="M5 10C6.32608 10 7.59785 9.47322 8.53553 8.53553C9.47322 7.59785 10 6.32608 10 5C10 3.67392 9.47322 2.40215 8.53553 1.46447C7.59785 0.526784 6.32608 0 5 0C3.67392 0 2.40215 0.526784 1.46447 1.46447C0.526784 2.40215 0 3.67392 0 5C0 6.32608 0.526784 7.59785 1.46447 8.53553C2.40215 9.47322 3.67392 10 5 10ZM5.625 2.5C5.625 2.33424 5.55915 2.17527 5.44194 2.05806C5.32473 1.94085 5.16576 1.875 5 1.875C4.83424 1.875 4.67527 1.94085 4.55806 2.05806C4.44085 2.17527 4.375 2.33424 4.375 2.5V5C4.37504 5.16575 4.44091 5.32469 4.55813 5.44187L6.32563 7.21C6.38369 7.26807 6.45263 7.31413 6.5285 7.34556C6.60437 7.37699 6.68569 7.39316 6.76781 7.39316C6.84993 7.39316 6.93125 7.37699 7.00712 7.34556C7.08299 7.31413 7.15193 7.26807 7.21 7.21C7.26807 7.15193 7.31413 7.08299 7.34556 7.00712C7.37699 6.93125 7.39316 6.84993 7.39316 6.76781C7.39316 6.68569 7.37699 6.60437 7.34556 6.5285C7.31413 6.45263 7.26807 6.38369 7.21 6.32563L5.625 4.74125V2.5Z"
                                 fill="white" />
                         </svg>
-                        All week 24/7
+                        <div class="text-center" >All week 24/7</div>
                     </span>
 
                 </div>
@@ -118,7 +118,7 @@
             <!-- iconn -->
             <div class="icons">
                 <span>
-                    <a href="#" class="search">
+                    <a @click="isSearchOpen = !isSearchOpen" class="search">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M21 21L15 15L21 21ZM17 10C17 10.9193 16.8189 11.8295 16.4672 12.6788C16.1154 13.5281 15.5998 14.2997 14.9497 14.9497C14.2997 15.5998 13.5281 16.1154 12.6788 16.4672C11.8295 16.8189 10.9193 17 10 17C9.08075 17 8.1705 16.8189 7.32122 16.4672C6.47194 16.1154 5.70026 15.5998 5.05025 14.9497C4.40024 14.2997 3.88463 13.5281 3.53284 12.6788C3.18106 11.8295 3 10.9193 3 10C3 8.14348 3.7375 6.36301 5.05025 5.05025C6.36301 3.7375 8.14348 3 10 3C11.8565 3 13.637 3.7375 14.9497 5.05025C16.2625 6.36301 17 8.14348 17 10Z"
@@ -147,7 +147,7 @@
                         </svg>
                     </a>
                 </span>
-                <span>
+                <span class="cart-container">
                     <a @click="isCartOpen = !isCartOpen" class="cart">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -155,10 +155,11 @@
                                 stroke="#121212" stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
                     </a>
-                    
+                    <span class="cart-count">{{ Object.keys(cartStore.cartItems).length }}</span>
                 </span>
             </div>
-            <div class="sub-menu-block" id="five-block" style="display: none;" @mouseleave="megaMenuHide" @mouseover="megaMenuShow">
+            <div class="sub-menu-block" id="five-block" style="display: none;" @mouseleave="megaMenuHide"
+                @mouseover="megaMenuShow">
                 <div class="row">
                     <div class=" col-sm-6">
                         <div class="row">
@@ -421,16 +422,23 @@
         </div>
     </nav>
     <CheckoutSidebar :is-cart-open="isCartOpen" @close-cart="isCartOpen = false" />
-
-    <!-- <CheckoutSidebar :isCartOpen="isCartOpen" @toggle-cart="isCartOpen = !isCartOpen" /> -->
+    <SearchSidebar :is-search-open="isSearchOpen" @close-search="isSearchOpen = false" />
 
 </template>
 
 <script setup>
 import CheckoutSidebar from './CheckoutSidebar.vue';
 import { ref } from 'vue';
+import { useCartStore } from "@/stores/cart";
+import SearchSidebar from './SearchSidebar.vue';
+
+defineProps(["isCartOpen"]);
+
+const cartStore = useCartStore();
 
 const isCartOpen = ref(false);
+const isSearchOpen = ref(false);
+
 console.log(isCartOpen.value, 'isCartOpen11');
 
 
@@ -492,23 +500,40 @@ const megaMenuHide = (e) => {
 </script>
 
 <style>
+.cart-container {
+    position: relative;
+    display: inline-block;
+}
+
+.cart-count {
+    position: absolute;
+    top: -3px;
+    right: -18px;
+    background: #121212;
+    color: white;
+    font-size: 11px;
+    padding: 0px 7px;
+    border-radius: 50%;
+}
+
 /* cart checkout */
 
 .header-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem;
-  background-color: #f8f8f8;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #f8f8f8;
 }
+
 .cart {
-  /* background-color: black;
+    /* background-color: black;
   color: white;
   padding: 0.5rem 1rem;
   border: none;
   cursor: pointer;
   font-size: 1rem; */
-  cursor: pointer;
+    cursor: pointer;
 }
 
 /* cart checkout */
@@ -648,7 +673,8 @@ ul.main-nav>li:hover>a {
     color: #333;
     font-weight: 400;
 }
-.sub-menu-lists{
+
+.sub-menu-lists {
     padding-left: 0 !important;
 }
 
@@ -1105,7 +1131,7 @@ a,
 a:active,
 a:visited,
 a:link {
-    color: #599ab9;
+    color: #007bff;
     text-decoration: none;
 }
 
@@ -1117,9 +1143,11 @@ a:hover {
 .dropdown ul.dropdown-menu {
     margin-top: 0;
 }
-.nav-inner #five-block li{
+
+.nav-inner #five-block li {
     line-height: 30px;
 }
+
 /*To avoid unwanted close*/
 .hover_drop_down:hover ul.dropdown-menu {
     margin-top: 2px;

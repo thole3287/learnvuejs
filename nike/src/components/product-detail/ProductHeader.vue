@@ -11,7 +11,7 @@
                             xmlns="http://www.w3.org/2000/svg">
                             <path opacity="0.6" d="M0.561 4.262V0.643L7.502 2.458L0.561 4.262Z" fill="#121212" />
                         </svg></a>
-                    <a>Women's tracksuit Q109</a>
+                    <a>{{ dataHeader.productName }}</a>
                 </div>
                 <!-- iconn -->
                 <div class="icons-share">
@@ -28,19 +28,17 @@
                 </div>
             </div>
             <div class="product-title">
-                <h2> Women's tracksuit Q109</h2>
+                <h2>{{ dataHeader.productName }}</h2>
             </div>
             <div class="review-stock">
                 <div class="reviews">
                     <div class="star">
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star fa-star-o"></span>
-                        <span class="fa fa-star fa-star-o"></span>
+                        <span v-for="star in dataHeader.maxStars" :key="star" class="fa"
+                            :class="{ 'fa-star checked': star <= dataHeader.averageRating, 'fa-star-o': star > dataHeader.averageRating }">
+                        </span>
                     </div>
                     <div class="count-review">
-                        <span>3 Reviews</span>
+                        <span>{{ dataHeader.reviewLength }} Reviews</span>
                     </div>
                 </div>
                 <div class="stocks">
@@ -54,6 +52,9 @@
 
 <script setup>
 
+const dataHeader = defineProps(['productName', 'reviewLength', 'averageRating', 'maxStars'])
+console.log(dataHeader, 'products');
+
 </script>
 
 <style scoped>
@@ -64,7 +65,7 @@
     padding: 0.5rem 0;
 }
 .checked {
-  color: orange;
+  color: #FFD700;
 }
 
 .reviews {

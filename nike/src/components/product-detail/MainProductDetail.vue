@@ -1,4 +1,7 @@
 <template>
+    <ProductHeader :productName="product.value.name" :maxStars="maxStars" :averageRating="averageRating"
+        :reviewLength="reviews.length" />
+
     <div class="container mt-4">
         <div class="row">
             <div class="col-sm-6">
@@ -27,29 +30,17 @@
                         </div>
 
                         <div class="thumbnail-container" id="thumbnailContainer">
-                            <div class="thumbnail">
-                                <img src="https://s3-alpha-sig.figma.com/img/928b/c5be/0c6375ab1c11315af8ae4f1122ce3335?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=d4ys74rB6M-0i0CCIn6gV2jBpETAMRSJs--Qp3BM5eOj-ofuR7IDtn-YWnBpMH2C27YCN58sR-t4ZI10JApGIQdYTkM-oCNpr4pZ~sdNDbQnGpkIhSs2ZjH-GdjqC3dYNuaCXRrRqxa2-10oDNZGgxe-AfR3Z4V~IWbfBOTzINUhX3NpSU3SHIJ2cIyYEMZX2U6cr5Q5CFZ9BT2~xfqloYrtZfkrJSZg5g8TrfdTceDVRyKlI3QK5ycy1-mycD6XLYWIVyfqhF~lwZ7UzsA-hNex1ZoKMqnvwPxNKthYYccuA5LzxjTxE7KRR~TXgflGwHcpd1R-RS8-XNE~mtyluA__"
-                                    alt="Thumbnail 1">
-                            </div>
-                            <div class="thumbnail">
-                                <img src="https://s3-alpha-sig.figma.com/img/439b/062b/e28cb2d4ef6eb7a3fc9ce84865906483?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=UWGirIf63gzfe1oQh-arbDW2I0mn0kTF40~HY3~wiOwi-Yu8dnQqQpEqs9VjEpmNYgO0VesgA4KBLGhX6g2VXD9u5HeY9f9R8FWORhoIe95dsq3xlpK9UsGUk-IS3W9jOHOur6C9k5z-~JweYSf2iepekR~4mGGJXAyG62NW70sh29H7ONLZ2pKowu8DfIQlNSwmSD5-iEEZz6rWenWdv4-bKuQQG5cuybAyonpO244~M4raU0r-Gk8cNBxpJ2UdQSiQ4EcE-zZyqFUZ0-i3Ljib1pDPGHW8E-v8GConeGpccHvzCQW9JsfWOI1djE7qtyybj8bYJiis1dkhL1rHlg__"
-                                    alt="Thumbnail 2">
-                            </div>
-                            <div class="thumbnail">
-                                <img src="https://s3-alpha-sig.figma.com/img/9f26/1ede/0e071db44fff2bea2cae6a91dcd04bd7?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=rm8BYQ5TJ-SIfMxOGmBZFcLenfvTdaJ1Smw1j64puSG7TAE67R-itlvsareQPLuiT8xge~UbC5Hs7aCkMJ9YAWVBZitPL-gonoUntNuVDxxO88AQzmA89vBQrcjwBPhiYcZ-Z8POOXPYnvkju0NZsHWrA1Qp0lZOnYUwLTPs1TxblKsNlZQDq3HFv~MdpVyQsqOCafB0FfxCqCP~cdhpnEPbMK~rfnSAXJ0qmEbRnfj965Qd8g2wNdKB88tKzmq~QRSch2Y-7WPDCcZNR1OkKtrgSSqQbfGaN~Yhxi0FlQfX7cfSm7UgSzMkP4Qhwt6HC5jGWU~1uajo9kteQLMILA__"
-                                    alt="Thumbnail 3">
-                            </div>
-                            <div class="thumbnail">
-                                <img src="https://s3-alpha-sig.figma.com/img/0644/8fb8/6beb3a5714e2969e4094c6fc2cdcd2e4?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=FkeVMXFNur-YTDOh94mKvBdlfqGKrsHAafp7NhIa4hlU2Bq0t01V~D7m~e8PnjfMb~D-3GbYU9q8XDBpUXA8vKdY8cVKLP6-WDsc8gpwCYwoRpa2e9ePOFNzOnbwhz9PV2CrVMme4IUAkXAeAWEII4OYCFiNlU~WziJUZVDe9FXluS-E7g-c49n7VBC6WZMqs9UA3OfcRaPXrCjvTTzsukSuNUL3n1BirNXbxHWycFDWUsLKcrvErpD8EGbqWlNTgFxu933NlKhGEBk2vt24kLOCQ1YzPFB8Z3EfoFFLf-jls5V6czDYEyNxiLmpaQTB9TyMH7PBiRDR2VRljJIAUw__"
-                                    alt="Thumbnail 4">
+                            <div class="thumbnail" v-for="(image, index) in galleryImages" :key="index">
+                                <img :src="image" :alt="'Thumbnail ' + (index + 1)">
                             </div>
                         </div>
                     </div>
                     <!-- Main Image with Navigation Controls -->
                     <div class="main-image-wrapper">
                         <button class="control-button left" id="mainPrev">&lt;</button>
-                        <img src="https://s3-alpha-sig.figma.com/img/928b/c5be/0c6375ab1c11315af8ae4f1122ce3335?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=d4ys74rB6M-0i0CCIn6gV2jBpETAMRSJs--Qp3BM5eOj-ofuR7IDtn-YWnBpMH2C27YCN58sR-t4ZI10JApGIQdYTkM-oCNpr4pZ~sdNDbQnGpkIhSs2ZjH-GdjqC3dYNuaCXRrRqxa2-10oDNZGgxe-AfR3Z4V~IWbfBOTzINUhX3NpSU3SHIJ2cIyYEMZX2U6cr5Q5CFZ9BT2~xfqloYrtZfkrJSZg5g8TrfdTceDVRyKlI3QK5ycy1-mycD6XLYWIVyfqhF~lwZ7UzsA-hNex1ZoKMqnvwPxNKthYYccuA5LzxjTxE7KRR~TXgflGwHcpd1R-RS8-XNE~mtyluA__"
-                            alt="Main Product Image" class="main-image" id="mainImage">
+                        <img :src="mainImage" alt="Main Product Image" class="main-image" id="mainImage">
+                        <!-- <img src="https://s3-alpha-sig.figma.com/img/928b/c5be/0c6375ab1c11315af8ae4f1122ce3335?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=d4ys74rB6M-0i0CCIn6gV2jBpETAMRSJs--Qp3BM5eOj-ofuR7IDtn-YWnBpMH2C27YCN58sR-t4ZI10JApGIQdYTkM-oCNpr4pZ~sdNDbQnGpkIhSs2ZjH-GdjqC3dYNuaCXRrRqxa2-10oDNZGgxe-AfR3Z4V~IWbfBOTzINUhX3NpSU3SHIJ2cIyYEMZX2U6cr5Q5CFZ9BT2~xfqloYrtZfkrJSZg5g8TrfdTceDVRyKlI3QK5ycy1-mycD6XLYWIVyfqhF~lwZ7UzsA-hNex1ZoKMqnvwPxNKthYYccuA5LzxjTxE7KRR~TXgflGwHcpd1R-RS8-XNE~mtyluA__"
+                            alt="Main Product Image" class="main-image" id="mainImage"> -->
                         <button class="control-button right" id="mainNext">&gt;</button>
                     </div>
 
@@ -59,31 +50,21 @@
             <div class="col-sm-6">
                 <div class="product-container">
                     <div class="product-title">
-                        <span class="greys">Color:</span>
+                        <span class="greys">Color: </span>
                         <span>{{ selectedColor }}</span>
                     </div>
 
                     <div class="product-images">
-                        <img
-                        v-for="(color, index) in product.colors"
-                        :key="index"
-                        :src="color.image"
-                        @click="selectColor(color)"
-                        :class="{ selected: color.name === selectedColor }"
-                        />
+                        <img v-for="(color, index) in product.value.colors" :key="index" :src="color.mainImage"
+                            @click="selectColor(color)" :class="{ selected: color.name === selectedColor }" />
                     </div>
                     <div class="product-details">
                         <div class="product-size">
-                        <span class="greys">Size:</span> {{ selectedSize }}
+                            <span class="greys">Size:</span> {{ selectedSize }}
                         </div>
                         <div class="size-selector">
-                            <button
-                                v-for="size in product.sizes"
-                                :key="size"
-                                class="size-button"
-                                @click="selectSize(size)"
-                                :class="{ selected: size === selectedSize }"
-                            >
+                            <button v-for="size in product.value.sizes" :key="size" class="size-button"
+                                    @click="selectSize(size)" :class="{ selected: size === selectedSize }">
                                 {{ size }}
                             </button>
                         </div>
@@ -101,7 +82,11 @@
                         </div>
 
                         <div class="price-cart d-flex align-items-center">
-                            <div class="product-price">$ {{ selectedPrice }}</div>
+                            <div class="product-price">
+                                <!-- $ {{ selectedPrice }} -->
+                                <span v-if="product.value?.variants?.[`${selectedColor}-${selectedSize}`]">$ {{ productPrice }}</span>
+                                <span v-else>Price: Not Available</span>
+                            </div>
                             <div class="add-to-cart">
                                 <button class="btn-add-to-cart" @click="addToCart">Add to Cart</button>
                                 <div class="icons">
@@ -166,7 +151,8 @@
                     </div>
 
                     <div class="checkout-icons d-flex justify-content-between">
-                        <img  v-for="guaranteed in icons" :key="guaranteed.id" :src="guaranteed.imgIcon" :alt="guaranteed.alt">
+                        <img v-for="guaranteed in icons" :key="guaranteed.id" :src="guaranteed.imgIcon"
+                            :alt="guaranteed.alt">
                     </div>
                     <div class="description pt-4 pb-4">
                         <span class="greys text-uppercase">
@@ -183,14 +169,12 @@
                         <div class="review d-flex justify-content-between">
                             <div class="review-stars-total d-flex justify-content-between">
                                 <div class="stars">
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star checked"></span>
-                                    <span class="fa fa-star fa-star-o"></span>
-                                    <span class="fa fa-star fa-star-o"></span>
+                                    <span v-for="star in maxStars" :key="star" class="fa"
+                                        :class="{ 'fa-star': star <= averageRating, 'fa-star-o': star > averageRating }">
+                                    </span>
                                 </div>
                                 <div class="count-review">
-                                    <span>3 Reviews</span>
+                                    <span>{{ reviews.length }} reviews</span>
                                 </div>
                             </div>
                             <div class="review-button">
@@ -209,52 +193,24 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="review-box pt-2 pb-2">
+                        <div class="review-box pt-2 pb-2" v-for="review in reviews" :key="review.id">
                             <div class="review-name-stars d-flex justify-content-between">
                                 <div class="review-name">
-                                    Oleh Chabanov
+                                    {{ review.name_review }}
                                 </div>
                                 <div class="review-stars-total d-flex justify-content-between">
                                     <div class="count-review greys">
-                                        3 months ago
+                                        {{ review.time }}
                                     </div>
                                     <div class="stars">
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star fa-star-o"></span>
-                                        <span class="fa fa-star fa-star-o"></span>
+                                        <span v-for="star in maxStars" :key="star" class="fa"
+                                            :class="{ 'fa-star': star <= review.rating, 'fa-star-o': star > review.rating }">
+                                        </span>
                                     </div>
-
                                 </div>
                             </div>
                             <p class="greys">
-                                On the other hand, we denounce with righteous indignation and like men who are so
-                                beguiled and demoralized by the charms of pleasure of the moment
-                            </p>
-                        </div>
-                        <div class="review-box pt-2 pb-2">
-                            <div class="review-name-stars d-flex justify-content-between">
-                                <div class="review-name">
-                                    Oleh Chabanov
-                                </div>
-                                <div class="review-stars-total d-flex justify-content-between">
-                                    <div class="count-review greys">
-                                        3 months ago
-                                    </div>
-                                    <div class="stars">
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star fa-star-o"></span>
-                                        <span class="fa fa-star fa-star-o"></span>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <p class="greys">
-                                On the other hand, we denounce with righteous indignation and like men who are so
-                                beguiled and demoralized by the charms of pleasure of the moment
+                                {{ review.content }}
                             </p>
                         </div>
                     </div>
@@ -267,156 +223,33 @@
                 <h4 class="text-uppercase">Related Products</h4>
             </div>
             <div class="carousel-container pt-3">
-                <div class="products">
+                <div class="products" v-for="productRelated in productRelateds" :key="productRelated.id">
                     <div class="single-product">
                         <div class="img-container">
-                            <span class="sale-label">SALE 20%</span>
-                            <a href="#">
-                                <img class="img-fluid"
-                                    src="https://s3-alpha-sig.figma.com/img/2eab/e200/deb73c900aa92074f727b85d02e8bae8?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=aQpoEohbmjxG4SXS2XQ75vgtZQpMvplxuUewtYbbCJ52gCzNiemfNrTOYl1pYZBjP5zjJqXF4X-epwIxAnEIt~t3UWmzAVLkcH8pVlAicAQt4UXxEn20bQqr7OPyjL6IjJBjxpcsB2FMyfTclcgBH4Mg9vbwL9Wc-zlB1ZB3nBeI~1WQCiN2XFmINAV70YZviG1RgupuS~~OiWYzt0-lvAUHG7vO3aT3ulURRaITVzPHlv78fLQCrbYxc2jkcnYsJA99zfyujVIFS9IbcSJzVwKU1TWje2KxHSvzHuH3PkFlMujwzzqDoLQNzx9fD1x9pGloJ98KZTAu4BKFdlfl9Q__"
-                                    alt="p1" />
-                            </a>
-
+                            <span v-if="productRelated.sale > 0" class="sale-label">SALE {{ productRelated.sale
+                                }}%</span>
+                            <router-link :to="`/product-detail/${productRelated.id}`">
+                                <img class="img-fluid" :src="`/images/${productRelated.image}`"
+                                    :alt="productRelated.name" />
+                            </router-link>
                         </div>
                         <div class="product-content">
                             <h6 class="name">
-                                <a href="#">product 1</a>
+                                <a href="#">{{ productRelated.name }}</a>
                             </h6>
                         </div>
                         <div class="rating">
                             <span class="price">
-                                <span class="original-price"> $100</span>
-                                <span> $100</span>
-
+                                <span v-if="productRelated.sale > 0" class="original-price">{{ productRelated.price
+                                    }}</span>
+                                <span v-if="productRelated.sale > 0">{{ calculateDiscountedPrice(productRelated.price,
+                                    productRelated.sale) }}</span>
+                                <span v-else>{{ productRelated.price }}</span>
                             </span>
                             <div class="stars">
-                                <span class="fa fa-star"></span>
-                                <span class="fa fa-star"></span>
-                                <span class="fa fa-star"></span>
-                                <span class="fa fa-star fa-star-o"></span>
-                                <span class="fa fa-star fa-star-o"></span>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="products">
-                    <div class="single-product">
-                        <div class="img-container">
-                            <span class="sale-label">SALE 20%</span>
-                            <a href="#">
-                                <img class="img-fluid"
-                                    src="https://s3-alpha-sig.figma.com/img/d744/2dce/2267fe345b78cada62ef0c6fe2d731f6?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=kkeqMM7UKksW8gfPeXuNYNsO9qPNR6sG7Yi3IKcQl11u9HXw1OiC9jknQqI4GPwaSzpbImyitwMHNdNg-XdUbM3aGcpZ72DxFLgu9oGt4-reVlpqjhnX2WymaZYQAqSi12TfchX8goJebgjBPcwpj2XocB1RCxhSGLsmxDfx1qQlZmF-TLla54oYZ00-u3TAsO2BqWNuQwGpdW3JLey~jOMxzr8A2IpVmgYYSITjgZhObmmruIoyhGLb-DIyTwSAfKyC2JSqoTkNa5opbmlUpD6jDUbojyf~-3jBFfU36jQ8DmXAzO-Yt7ZvSYItbMlQYk7PsUeCJyWbvdSNzSQwmA__"
-                                    alt="p1" />
-                            </a>
-
-                        </div>
-                        <div class="product-content">
-                            <h6 class="name">
-                                <a href="#">product 2</a>
-                            </h6>
-                        </div>
-                        <div class="rating">
-                            <span class="price">
-                                <span class="original-price"> $100</span>
-                            </span>
-                            <div class="stars">
-                                <span class="fa fa-star"></span>
-                                <span class="fa fa-star"></span>
-                                <span class="fa fa-star"></span>
-                                <span class="fa fa-star fa-star-o"></span>
-                                <span class="fa fa-star fa-star-o"></span>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="products">
-                    <div class="single-product">
-                        <div class="img-container">
-                            <span class="sale-label">SALE 20%</span>
-                            <a href="#">
-                                <img class="img-fluid"
-                                    src="https://s3-alpha-sig.figma.com/img/7925/91fa/2ad9bb4b4df7c58562a12888df52910b?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=bmPIVNpGIpNJz4Vh~XELn6AY8xEBi3wkzXBZzd6HgqKs327WEO3Md~pCAg6YFLAks83~FRBfVgbyanW5uvn9x4TUChq2oKBhtwbbXdgpoapNUG~Rq4mqNNdRTP6-HVRQW7WW6dVIedQuwpUnCuc3YQaf~a8R5BePzm-DUc63VSfZAOZdm9xImuh4eDaesk15EhvrVUL0ztzEJYYhcMPoe~6jf3EaSxGK8ntVWX1n7aN6QiEasdtLdCyg5AMnH0vDWUQhGY303WM7UUM-BR5Qfqzw9boy37GfuO7EKbEcw5fNXLBIpE64-bgVcXjz8jM5V2F~MAbcPzZUzsgYj~AsZg__"
-                                    alt="p1" />
-                            </a>
-
-                        </div>
-                        <div class="product-content">
-                            <h6 class="name">
-                                <a href="#">product 3</a>
-                            </h6>
-                        </div>
-                        <div class="rating">
-                            <span class="price">
-                                <span class="original-price"> $100</span>
-                            </span>
-                            <div class="stars">
-                                <span class="fa fa-star"></span>
-                                <span class="fa fa-star"></span>
-                                <span class="fa fa-star"></span>
-                                <span class="fa fa-star fa-star-o"></span>
-                                <span class="fa fa-star fa-star-o"></span>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="products">
-                    <div class="single-product">
-                        <div class="img-container">
-                            <span class="sale-label">SALE 20%</span>
-                            <a href="#">
-                                <img class="img-fluid"
-                                    src="https://s3-alpha-sig.figma.com/img/5e3e/bbb3/e6ac9b90a036c06f585190bc81c6c22e?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=cNh10rY0~ZQYwO2JdpcDbxT5wSD4teDS9KND8c1EeUEoLG-kJg0UpdJ~JzceniisNDdhJ52GN9~x~qOudCdIfgPFNmgkySauWoucRgQ96gmORunBgxeYzFC2NnqNPowf~fdf-5MkZ1vu1Tetcqm9Ru1~9I48mt7C7c6PZ6V88WCdLKm0OaHJbueX82MSyGK7yAyNNd-2AXJ2LxbG6escKY2qkWxntfwD~3JYjg6TYYILHb0DwJLVueXW~vdxDiIg1PPgQBTItdwtCgx1WD4qB0Kda~kpRbkVqTDCBbD2SGP4sNeiw1bPIQIoVyD-o90LOyNkkLk9KUeLSX2UIwt5Ww__"
-                                    alt="p1" />
-                            </a>
-
-                        </div>
-                        <div class="product-content">
-                            <h6 class="name">
-                                <a href="#">product 4</a>
-                            </h6>
-                        </div>
-                        <div class="rating">
-                            <span class="price">
-                                <span class="original-price"> $100</span>
-                            </span>
-                            <div class="stars">
-                                <span class="fa fa-star"></span>
-                                <span class="fa fa-star"></span>
-                                <span class="fa fa-star"></span>
-                                <span class="fa fa-star fa-star-o"></span>
-                                <span class="fa fa-star fa-star-o"></span>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="products">
-                    <div class="single-product">
-                        <div class="img-container">
-                            <span class="sale-label">SALE 20%</span>
-                            <a href="#">
-                                <img class="img-fluid" src="@/assets/images/p1.png" alt="p1" />
-                            </a>
-
-                        </div>
-                        <div class="product-content">
-                            <h6 class="name">
-                                <a href="#">product 5</a>
-                            </h6>
-                        </div>
-                        <div class="rating">
-                            <span class="price">
-                                <span class="original-price"> $100</span>
-                            </span>
-                            <div class="stars">
-                                <span class="fa fa-star"></span>
-                                <span class="fa fa-star"></span>
-                                <span class="fa fa-star"></span>
-                                <span class="fa fa-star fa-star-o"></span>
-                                <span class="fa fa-star fa-star-o"></span>
+                                <span v-for="star in maxStars" :key="star" class="fa"
+                                    :class="{ 'fa-star': star <= productRelated.rating, 'fa-star-o': star > productRelated.rating }">
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -427,32 +260,87 @@
 </template>
 
 <script setup>
-
-import { ref } from 'vue';
+import ProductHeader from '@/components/product-detail/ProductHeader.vue';
+import { ref, computed } from 'vue';
 import { useCartStore } from '@/stores/cart'; // Import Pinia Store
-
+import { useRoute } from 'vue-router';  // Import useRoute từ vue-router
+const route = useRoute();  // Lấy đối tượng route hiện tại
 const cartStore = useCartStore();
 
 const product = ref({
-  id: 1,
-  name: "Women's tracksuit Q109",
-  variants: {
-    "Blue-XS": 100,
-    "Blue-S": 95,
-    "White-XS": 110,
-    "White-S": 105
-  },
-  images: ['https://s3-alpha-sig.figma.com/img/928b/c5be/0c6375ab1c11315af8ae4f1122ce3335?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=d4ys74rB6M-0i0CCIn6gV2jBpETAMRSJs--Qp3BM5eOj-ofuR7IDtn-YWnBpMH2C27YCN58sR-t4ZI10JApGIQdYTkM-oCNpr4pZ~sdNDbQnGpkIhSs2ZjH-GdjqC3dYNuaCXRrRqxa2-10oDNZGgxe-AfR3Z4V~IWbfBOTzINUhX3NpSU3SHIJ2cIyYEMZX2U6cr5Q5CFZ9BT2~xfqloYrtZfkrJSZg5g8TrfdTceDVRyKlI3QK5ycy1-mycD6XLYWIVyfqhF~lwZ7UzsA-hNex1ZoKMqnvwPxNKthYYccuA5LzxjTxE7KRR~TXgflGwHcpd1R-RS8-XNE~mtyluA__', 'https://s3-alpha-sig.figma.com/img/5e3e/bbb3/e6ac9b90a036c06f585190bc81c6c22e?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=cNh10rY0~ZQYwO2JdpcDbxT5wSD4teDS9KND8c1EeUEoLG-kJg0UpdJ~JzceniisNDdhJ52GN9~x~qOudCdIfgPFNmgkySauWoucRgQ96gmORunBgxeYzFC2NnqNPowf~fdf-5MkZ1vu1Tetcqm9Ru1~9I48mt7C7c6PZ6V88WCdLKm0OaHJbueX82MSyGK7yAyNNd-2AXJ2LxbG6escKY2qkWxntfwD~3JYjg6TYYILHb0DwJLVueXW~vdxDiIg1PPgQBTItdwtCgx1WD4qB0Kda~kpRbkVqTDCBbD2SGP4sNeiw1bPIQIoVyD-o90LOyNkkLk9KUeLSX2UIwt5Ww__', 'https://s3-alpha-sig.figma.com/img/5e3e/bbb3/e6ac9b90a036c06f585190bc81c6c22e?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=cNh10rY0~ZQYwO2JdpcDbxT5wSD4teDS9KND8c1EeUEoLG-kJg0UpdJ~JzceniisNDdhJ52GN9~x~qOudCdIfgPFNmgkySauWoucRgQ96gmORunBgxeYzFC2NnqNPowf~fdf-5MkZ1vu1Tetcqm9Ru1~9I48mt7C7c6PZ6V88WCdLKm0OaHJbueX82MSyGK7yAyNNd-2AXJ2LxbG6escKY2qkWxntfwD~3JYjg6TYYILHb0DwJLVueXW~vdxDiIg1PPgQBTItdwtCgx1WD4qB0Kda~kpRbkVqTDCBbD2SGP4sNeiw1bPIQIoVyD-o90LOyNkkLk9KUeLSX2UIwt5Ww__', 'https://s3-alpha-sig.figma.com/img/5e3e/bbb3/e6ac9b90a036c06f585190bc81c6c22e?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=cNh10rY0~ZQYwO2JdpcDbxT5wSD4teDS9KND8c1EeUEoLG-kJg0UpdJ~JzceniisNDdhJ52GN9~x~qOudCdIfgPFNmgkySauWoucRgQ96gmORunBgxeYzFC2NnqNPowf~fdf-5MkZ1vu1Tetcqm9Ru1~9I48mt7C7c6PZ6V88WCdLKm0OaHJbueX82MSyGK7yAyNNd-2AXJ2LxbG6escKY2qkWxntfwD~3JYjg6TYYILHb0DwJLVueXW~vdxDiIg1PPgQBTItdwtCgx1WD4qB0Kda~kpRbkVqTDCBbD2SGP4sNeiw1bPIQIoVyD-o90LOyNkkLk9KUeLSX2UIwt5Ww__'],
-  colors: [
-    { 
-        name: "Blue", 
-        image: "https://s3-alpha-sig.figma.com/img/5e3e/bbb3/e6ac9b90a036c06f585190bc81c6c22e?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=cNh10rY0~ZQYwO2JdpcDbxT5wSD4teDS9KND8c1EeUEoLG-kJg0UpdJ~JzceniisNDdhJ52GN9~x~qOudCdIfgPFNmgkySauWoucRgQ96gmORunBgxeYzFC2NnqNPowf~fdf-5MkZ1vu1Tetcqm9Ru1~9I48mt7C7c6PZ6V88WCdLKm0OaHJbueX82MSyGK7yAyNNd-2AXJ2LxbG6escKY2qkWxntfwD~3JYjg6TYYILHb0DwJLVueXW~vdxDiIg1PPgQBTItdwtCgx1WD4qB0Kda~kpRbkVqTDCBbD2SGP4sNeiw1bPIQIoVyD-o90LOyNkkLk9KUeLSX2UIwt5Ww__" },
-    { 
-        name: "White", 
-        image: "https://s3-alpha-sig.figma.com/img/5e3e/bbb3/e6ac9b90a036c06f585190bc81c6c22e?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=cNh10rY0~ZQYwO2JdpcDbxT5wSD4teDS9KND8c1EeUEoLG-kJg0UpdJ~JzceniisNDdhJ52GN9~x~qOudCdIfgPFNmgkySauWoucRgQ96gmORunBgxeYzFC2NnqNPowf~fdf-5MkZ1vu1Tetcqm9Ru1~9I48mt7C7c6PZ6V88WCdLKm0OaHJbueX82MSyGK7yAyNNd-2AXJ2LxbG6escKY2qkWxntfwD~3JYjg6TYYILHb0DwJLVueXW~vdxDiIg1PPgQBTItdwtCgx1WD4qB0Kda~kpRbkVqTDCBbD2SGP4sNeiw1bPIQIoVyD-o90LOyNkkLk9KUeLSX2UIwt5Ww__" }
-  ],
-  sizes: ["XS", "S"]
+    value: {
+        id: route.params.id,
+        name: "Product Name",
+        colors: [
+            {
+                name: "Red",
+                mainImage: "https://s3-alpha-sig.figma.com/img/928b/c5be/0c6375ab1c11315af8ae4f1122ce3335?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=d4ys74rB6M-0i0CCIn6gV2jBpETAMRSJs--Qp3BM5eOj-ofuR7IDtn-YWnBpMH2C27YCN58sR-t4ZI10JApGIQdYTkM-oCNpr4pZ~sdNDbQnGpkIhSs2ZjH-GdjqC3dYNuaCXRrRqxa2-10oDNZGgxe-AfR3Z4V~IWbfBOTzINUhX3NpSU3SHIJ2cIyYEMZX2U6cr5Q5CFZ9BT2~xfqloYrtZfkrJSZg5g8TrfdTceDVRyKlI3QK5ycy1-mycD6XLYWIVyfqhF~lwZ7UzsA-hNex1ZoKMqnvwPxNKthYYccuA5LzxjTxE7KRR~TXgflGwHcpd1R-RS8-XNE~mtyluA__",
+                galleryImages: [
+                    "https://s3-alpha-sig.figma.com/img/928b/c5be/0c6375ab1c11315af8ae4f1122ce3335?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=d4ys74rB6M-0i0CCIn6gV2jBpETAMRSJs--Qp3BM5eOj-ofuR7IDtn-YWnBpMH2C27YCN58sR-t4ZI10JApGIQdYTkM-oCNpr4pZ~sdNDbQnGpkIhSs2ZjH-GdjqC3dYNuaCXRrRqxa2-10oDNZGgxe-AfR3Z4V~IWbfBOTzINUhX3NpSU3SHIJ2cIyYEMZX2U6cr5Q5CFZ9BT2~xfqloYrtZfkrJSZg5g8TrfdTceDVRyKlI3QK5ycy1-mycD6XLYWIVyfqhF~lwZ7UzsA-hNex1ZoKMqnvwPxNKthYYccuA5LzxjTxE7KRR~TXgflGwHcpd1R-RS8-XNE~mtyluA__",
+                    "https://s3-alpha-sig.figma.com/img/439b/062b/e28cb2d4ef6eb7a3fc9ce84865906483?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=UWGirIf63gzfe1oQh-arbDW2I0mn0kTF40~HY3~wiOwi-Yu8dnQqQpEqs9VjEpmNYgO0VesgA4KBLGhX6g2VXD9u5HeY9f9R8FWORhoIe95dsq3xlpK9UsGUk-IS3W9jOHOur6C9k5z-~JweYSf2iepekR~4mGGJXAyG62NW70sh29H7ONLZ2pKowu8DfIQlNSwmSD5-iEEZz6rWenWdv4-bKuQQG5cuybAyonpO244~M4raU0r-Gk8cNBxpJ2UdQSiQ4EcE-zZyqFUZ0-i3Ljib1pDPGHW8E-v8GConeGpccHvzCQW9JsfWOI1djE7qtyybj8bYJiis1dkhL1rHlg__",
+                    "https://s3-alpha-sig.figma.com/img/9f26/1ede/0e071db44fff2bea2cae6a91dcd04bd7?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=rm8BYQ5TJ-SIfMxOGmBZFcLenfvTdaJ1Smw1j64puSG7TAE67R-itlvsareQPLuiT8xge~UbC5Hs7aCkMJ9YAWVBZitPL-gonoUntNuVDxxO88AQzmA89vBQrcjwBPhiYcZ-Z8POOXPYnvkju0NZsHWrA1Qp0lZOnYUwLTPs1TxblKsNlZQDq3HFv~MdpVyQsqOCafB0FfxCqCP~cdhpnEPbMK~rfnSAXJ0qmEbRnfj965Qd8g2wNdKB88tKzmq~QRSch2Y-7WPDCcZNR1OkKtrgSSqQbfGaN~Yhxi0FlQfX7cfSm7UgSzMkP4Qhwt6HC5jGWU~1uajo9kteQLMILA__",
+                    "https://s3-alpha-sig.figma.com/img/0644/8fb8/6beb3a5714e2969e4094c6fc2cdcd2e4?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=FkeVMXFNur-YTDOh94mKvBdlfqGKrsHAafp7NhIa4hlU2Bq0t01V~D7m~e8PnjfMb~D-3GbYU9q8XDBpUXA8vKdY8cVKLP6-WDsc8gpwCYwoRpa2e9ePOFNzOnbwhz9PV2CrVMme4IUAkXAeAWEII4OYCFiNlU~WziJUZVDe9FXluS-E7g-c49n7VBC6WZMqs9UA3OfcRaPXrCjvTTzsukSuNUL3n1BirNXbxHWycFDWUsLKcrvErpD8EGbqWlNTgFxu933NlKhGEBk2vt24kLOCQ1YzPFB8Z3EfoFFLf-jls5V6czDYEyNxiLmpaQTB9TyMH7PBiRDR2VRljJIAUw__",
+                ]
+            },
+            {
+                name: "Blue",
+                mainImage: "https://s3-alpha-sig.figma.com/img/03c9/6e40/f511c41f8689f6d2ef7e8d6581afd6f0?Expires=1740355200&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=eRHfZeMlfG5~oEY5LNC094L3NJKeAPCW~tzwVW6XuD4now1yray3uk7940jFFZehuLyYwqWgeLXCCi~BiKXnqCSehuYbcwCzAiDoWB69BXxQrMCBusdCwa3FysSc7IPzCaE5t6h-uahNco-SjyjXjvygr7U3sjnGeHNTKQ2PmElhszrM2CCAJ9HL-bgflm0fCgt67e5a8HKJ94gOC~KyPAUEoBqNQIqds2t1o767Sk~g5EXvlaAXTGMMfY1yEwe~g~QShJj~TihQIjAzyGCRxDT4H1E-tEpX3c2GSaBm5ykheoeJ27mAeAuikMRcN8~uPTDpp-B~-hno43o2M1O46A__",
+                galleryImages: [
+                    "https://s3-alpha-sig.figma.com/img/03c9/6e40/f511c41f8689f6d2ef7e8d6581afd6f0?Expires=1740355200&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=eRHfZeMlfG5~oEY5LNC094L3NJKeAPCW~tzwVW6XuD4now1yray3uk7940jFFZehuLyYwqWgeLXCCi~BiKXnqCSehuYbcwCzAiDoWB69BXxQrMCBusdCwa3FysSc7IPzCaE5t6h-uahNco-SjyjXjvygr7U3sjnGeHNTKQ2PmElhszrM2CCAJ9HL-bgflm0fCgt67e5a8HKJ94gOC~KyPAUEoBqNQIqds2t1o767Sk~g5EXvlaAXTGMMfY1yEwe~g~QShJj~TihQIjAzyGCRxDT4H1E-tEpX3c2GSaBm5ykheoeJ27mAeAuikMRcN8~uPTDpp-B~-hno43o2M1O46A__",
+                    "https://s3-alpha-sig.figma.com/img/439b/062b/e28cb2d4ef6eb7a3fc9ce84865906483?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=UWGirIf63gzfe1oQh-arbDW2I0mn0kTF40~HY3~wiOwi-Yu8dnQqQpEqs9VjEpmNYgO0VesgA4KBLGhX6g2VXD9u5HeY9f9R8FWORhoIe95dsq3xlpK9UsGUk-IS3W9jOHOur6C9k5z-~JweYSf2iepekR~4mGGJXAyG62NW70sh29H7ONLZ2pKowu8DfIQlNSwmSD5-iEEZz6rWenWdv4-bKuQQG5cuybAyonpO244~M4raU0r-Gk8cNBxpJ2UdQSiQ4EcE-zZyqFUZ0-i3Ljib1pDPGHW8E-v8GConeGpccHvzCQW9JsfWOI1djE7qtyybj8bYJiis1dkhL1rHlg__",
+                    "https://s3-alpha-sig.figma.com/img/9f26/1ede/0e071db44fff2bea2cae6a91dcd04bd7?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=rm8BYQ5TJ-SIfMxOGmBZFcLenfvTdaJ1Smw1j64puSG7TAE67R-itlvsareQPLuiT8xge~UbC5Hs7aCkMJ9YAWVBZitPL-gonoUntNuVDxxO88AQzmA89vBQrcjwBPhiYcZ-Z8POOXPYnvkju0NZsHWrA1Qp0lZOnYUwLTPs1TxblKsNlZQDq3HFv~MdpVyQsqOCafB0FfxCqCP~cdhpnEPbMK~rfnSAXJ0qmEbRnfj965Qd8g2wNdKB88tKzmq~QRSch2Y-7WPDCcZNR1OkKtrgSSqQbfGaN~Yhxi0FlQfX7cfSm7UgSzMkP4Qhwt6HC5jGWU~1uajo9kteQLMILA__",
+                    "https://s3-alpha-sig.figma.com/img/0644/8fb8/6beb3a5714e2969e4094c6fc2cdcd2e4?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=FkeVMXFNur-YTDOh94mKvBdlfqGKrsHAafp7NhIa4hlU2Bq0t01V~D7m~e8PnjfMb~D-3GbYU9q8XDBpUXA8vKdY8cVKLP6-WDsc8gpwCYwoRpa2e9ePOFNzOnbwhz9PV2CrVMme4IUAkXAeAWEII4OYCFiNlU~WziJUZVDe9FXluS-E7g-c49n7VBC6WZMqs9UA3OfcRaPXrCjvTTzsukSuNUL3n1BirNXbxHWycFDWUsLKcrvErpD8EGbqWlNTgFxu933NlKhGEBk2vt24kLOCQ1YzPFB8Z3EfoFFLf-jls5V6czDYEyNxiLmpaQTB9TyMH7PBiRDR2VRljJIAUw__",
+                ]
+            },
+            {
+                name: "Green",
+                mainImage: "https://s3-alpha-sig.figma.com/img/abf8/1695/d589f14e6c7e3e3edb876a8005dcf7ff?Expires=1740355200&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=amk~wpmCthmL50sMgjMLFy7QSzN8K-3VeMc0mLy9h3DoLfJM6rfBMPxvF5bDrJ4ahilyeBUvkMX1o35NLGWKgY23MOY~QRVbYICWBh29To~F9~494owv5WFfHWRvxtrdGxpG3MkFQfXZ8tV4g0WgxKGE-hCYq8QbbY1Jiq2OlZldytmntJYa5n-4k8zGgqkqK8K4xFbgcBFP-QqrQBI74~giWcDj6Qsghoe2qhm2IgC8X8FcUiV7NcUQidKiu5vGwnn41V~OiEdSEbyZfTAP2YR4gW5f8b1nol24cU34k8uKcUM8ovJuegbv3pHUy2O31b-OQhHzBKeeMUiZi6m38w__",
+                galleryImages: [
+                    "https://s3-alpha-sig.figma.com/img/abf8/1695/d589f14e6c7e3e3edb876a8005dcf7ff?Expires=1740355200&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=amk~wpmCthmL50sMgjMLFy7QSzN8K-3VeMc0mLy9h3DoLfJM6rfBMPxvF5bDrJ4ahilyeBUvkMX1o35NLGWKgY23MOY~QRVbYICWBh29To~F9~494owv5WFfHWRvxtrdGxpG3MkFQfXZ8tV4g0WgxKGE-hCYq8QbbY1Jiq2OlZldytmntJYa5n-4k8zGgqkqK8K4xFbgcBFP-QqrQBI74~giWcDj6Qsghoe2qhm2IgC8X8FcUiV7NcUQidKiu5vGwnn41V~OiEdSEbyZfTAP2YR4gW5f8b1nol24cU34k8uKcUM8ovJuegbv3pHUy2O31b-OQhHzBKeeMUiZi6m38w__",
+                    "https://s3-alpha-sig.figma.com/img/439b/062b/e28cb2d4ef6eb7a3fc9ce84865906483?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=UWGirIf63gzfe1oQh-arbDW2I0mn0kTF40~HY3~wiOwi-Yu8dnQqQpEqs9VjEpmNYgO0VesgA4KBLGhX6g2VXD9u5HeY9f9R8FWORhoIe95dsq3xlpK9UsGUk-IS3W9jOHOur6C9k5z-~JweYSf2iepekR~4mGGJXAyG62NW70sh29H7ONLZ2pKowu8DfIQlNSwmSD5-iEEZz6rWenWdv4-bKuQQG5cuybAyonpO244~M4raU0r-Gk8cNBxpJ2UdQSiQ4EcE-zZyqFUZ0-i3Ljib1pDPGHW8E-v8GConeGpccHvzCQW9JsfWOI1djE7qtyybj8bYJiis1dkhL1rHlg__",
+                    "https://s3-alpha-sig.figma.com/img/9f26/1ede/0e071db44fff2bea2cae6a91dcd04bd7?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=rm8BYQ5TJ-SIfMxOGmBZFcLenfvTdaJ1Smw1j64puSG7TAE67R-itlvsareQPLuiT8xge~UbC5Hs7aCkMJ9YAWVBZitPL-gonoUntNuVDxxO88AQzmA89vBQrcjwBPhiYcZ-Z8POOXPYnvkju0NZsHWrA1Qp0lZOnYUwLTPs1TxblKsNlZQDq3HFv~MdpVyQsqOCafB0FfxCqCP~cdhpnEPbMK~rfnSAXJ0qmEbRnfj965Qd8g2wNdKB88tKzmq~QRSch2Y-7WPDCcZNR1OkKtrgSSqQbfGaN~Yhxi0FlQfX7cfSm7UgSzMkP4Qhwt6HC5jGWU~1uajo9kteQLMILA__",
+                    "https://s3-alpha-sig.figma.com/img/0644/8fb8/6beb3a5714e2969e4094c6fc2cdcd2e4?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=FkeVMXFNur-YTDOh94mKvBdlfqGKrsHAafp7NhIa4hlU2Bq0t01V~D7m~e8PnjfMb~D-3GbYU9q8XDBpUXA8vKdY8cVKLP6-WDsc8gpwCYwoRpa2e9ePOFNzOnbwhz9PV2CrVMme4IUAkXAeAWEII4OYCFiNlU~WziJUZVDe9FXluS-E7g-c49n7VBC6WZMqs9UA3OfcRaPXrCjvTTzsukSuNUL3n1BirNXbxHWycFDWUsLKcrvErpD8EGbqWlNTgFxu933NlKhGEBk2vt24kLOCQ1YzPFB8Z3EfoFFLf-jls5V6czDYEyNxiLmpaQTB9TyMH7PBiRDR2VRljJIAUw__",
+                ]
+            }
+        ],
+        sizes: ["S", "M", "L"],
+        variants: {
+            "Red-S": 100,  // Giá cho màu đỏ, kích thước S
+            "Red-M": 120,  // Giá cho màu đỏ, kích thước M
+            "Red-L": 140,  // Giá cho màu đỏ, kích thước L
+            "Blue-S": 110, // Giá cho màu xanh dương, kích thước S
+            "Blue-M": 130, // Giá cho màu xanh dương, kích thước M
+            "Blue-L": 150, // Giá cho màu xanh dương, kích thước L
+            "Green-S": 90, // Giá cho màu xanh lá, kích thước S
+            "Green-M": 110, // Giá cho màu xanh lá, kích thước M
+            "Green-L": 130, // Giá cho màu xanh lá, kích thước L
+        }
+    }
 });
+
+
+// const product = ref({
+//     id: 1,
+//     name: "Women's tracksuit Q109",
+//     variants: {
+//         "Blue-XS": 100,
+//         "Blue-S": 95,
+//         "White-XS": 110,
+//         "White-S": 105
+//     },
+//     images: ['https://s3-alpha-sig.figma.com/img/928b/c5be/0c6375ab1c11315af8ae4f1122ce3335?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=d4ys74rB6M-0i0CCIn6gV2jBpETAMRSJs--Qp3BM5eOj-ofuR7IDtn-YWnBpMH2C27YCN58sR-t4ZI10JApGIQdYTkM-oCNpr4pZ~sdNDbQnGpkIhSs2ZjH-GdjqC3dYNuaCXRrRqxa2-10oDNZGgxe-AfR3Z4V~IWbfBOTzINUhX3NpSU3SHIJ2cIyYEMZX2U6cr5Q5CFZ9BT2~xfqloYrtZfkrJSZg5g8TrfdTceDVRyKlI3QK5ycy1-mycD6XLYWIVyfqhF~lwZ7UzsA-hNex1ZoKMqnvwPxNKthYYccuA5LzxjTxE7KRR~TXgflGwHcpd1R-RS8-XNE~mtyluA__', 'https://s3-alpha-sig.figma.com/img/5e3e/bbb3/e6ac9b90a036c06f585190bc81c6c22e?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=cNh10rY0~ZQYwO2JdpcDbxT5wSD4teDS9KND8c1EeUEoLG-kJg0UpdJ~JzceniisNDdhJ52GN9~x~qOudCdIfgPFNmgkySauWoucRgQ96gmORunBgxeYzFC2NnqNPowf~fdf-5MkZ1vu1Tetcqm9Ru1~9I48mt7C7c6PZ6V88WCdLKm0OaHJbueX82MSyGK7yAyNNd-2AXJ2LxbG6escKY2qkWxntfwD~3JYjg6TYYILHb0DwJLVueXW~vdxDiIg1PPgQBTItdwtCgx1WD4qB0Kda~kpRbkVqTDCBbD2SGP4sNeiw1bPIQIoVyD-o90LOyNkkLk9KUeLSX2UIwt5Ww__', 'https://s3-alpha-sig.figma.com/img/5e3e/bbb3/e6ac9b90a036c06f585190bc81c6c22e?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=cNh10rY0~ZQYwO2JdpcDbxT5wSD4teDS9KND8c1EeUEoLG-kJg0UpdJ~JzceniisNDdhJ52GN9~x~qOudCdIfgPFNmgkySauWoucRgQ96gmORunBgxeYzFC2NnqNPowf~fdf-5MkZ1vu1Tetcqm9Ru1~9I48mt7C7c6PZ6V88WCdLKm0OaHJbueX82MSyGK7yAyNNd-2AXJ2LxbG6escKY2qkWxntfwD~3JYjg6TYYILHb0DwJLVueXW~vdxDiIg1PPgQBTItdwtCgx1WD4qB0Kda~kpRbkVqTDCBbD2SGP4sNeiw1bPIQIoVyD-o90LOyNkkLk9KUeLSX2UIwt5Ww__', 'https://s3-alpha-sig.figma.com/img/5e3e/bbb3/e6ac9b90a036c06f585190bc81c6c22e?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=cNh10rY0~ZQYwO2JdpcDbxT5wSD4teDS9KND8c1EeUEoLG-kJg0UpdJ~JzceniisNDdhJ52GN9~x~qOudCdIfgPFNmgkySauWoucRgQ96gmORunBgxeYzFC2NnqNPowf~fdf-5MkZ1vu1Tetcqm9Ru1~9I48mt7C7c6PZ6V88WCdLKm0OaHJbueX82MSyGK7yAyNNd-2AXJ2LxbG6escKY2qkWxntfwD~3JYjg6TYYILHb0DwJLVueXW~vdxDiIg1PPgQBTItdwtCgx1WD4qB0Kda~kpRbkVqTDCBbD2SGP4sNeiw1bPIQIoVyD-o90LOyNkkLk9KUeLSX2UIwt5Ww__'],
+//     colors: [
+//         {
+//             name: "Blue",
+//             image: "https://s3-alpha-sig.figma.com/img/5e3e/bbb3/e6ac9b90a036c06f585190bc81c6c22e?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=cNh10rY0~ZQYwO2JdpcDbxT5wSD4teDS9KND8c1EeUEoLG-kJg0UpdJ~JzceniisNDdhJ52GN9~x~qOudCdIfgPFNmgkySauWoucRgQ96gmORunBgxeYzFC2NnqNPowf~fdf-5MkZ1vu1Tetcqm9Ru1~9I48mt7C7c6PZ6V88WCdLKm0OaHJbueX82MSyGK7yAyNNd-2AXJ2LxbG6escKY2qkWxntfwD~3JYjg6TYYILHb0DwJLVueXW~vdxDiIg1PPgQBTItdwtCgx1WD4qB0Kda~kpRbkVqTDCBbD2SGP4sNeiw1bPIQIoVyD-o90LOyNkkLk9KUeLSX2UIwt5Ww__"
+//         },
+//         {
+//             name: "White",
+//             image: "https://s3-alpha-sig.figma.com/img/5e3e/bbb3/e6ac9b90a036c06f585190bc81c6c22e?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=cNh10rY0~ZQYwO2JdpcDbxT5wSD4teDS9KND8c1EeUEoLG-kJg0UpdJ~JzceniisNDdhJ52GN9~x~qOudCdIfgPFNmgkySauWoucRgQ96gmORunBgxeYzFC2NnqNPowf~fdf-5MkZ1vu1Tetcqm9Ru1~9I48mt7C7c6PZ6V88WCdLKm0OaHJbueX82MSyGK7yAyNNd-2AXJ2LxbG6escKY2qkWxntfwD~3JYjg6TYYILHb0DwJLVueXW~vdxDiIg1PPgQBTItdwtCgx1WD4qB0Kda~kpRbkVqTDCBbD2SGP4sNeiw1bPIQIoVyD-o90LOyNkkLk9KUeLSX2UIwt5Ww__"
+//         }
+//     ],
+//     sizes: ["XS", "S"]
+// });
 
 const icons = ref([
     {
@@ -491,29 +379,120 @@ const icons = ref([
         imgIcon: 'https://s3-alpha-sig.figma.com/img/9b1a/ced2/21b3454fe78c09679d16d55b964fc5e0?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=LRJi8m7410am-oCmkH43sfrvzEO6BbPiso0BTUl5Qmho0FZOHSI8vsu-wqWTc4pVJD7EOwIAVpDpJPmMLgHjPs1x32cLe8HzmO1mP456zaYe0YpgjNznntiD3038EwxBRSzG9~C~v7tk5dPstdPo~N52Bf4ywD23y5Sj3Jcw-yoJy36JMYnRyCe5mbJg53fxv7B~ZIyubplhYH0xr~wDVZMefP8Tg78NR8AgMzuihY5JkNo4S2pD0uobfycoPRxNLRmPEdptxFASA34g0J60pKxcZbRSCPuTAzankeIFi28R~rbq-4daS8r1259Xj57NBeNuDxtXNJSIiuLmVstzyw__'
     }
 ])
-const selectedColor = ref(product.value.colors[0].name);
-const selectedSize = ref(product.value.sizes[0]);
-const selectedPrice = ref(product.value.variants[`${selectedColor.value}-${selectedSize.value}`]);
 
+
+//rating
+const reviews = ref([
+    {
+        id: 1,
+        name_review: 'Oleh Chabanov',
+        time: '3 months ago',
+        content: 'On the other hand, we denounce with righteous indignation and like men who are so beguiled and demoralized by the charms of pleasure of the moment',
+        rating: 5.0
+    },
+    {
+        id: 2,
+        name_review: 'Oleh Chabanov',
+        time: '3 months ago',
+        content: 'On the other hand, we denounce with righteous indignation and like men who are so beguiled and demoralized by the charms of pleasure of the moment',
+        rating: 2.0
+    },
+    {
+        id: 3,
+        name_review: 'Tho Le',
+        time: '3 months ago',
+        content: 'On the other hand, we denounce with righteous indignation and like men who are so beguiled and demoralized by the charms of pleasure of the moment',
+        rating: 3.0
+    },
+    {
+        id: 4,
+        name_review: 'Tho Le',
+        time: '3 months ago',
+        content: 'On the other hand, we denounce with righteous indignation and like men who are so beguiled and demoralized by the charms of pleasure of the moment',
+        rating: 5.0
+    }
+])
+const averageRating = reviews.value.reduce((sum, review) => sum + review.rating, 0) / reviews.value.length;
+const maxStars = 5;
+
+//product related
+const productRelateds = ref([
+    { id: 17, name: 'Men\'s Watch', image: 'p1.png', description: 'Descriptionss', price: '$99.00', rating: 4, sale: 10 },
+    { id: 18, name: 'Men\'s Shoes', image: 'p2.png', description: 'Descriptionss', price: '$120.00', rating: 5, sale: 15 },
+    { id: 19, name: 'Men\'s Shirt', image: 'p3.png', description: 'Descriptionss', price: '$80.00', rating: 3, sale: 5 },
+    { id: 20, name: 'Men\'s Jacket', image: 'p4.png', description: 'Descriptionss', price: '$110.00', rating: 4, sale: 10 },
+    { id: 21, name: 'Men\'s Pants', image: 'p5.png', description: 'Descriptionss', price: '$95.00', rating: 3, sale: 20 },
+    { id: 22, name: 'Men\'s Jeans', image: 'p6.png', description: 'Descriptionss', price: '$70.00', rating: 4, sale: 0 },
+    { id: 23, name: 'Men\'s Sneakers', image: 'p7.png', description: 'Descriptionss', price: '$150.00', rating: 5, sale: 30 },
+    { id: 24, name: 'Men\'s Hoodie', image: 'p8.png', description: 'Descriptionss', price: '$90.00', rating: 4, sale: 10 },
+    { id: 25, name: 'Men\'s Sweater', image: 'p9.png', description: 'Descriptionss', price: '$130.00', rating: 3, sale: 0 },
+])
+
+function calculateDiscountedPrice(price, sale) {
+    const priceNumber = parseFloat(price.replace('$', '').replace(',', '')); // Chuyển giá sang số
+    const discountedPrice = priceNumber * (1 - sale / 100); // Tính giá sau giảm giá
+    return `$${discountedPrice.toFixed(2)}`; // Trả về giá đã giảm
+}
+
+console.log(product.value.value.variants, "product.value");
+
+const selectedColor = ref(product.value.value?.colors?.[0]?.name || '');
+const selectedColorImg = ref(product.value.value?.colors?.[0]?.mainImage || '');
+
+const selectedSize = ref(product.value.value?.sizes?.[0] || ''); // Mặc định kích thước đầu tiên
+
+// Kiểm tra sự tồn tại của variants trước khi khởi tạo giá trị
+const selectedPrice = ref(product.value.value?.variants?.[`${selectedColor.value}-${selectedSize.value}`] || 0);
+
+
+// Hàm chọn màu
 const selectColor = (color) => {
-  selectedColor.value = color.name;
-  selectedPrice.value = product.value.variants[`${selectedColor.value}-${selectedSize.value}`];
+    if (product.value.value?.colors && product.value.value?.variants) {
+        selectedColor.value = color.name;
+        selectedColorImg.value = color.mainImage
+        // Truy cập vào `variants` một cách an toàn
+        selectedPrice.value = product.value.value.variants[`${selectedColor.value}-${selectedSize.value}`] || 0;
+    }
 };
 
+// Hàm chọn kích thước
 const selectSize = (size) => {
-  selectedSize.value = size;
-  selectedPrice.value = product.value.variants[`${selectedColor.value}-${selectedSize.value}`];
+    if (product.value.value?.sizes && product.value.value?.variants) {
+        selectedSize.value = size;
+        // Truy cập vào `variants` một cách an toàn
+        selectedPrice.value = product.value.value.variants[`${selectedColor.value}-${selectedSize.value}`] || 0;
+    }
 };
 
-const addToCart = () => {
-  cartStore.addToCart({
-    id: product.value.id,
-    name: product.value.name,
-    color: selectedColor.value,
-    size: selectedSize.value,
-    price: selectedPrice.value,
-    image: product.value.images[0] // Lấy ảnh đầu tiên làm ảnh hiển thị
-  });
+
+// Computed properties để thay đổi ảnh khi thay đổi màu
+const mainImage = computed(() => {
+    const color = product.value.value?.colors?.find(c => c.name === selectedColor.value);
+    return color ? color.mainImage : '';  // Nếu không có màu, trả về chuỗi rỗng
+});
+
+const galleryImages = computed(() => {
+    const color = product.value.value?.colors?.find(c => c.name === selectedColor.value);
+    return color ? color.galleryImages : [];  // Nếu không có màu, trả về mảng rỗng
+});
+
+// Computed property cho giá
+const productPrice = computed(() => {
+    const variantKey = `${selectedColor.value}-${selectedSize.value}`;
+    return product.value.value?.variants?.[variantKey] || 0;  // Nếu không có variant, trả về giá mặc định
+});
+
+
+
+const addToCart = () => {    
+    cartStore.addToCart({
+        id: product.value.value.id,
+        name: product.value.value.name,
+        color: selectedColor.value,
+        size: selectedSize.value,
+        price: selectedPrice.value,
+        image: selectedColorImg
+    });
 };
 
 $(document).ready(function () {

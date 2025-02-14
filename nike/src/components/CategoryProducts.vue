@@ -13,25 +13,24 @@
             </div>
             <!-- Hiển thị sản phẩm của WOMEN'S -->
             <div class="products">
-                <div v-for="(product, index) in displayedProductsWomens" :key="index" class="single-product">
+                <div v-for="(product, index) in displayedProductsWomens" :key="index" class="single-product"
+                    @mouseenter="onHoverProduct(product)" @mouseleave="isHovering = false">
                     <div class="img-container">
                         <span v-if="product.sale > 0" class="sale-label">SALE {{ product.sale }}%</span>
                         <router-link :to="`/product-detail/${product.id}`" :product-data="product">
-                            <img class="img-fluid" :src="`./src/assets/images/${product.image}`" :alt="product.name" />
+                            <img class="img-fluid" :src="`/images/${product.image}`" :alt="product.name" />
                         </router-link>
-
                     </div>
-                    <div class="product-content">
-                        <h6 class="name">
+                    <div class="product-content pt-2">
+                        <div class="name">
                             <a href="#">{{ product.name }}</a>
-                        </h6>
+                        </div>
                     </div>
                     <div class="rating">
                         <span class="price">
-                            <span v-if="product.sale > 0" class="original-price">{{ product.price }}</span>
-                            <span v-if="product.sale > 0">{{ calculateDiscountedPrice(product.price, product.sale)
-                                }}</span>
-                            <span v-else>{{ product.price }}</span>
+                            <span v-if="product.sale > 0">{{ calculateDiscountedPrice(product.price, product.sale) }}</span>
+                            <span v-if="product.sale > 0" class="original-price">${{ product.price }}</span>
+                            <span v-else>${{parseFloat( product.price) }}</span>
                         </span>
                         <div class="stars">
                             <span v-for="star in maxStars" :key="star" class="fa"
@@ -39,10 +38,47 @@
                             </span>
                         </div>
                     </div>
+                    <div v-if="isHovering && selectedProduct?.id === product.id" class="hover-options">
+                        <!-- Chọn màu -->
+                        <div class="colors d-flex pb-2">
+                            <img class="select-color-img" style="margin-right: 10px;" v-for="color in product.colors" :key="color.name" :src="`/images/${color.mainImage}`"
+                                :style="{ backgroundColor: color.code }"
+                                :class="{ selected: selectedColor === color.name }" @click="selectColor(color)"  />
+                        </div>
+
+                        <!-- Chọn size -->
+                        <div class="sizes pb-2">
+                            <button class="size-button" style="margin-right: 10px;" v-for="size in product.sizes" :key="size"
+                                :class="{ selected: selectedSize === size }" @click="selectedSize = size">
+                                {{ size }}
+                            </button>
+                        </div>
+
+                        <div class="add-to-cart">
+                            <button class="btn-add-to-cart text-uppercase" @click="addToCart">Add to Cart</button>
+                            <div class="icons">
+                                <svg width="20" height="17" viewBox="0 0 20 17" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M2.31804 2.31804C1.90017 2.7359 1.5687 3.23198 1.34255 3.77795C1.1164 4.32392 1 4.90909 1 5.50004C1 6.09099 1.1164 6.67616 1.34255 7.22213C1.5687 7.7681 1.90017 8.26418 2.31804 8.68204L10 16.364L17.682 8.68204C18.526 7.83812 19.0001 6.69352 19.0001 5.50004C19.0001 4.30656 18.526 3.16196 17.682 2.31804C16.8381 1.47412 15.6935 1.00001 14.5 1.00001C13.3066 1.00001 12.162 1.47412 11.318 2.31804L10 3.63604L8.68204 2.31804C8.26417 1.90017 7.7681 1.5687 7.22213 1.34255C6.67616 1.1164 6.09099 1 5.50004 1C4.90909 1 4.32392 1.1164 3.77795 1.34255C3.23198 1.5687 2.7359 1.90017 2.31804 2.31804V2.31804Z"
+                                        stroke="#121212" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M12 21H15M3 6L6 7L3 6ZM6 7L3 16C3.8657 16.649 4.91852 16.9999 6.0005 16.9999C7.08248 16.9999 8.1353 16.649 9.001 16L6 7ZM6 7L9 16L6 7ZM6 7L12 5L6 7ZM18 7L21 6L18 7ZM18 7L15 16C15.8657 16.649 16.9185 16.9999 18.0005 16.9999C19.0825 16.9999 20.1353 16.649 21.001 16L18 7ZM18 7L21 16L18 7ZM18 7L12 5L18 7ZM12 3V5V3ZM12 21V5V21ZM12 21H9H12Z"
+                                        stroke="#121212" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <!-- Nút Load More -->
-            <button v-if="hasMoreProductsWomens" @click="loadMoreWomens" class="load-more-button" style="margin-bottom: 40px;">
+            <button v-if="hasMoreProductsWomens" @click="loadMoreWomens" class="load-more-button"
+                style="margin-bottom: 40px;">
                 See All
             </button>
         </div>
@@ -60,30 +96,66 @@
             </div>
             <!-- Hiển thị sản phẩm của MEN'S -->
             <div class="products">
-                <div v-for="(product, index) in displayedProductsMens" :key="index" class="single-product">
+                <div v-for="(product, index) in displayedProductsMens" :key="index" class="single-product"
+                    @mouseenter="onHoverProduct(product)" @mouseleave="isHovering = false">
                     <div class="img-container">
                         <span v-if="product.sale > 0" class="sale-label">SALE {{ product.sale }}%</span>
                         <router-link :to="`/product-detail/${product.id}`">
-                            <img class="img-fluid" :src="`./src/assets/images/${product.image}`" :alt="product.name" />
+                            <img class="img-fluid" :src="`/images/${product.image}`" :alt="product.name" />
                         </router-link>
 
                     </div>
-                    <div class="product-content">
-                        <h6 class="name">
+                    <div class="product-content pt-2">
+                        <div>
                             <a href="#">{{ product.name }}</a>
-                        </h6>
+                        </div>
                     </div>
                     <div class="rating">
                         <span class="price">
-                            <span v-if="product.sale > 0" class="original-price">{{ product.price }}</span>
-                            <span v-if="product.sale > 0">{{ calculateDiscountedPrice(product.price, product.sale)
-                                }}</span>
-                            <span v-else>{{ product.price }}</span>
+                            <span v-if="product.sale > 0">{{ calculateDiscountedPrice(product.price, product.sale) }}</span>
+                            <span v-if="product.sale > 0" class="original-price">${{ parseFloat(product.price)}}</span>
+                            <span v-else>${{ product.price }}</span>
                         </span>
                         <div class="stars">
                             <span v-for="star in maxStars" :key="star" class="fa"
                                 :class="{ 'fa-star': star <= product.rating, 'fa-star-o': star > product.rating }">
                             </span>
+                        </div>
+                    </div>
+                    <div v-if="isHovering && selectedProduct?.id === product.id" class="hover-options">
+                        <!-- Chọn màu -->
+                        <div class="colors d-flex pb-2">
+                            <img class="select-color-img" style="margin-right: 10px;" v-for="color in product.colors" :key="color.name" :src="`/images/${color.mainImage}`"
+                                :style="{ backgroundColor: color.code }"
+                                :class="{ selected: selectedColor === color.name }" @click="selectColor(color)"  />
+                        </div>
+
+                        <!-- Chọn size -->
+                        <div class="sizes pb-2">
+                            <button class="size-button" style="margin-right: 10px;" v-for="size in product.sizes" :key="size"
+                                :class="{ selected: selectedSize === size }" @click="selectedSize = size">
+                                {{ size }}
+                            </button>
+                        </div>
+
+                        <div class="add-to-cart">
+                            <button class="btn-add-to-cart text-uppercase" @click="addToCart">Add to Cart</button>
+                            <div class="icons">
+                                <svg width="20" height="17" viewBox="0 0 20 17" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M2.31804 2.31804C1.90017 2.7359 1.5687 3.23198 1.34255 3.77795C1.1164 4.32392 1 4.90909 1 5.50004C1 6.09099 1.1164 6.67616 1.34255 7.22213C1.5687 7.7681 1.90017 8.26418 2.31804 8.68204L10 16.364L17.682 8.68204C18.526 7.83812 19.0001 6.69352 19.0001 5.50004C19.0001 4.30656 18.526 3.16196 17.682 2.31804C16.8381 1.47412 15.6935 1.00001 14.5 1.00001C13.3066 1.00001 12.162 1.47412 11.318 2.31804L10 3.63604L8.68204 2.31804C8.26417 1.90017 7.7681 1.5687 7.22213 1.34255C6.67616 1.1164 6.09099 1 5.50004 1C4.90909 1 4.32392 1.1164 3.77795 1.34255C3.23198 1.5687 2.7359 1.90017 2.31804 2.31804V2.31804Z"
+                                        stroke="#121212" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M12 21H15M3 6L6 7L3 6ZM6 7L3 16C3.8657 16.649 4.91852 16.9999 6.0005 16.9999C7.08248 16.9999 8.1353 16.649 9.001 16L6 7ZM6 7L9 16L6 7ZM6 7L12 5L6 7ZM18 7L21 6L18 7ZM18 7L15 16C15.8657 16.649 16.9185 16.9999 18.0005 16.9999C19.0825 16.9999 20.1353 16.649 21.001 16L18 7ZM18 7L21 16L18 7ZM18 7L12 5L18 7ZM12 3V5V3ZM12 21V5V21ZM12 21H9H12Z"
+                                        stroke="#121212" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -98,6 +170,43 @@
 
 <script setup>
 import { ref, watch } from 'vue';
+import { useCartStore } from "@/stores/cart";
+
+const cartStore = useCartStore();
+const isHovering = ref(false);
+const selectedSize = ref(null);
+const selectedColor = ref(null);
+const selectedProduct = ref(null);
+const selectedImage = ref(null);
+
+const onHoverProduct = (product) => {
+    selectedProduct.value = product;
+    selectedSize.value = product.sizes[0]; // Mặc định chọn size đầu tiên
+    selectedColor.value = product.colors[0].name; // Mặc định chọn màu đầu tiên
+    selectedImage.value = product.colors[0].mainImage; // Ảnh theo màu đầu tiên
+    isHovering.value = true;
+};
+
+const selectColor = (color) => {
+    selectedColor.value = color.name;
+    selectedImage.value = color.mainImage;
+};
+
+
+const addToCart = () => {
+    if (!selectedProduct.value) return;
+
+    cartStore.addToCart({
+        id: selectedProduct.value.id,
+        name: selectedProduct.value.name,
+        color: selectedColor.value,
+        size: selectedSize.value,
+        price: selectedProduct.value.price,
+        image: `/images/${selectedImage.value}`
+    });
+
+    isHovering.value = false; // Ẩn popup sau khi thêm vào giỏ hàng
+};
 
 // Các tab cho sản phẩm (dành cho WOMEN'S và MEN'S)
 const tabs = ref([
@@ -116,65 +225,208 @@ const activeTabMens = ref(0);
 const products = ref({
     'WOMEN\'S': {
         'NEW ARRIVALS': [
-            { id: 1, name: 'Cluse La Boheme Rose Gold', image: 'p1.png', description: 'Descriptionss', price: '$99.00', rating: 3, sale: 20 },
-            { id: 2, name: 'Product 2', image: 'p2.png', description: 'Descriptionss', price: '$120.00', rating: 4, sale: 10 },
-            { id: 3, name: 'Product 3', image: 'p3.png', description: 'Descriptionss', price: '$80.00', rating: 2, sale: 0 },
-            { id: 4, name: 'Product 4', image: 'p4.png', description: 'Descriptionss', price: '$110.00', rating: 5, sale: 15 },
-            { id: 5, name: 'Product 5', image: 'p5.png', description: 'Descriptionss', price: '$95.00', rating: 3, sale: 5 },
-            { id: 6, name: 'Product 6', image: 'p6.png', description: 'Descriptionss', price: '$70.00', rating: 4, sale: 0 },
-            { id: 7, name: 'Product 7', image: 'p7.png', description: 'Descriptionss', price: '$60.00', rating: 3, sale: 10 },
-            { id: 8, name: 'Product 8', image: 'p8.png', description: 'Descriptionss', description: 'Descriptionss', price: '$130.00', rating: 4, sale: 20 },
-            { id: 9, name: 'Product 9', image: 'p1.png', description: 'Descriptionss', price: '$150.00', rating: 5, sale: 25 },
+            {
+                id: 1,
+                name: 'Cluse La Boheme Rose Gold',
+                image: 'p1.png',
+                description: 'Descriptionss',
+                price: 99.00,
+                rating: 3,
+                sale: 20,
+                sizes: ['S', 'M', 'L'],
+                colors: [
+                    { name: 'Black', code: '#000000', mainImage: 'p1.png', price: 99},
+                    { name: 'Red', code: '#FF0000', mainImage: 'p2.png', price: 109 },
+                    { name: 'Green', code: '#008000', mainImage: 'p3.png', price: 119 }
+                ]
+            },
+            {
+                id: 2,
+                name: 'Product 2',
+                image: 'p2.png',
+                description: 'Descriptionss',
+                price: 120.00,
+                rating: 4,
+                sale: 10,
+                sizes: ['S', 'M'],
+                colors: [
+                    { name: 'Black', code: '#000000', mainImage: 'p4.png', price: 66 },
+                    { name: 'Red', code: '#FFFFFF', mainImage: 'p5.png', price: 80 },
+                    { name: 'Green', code: '#008000', mainImage: 'p6.png', price: 101 }
+                ]
+            },
+            {
+                id: 3,
+                name: 'Product 3',
+                image: 'p3.png',
+                description: 'Descriptionss',
+                price: 80.00,
+                rating: 2,
+                sale: 0,
+                sizes: ['M', 'L', 'XL'],
+                colors: [
+                    { name: 'Black', code: '#000000', mainImage: 'p7.png', price: 111 },
+                    { name: 'Red', code: '#FFFFFF', mainImage: 'p5.png', price: 222 },
+                    { name: 'Green', code: '#008000', mainImage: 'p2.png', price: 333 }
+                ]
+            },
+            {
+                id: 4,
+                name: 'Product 4',
+                image: 'p4.png',
+                description: 'Descriptionss',
+                price: 110.00,
+                rating: 5,
+                sale: 15,
+                sizes: ['S', 'L'],
+                colors: [
+                    { name: 'Black', code: '#000000', mainImage: 'p4.png', price: 66 },
+                    { name: 'Red', code: '#FFFFFF', mainImage: 'p5.png', price: 80 },
+                    { name: 'Green', code: '#008000', mainImage: 'p6.png', price: 101 }
+                ]
+            },
         ],
         'SPECIALS': [
-            { id: 10, name: 'Special Men\'s Shirt', image: 'p1.png', description: 'Descriptionss', price: '$100.00', rating: 4, sale: 5 },
+            {
+                id: 10,
+                name: 'Special Women\'s Dress',
+                image: 'p1.png',
+                description: 'Descriptionss',
+                price: 100.00,
+                rating: 4,
+                sale: 5,
+                sizes: ['M', 'L', 'XL'],
+                colors: [
+                    { name: 'Black', code: '#000000', mainImage: 'p4.png', price: 66 },
+                    { name: 'Red', code: '#FFFFFF', mainImage: 'p5.png', price: 80 },
+                    { name: 'Green', code: '#008000', mainImage: 'p6.png', price: 101 }
+                ]
+            },
         ],
         'BEST SELLERS': [
-            { id: 11, name: 'Best Seller 1', image: 'p2.png', description: 'Descriptionss', price: '$80.00', rating: 3, sale: 5 },
-            { id: 12, name: 'Best Seller 2', image: 'p3.png', description: 'Descriptionss', price: '$110.00', rating: 4, sale: 15 },
+            {
+                id: 11,
+                name: 'Best Seller 1',
+                image: 'p2.png',
+                description: 'Descriptionss',
+                price: 80.00,
+                rating: 3,
+                sale: 5,
+                sizes: ['S', 'M', 'L'],
+                colors: [
+                    { name: 'Black', code: '#000000', mainImage: 'p4.png', price: 66 },
+                    { name: 'Red', code: '#FFFFFF', mainImage: 'p5.png', price: 80 },
+                    { name: 'Green', code: '#008000', mainImage: 'p6.png', price: 101 }
+                ]
+            },
         ],
-        'MOST VIEWED': [
-            { id: 13, name: 'Most Viewed 1', image: 'p4.png', description: 'Descriptionss', price: '$95.00', rating: 3, sale: 0 },
-            { id: 14, name: 'Most Viewed 2', image: 'p5.png', description: 'Descriptionss', price: '$70.00', rating: 4, sale: 10 },
-        ],
-        'FEATURED PRODUCTS': [
-            { id: 15, name: 'Featured Product 1', image: 'p6.png', description: 'Descriptionss', price: '$150.00', rating: 5, sale: 30 },
-            { id: 16, name: 'Featured Product 2', image: 'p7.png', description: 'Descriptionss', price: '$90.00', rating: 4, sale: 10 },
-        ]
     },
     'MEN\'S': {
         'NEW ARRIVALS': [
-            { id: 17, name: 'Men\'s Watch', image: 'p1.png', description: 'Descriptionss', price: '$99.00', rating: 4, sale: 10 },
-            { id: 18, name: 'Men\'s Shoes', image: 'p2.png', description: 'Descriptionss', price: '$120.00', rating: 5, sale: 15 },
-            { id: 19, name: 'Men\'s Shirt', image: 'p3.png', description: 'Descriptionss', price: '$80.00', rating: 3, sale: 5 },
-            { id: 20, name: 'Men\'s Jacket', image: 'p4.png', description: 'Descriptionss', price: '$110.00', rating: 4, sale: 10 },
-            { id: 21, name: 'Men\'s Pants', image: 'p5.png', description: 'Descriptionss', price: '$95.00', rating: 3, sale: 20 },
-            { id: 22, name: 'Men\'s Jeans', image: 'p6.png', description: 'Descriptionss', price: '$70.00', rating: 4, sale: 0 },
-            { id: 23, name: 'Men\'s Sneakers', image: 'p7.png', description: 'Descriptionss', price: '$150.00', rating: 5, sale: 30 },
-            { id: 24, name: 'Men\'s Hoodie', image: 'p8.png', description: 'Descriptionss', price: '$90.00', rating: 4, sale: 10 },
-            { id: 25, name: 'Men\'s Sweater', image: 'p9.png', description: 'Descriptionss', price: '$130.00', rating: 3, sale: 0 },
+            {
+                id: 17,
+                name: 'Men\'s Watch',
+                image: 'p1.png',
+                description: 'Descriptionss',
+                price: 99.00,
+                rating: 4,
+                sale: 10,
+                sizes: ['M', 'L'],
+                colors: [
+                    { name: 'Black', code: '#000000', mainImage: 'p4.png', price: 66 },
+                    { name: 'Red', code: '#FFFFFF', mainImage: 'p5.png', price: 80 },
+                    { name: 'Green', code: '#008000', mainImage: 'p6.png', price: 101 }
+                ]
+            },
+            {
+                id: 18,
+                name: 'Men\'s Shoes',
+                image: 'p2.png',
+                description: 'Descriptionss',
+                price: 120.00,
+                rating: 5,
+                sale: 15,
+                sizes: ['40', '41', '42', '43'],
+                colors: [
+                    { name: 'Black', code: '#000000', mainImage: 'p4.png', price: 66 },
+                    { name: 'Red', code: '#FFFFFF', mainImage: 'p5.png', price: 80 },
+                    { name: 'Green', code: '#008000', mainImage: 'p6.png', price: 101 }
+                ]
+            },
+            {
+                id: 19,
+                name: 'Men\'s Shirt',
+                image: 'p3.png',
+                description: 'Descriptionss',
+                price: 80.00,
+                rating: 3,
+                sale: 5,
+                sizes: ['S', 'M', 'L', 'XL'],
+                colors: [
+                    { name: 'Black', code: '#000000', mainImage: 'p4.png', price: 66 },
+                    { name: 'Red', code: '#FFFFFF', mainImage: 'p5.png', price: 80 },
+                    { name: 'Green', code: '#008000', mainImage: 'p6.png', price: 101 }
+                ]
+            },
+            {
+                id: 20,
+                name: 'Men\'s Jacket',
+                image: 'p4.png',
+                description: 'Descriptionss',
+                price: 110.00,
+                rating: 4,
+                sale: 10,
+                sizes: ['M', 'L'],
+                colors: [
+                    { name: 'Black', code: '#000000', mainImage: 'p4.png', price: 66 },
+                    { name: 'Red', code: '#FFFFFF', mainImage: 'p5.png', price: 80 },
+                    { name: 'Green', code: '#008000', mainImage: 'p6.png', price: 101 }
+                ]
+            },
         ],
         'SPECIALS': [
-            { id: 26, name: 'Special Men\'s Shirt', image: 'p1.png', description: 'Descriptionss', price: '$100.00', rating: 4, sale: 5 },
+            {
+                id: 26,
+                name: 'Special Men\'s Shirt',
+                image: 'p1.png',
+                description: 'Descriptionss',
+                price: 100.00,
+                rating: 4,
+                sale: 5,
+                sizes: ['M', 'L', 'XL'],
+                colors: [
+                    { name: 'Black', code: '#000000', mainImage: 'p4.png', price: 66 },
+                    { name: 'Red', code: '#FFFFFF', mainImage: 'p5.png', price: 80 },
+                    { name: 'Green', code: '#008000', mainImage: 'p6.png', price: 101 }
+                ]
+            },
         ],
         'BEST SELLERS': [
-            { id: 27, name: 'Best Seller 1', image: 'p2.png', description: 'Descriptionss', price: '$80.00', rating: 3, sale: 5 },
-            { id: 28, name: 'Best Seller 2', image: 'p3.png', description: 'Descriptionss', price: '$110.00', rating: 4, sale: 15 },
+            {
+                id: 27,
+                name: 'Best Seller 1',
+                image: 'p2.png',
+                description: 'Descriptionss',
+                price: 80.00,
+                rating: 3,
+                sale: 5,
+                sizes: ['S', 'M', 'L'],
+                colors: [
+                    { name: 'Black', code: '#000000', mainImage: 'p4.png', price: 66 },
+                    { name: 'Red', code: '#FFFFFF', mainImage: 'p5.png', price: 80 },
+                    { name: 'Green', code: '#008000', mainImage: 'p6.png', price: 101 }
+                ]
+            },
         ],
-        'MOST VIEWED': [
-            { id: 29, name: 'Most Viewed 1', image: 'p4.png', description: 'Descriptionss', price: '$95.00', rating: 3, sale: 0 },
-            { id: 30, name: 'Most Viewed 2', image: 'p5.png', description: 'Descriptionss', price: '$70.00', rating: 4, sale: 10 },
-        ],
-        'FEATURED PRODUCTS': [
-            { id: 31, name: 'Featured Product 1', image: 'p6.png', description: 'Descriptionss', price: '$150.00', rating: 5, sale: 30 },
-            { id: 32, name: 'Featured Product 2', image: 'p7.png', description: 'Descriptionss', price: '$90.00', rating: 4, sale: 10 },
-        ]
     }
 });
+
 
 // Số lượng sản phẩm hiển thị tối đa mỗi lần (8 sản phẩm)
 const itemsPerPage = 8;
 const maxStars = 5;
+const hoveredProduct = ref(null);
+
 // Các biến để theo dõi sản phẩm hiển thị cho WOMEN'S và MEN'S
 const displayedProductsWomens = ref([]);
 const displayedProductsMens = ref([]);
@@ -195,7 +447,7 @@ watch([activeTabMens], () => {
 
 // Hàm tính giá sau khi giảm giá
 function calculateDiscountedPrice(price, sale) {
-    const priceNumber = parseFloat(price.replace('$', '').replace(',', '')); // Chuyển giá sang số
+    const priceNumber = parseFloat(price); // Chuyển giá sang số
     const discountedPrice = priceNumber * (1 - sale / 100); // Tính giá sau giảm giá
     return `$${discountedPrice.toFixed(2)}`; // Trả về giá đã giảm
 }
@@ -263,6 +515,20 @@ loadProducts('MEN\'S');
 
 
 <style>
+.sizes .size-button{
+    width: 24px;
+    height: 24px;
+}
+.select-color-img.selected{
+    border-color: black;
+    border: 2px solid;
+
+}
+.select-color-img{
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+}
 .pointer {
     cursor: pointer;
 }
@@ -270,7 +536,7 @@ loadProducts('MEN\'S');
 .original-price {
     text-decoration: line-through;
     color: #8c8c8c;
-    margin-right: 5px;
+    margin-left: 5px;
     font-style: italic;
     ;
 }
@@ -377,9 +643,9 @@ loadProducts('MEN\'S');
         padding: 3px 7px;
     }
 
-    .product-content a {
+    /* .product-content a {
         font-size: 12px;
-    }
+    } */
 
     .price {
         font-size: 12px;
@@ -459,7 +725,7 @@ loadProducts('MEN\'S');
     background-color: #d3d0d0;
 }
 
-.product-content a {
+/* .product-content a {
     text-decoration: none;
     color: #1A1A1A;
     font-size: 14px;
@@ -469,7 +735,7 @@ loadProducts('MEN\'S');
     text-underline-position: from-font;
     text-decoration-skip-ink: none;
 
-}
+} */
 
 .price span {
     font-size: 14px;
@@ -479,7 +745,8 @@ loadProducts('MEN\'S');
     text-decoration-skip-ink: none;
 
 }
-.buttons{
+
+.buttons {
     text-decoration: none !important;
 }
 </style>
